@@ -19,22 +19,22 @@
 	<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
 
 	<!-- Animate.css -->
-	<link rel="stylesheet" type="text/css" href="/css/animate.css">	
+	<link rel="stylesheet" type="text/css" href="ss/animate.css">	
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" type="text/css"  href="/css/icomoon.css">
+	<link rel="stylesheet" type="text/css"  href="css/icomoon.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" type="text/css"  href="../../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
 	<!-- Superfish -->
-	<link rel="stylesheet" type="text/css"  href="../../css/superfish.css">
+	<link rel="stylesheet" type="text/css"  href="css/superfish.css">
 
-	<link rel="stylesheet" type="text/css"  href="../../css/style.css">
+	<link rel="stylesheet" type="text/css"  href="css/style.css">
 	<!-- 自訂義 -->
 	<!-- <link rel="stylesheet" href="../css/indexStyle.css"> -->
-	<link rel="stylesheet" type="text/css"  href="../../other/css/indexStyle.css">
+	<link rel="stylesheet" type="text/css"  href="other/css/indexStyle.css">
 
 
 	<!-- Modernizr JS -->
-	<script src="../js/modernizr-2.6.2.min.js"></script>
+	<script src="js/modernizr-2.6.2.min.js"></script>
 
 </head>
 <body>
@@ -326,7 +326,7 @@
 						<div class="col-lg-4 col-md-4">
 							<div class="fh5co-blog animate-box">
 								<a href="#">
-									<img class="img-responsive" src="../images/blog-2.jpg" alt="">
+									<img class="img-responsive" src="images/blog-2.jpg" alt="">
 								</a>
 								<div class="blog">
 									<div class="prod-title">
@@ -444,21 +444,21 @@
 	<!-- jQuery -->
 
 
-	<script src="../js/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="../js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="../js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Stellar -->
-	<script src="../js/jquery.stellar.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Superfish -->
-	<script src="../js/hoverIntent.js"></script>
-	<script src="../js/superfish.js"></script>
+	<script src="js/hoverIntent.js"></script>
+	<script src="js/superfish.js"></script>
 
 	<!-- Main JS -->
-	<script src="../js/main.js"></script>
+	<script src="js/main.js"></script>
 	<!-- includeHTML -->
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
 	<script>
