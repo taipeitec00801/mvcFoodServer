@@ -26,15 +26,11 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	}
 	@Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
-        registry.addResourceHandler("../images/**").addResourceLocations("../images/").setCachePeriod(31556926);
-//        registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
-        registry.addResourceHandler("/member/js/**").addResourceLocations("/member/js/").setCachePeriod(31556926);
-    }
- 
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+        registry.addResourceHandler("/member/**").addResourceLocations("/member/");
+       
+       
     }
 
 }
