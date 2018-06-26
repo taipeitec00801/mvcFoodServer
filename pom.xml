@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>web.spring</groupId>
-	<artifactId>mvcFoodServer</artifactId>
+	<artifactId>mvcExercise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
@@ -12,7 +12,6 @@
 		<spring-version>4.3.18.RELEASE</spring-version>
 	</properties>
 	<build>
-	<finalName>mvcFoodServer</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -145,6 +144,7 @@
 			<artifactId>google-http-client</artifactId>
 			<version>1.22.0</version>
 		</dependency>
+
+
 	</dependencies>
-	
 </project>

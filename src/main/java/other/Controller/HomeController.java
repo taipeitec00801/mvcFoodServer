@@ -11,5 +11,8 @@ public class HomeController {
 	public String index() {		
 		return "index";
 	}
-	
+	@RequestMapping("/member_setting")
+	public String member_setting() {		
+		return "member_setting";
+	}
 }

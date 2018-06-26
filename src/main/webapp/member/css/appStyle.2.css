@@ -1,0 +1,253 @@
+
+html{
+    margin: 0 auto;
+    width: 100%;
+    
+}
+
+/* .test{
+    border: 1px #ffc0cb solid;
+} */
+
+/* <!-- navbar --> */
+.nav-full {
+   border-radius: 0px;
+  
+}
+
+.navbar{
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+}
+/* <!-- sidebar --> */
+.sidebar{
+    height: 500px;
+    width: 200px;
+    margin-top: 100px;
+    margin-left: 20px;
+    font-size: 20px;
+    position: fixed;
+    
+}
+.sidebar a{
+    color: #aaa;
+    line-height: 50px;
+}
+/* infomation   */
+.infomation{
+    /* height: 80%; */
+    margin-top:100px;
+    margin-left: 250px; 
+    position: absolute;
+}
+.taitle{
+    font-size: 18px;
+    color: #333;
+    margin-left: 130px;
+
+padding-bottom: 25px;
+}
+.fotoSetting{
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 130px;
+}
+.fsWord{
+   text-align: center;
+   margin: 20px auto;
+}
+.fotoSetting a{
+    color: #aaa;
+    line-height: 30px;
+}
+.fotoCase{
+    width: 150px;
+    height: 150px;
+    margin: 0px auto;
+   
+}
+
+.fotoCase img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #aaa;
+}
+.nameAndEmail{
+    width: 400px;
+    margin-left: 400px;
+    font-size: 16px;
+    margin-top: -180px;
+}
+.nameAndEmail div{
+    margin-bottom: 15px;     
+}
+.memIntroduce {
+    margin-left: -270px;
+   width: 530px;
+} 
+.memIntroduce textarea{
+    width: 500px;
+    height: 100px;
+    border-radius: 3px;
+}
+
+.btChange button{
+    width: 500px;
+    background: #333;
+    color: aliceblue;   
+}
+#textTalk{
+    width: 500px;
+    height: 100px;
+    resize: none;
+}
+/* Manage Photos */
+.mgPhotos{
+    width: 700px;
+}
+.imgForm{
+    width: 700px;
+}
+.imageCase{
+    width: 700px;
+    height: 700px;
+}
+.imageCase img{
+    max-width:100%;
+}
+#facebox img{
+    max-width: 700px;
+}
+#facebox .popup{
+    border:0px solid;
+    border-color: #fff;
+}
+/* .nameAndEmail input{
+    width: 100%;
+    border-radius: 3px;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 15px;
+} */
+/* <!-- change password --> */
+.password{
+    width: 700px;
+}
+.locaPassword{
+   margin-top: 20px;
+   padding-left: 70px;
+}
+.oldPassword{
+    font-size: 20px;
+}
+.newPassword{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.btPasswordChange{
+    margin-left: 60px;
+    margin-top: 70px;
+}
+.btPasswordChange button{
+    width: 500px;
+}
+
+
+/* <!-- copyright --> */
+
+/* Dialog  */
+/* .popup{
+    box-align: center;
+} */
+
+#leftDiv {
+    float: left;
+    opacity: 0.5;
+    margin: 180px auto;
+}   
+
+#rightDiv {
+    float: right;
+    opacity: 0.5;
+    margin: 180px auto;
+  }
+
+/* ================================== */
+/* 1024 */
+@media only screen and (max-width: 1024px) {
+  
+
+}
+/* ================================== */
+/* ================================== */
+/* 990 */
+@media only screen and (max-width: 1024px) {
+    
+
+}
+/* ================================== */
+/* 768 */
+@media only screen and (max-width: 768px) {
+    .title{
+        font-size: 50px;
+        
+    }
+    .subTitle{
+        width: 300px;
+        font-size: 10px;
+        text-align: center;
+        color: aliceblue;
+        border-bottom: 1px solid;
+        margin: 0 auto;   
+    }
+    .mainBanner{
+        padding: 50px;
+    
+    }
+    .list-group{
+        width: 150px;
+        /* padding-top: 200px; */
+        margin-top: 200PX;
+        margin-left: 10PX;
+        text-align: center;
+    }
+    
+}
+/* ================================== */
+/* 320 */
+@media only screen and (max-width: 320px) {
+    .title{
+        font-size: 30px;
+        
+    }
+    .mainBanner{
+        padding: 30px;
+    }
+    .subTitle{
+        width: 200px;
+        font-size: 10px;
+        text-align: center;
+        color: aliceblue;
+        border-bottom: 1px solid;
+        margin: 0 auto;   
+    }
+    .appForm{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        color: aliceblue;
+        margin-top: 30px;
+    }
+    .list-group{
+        width: 100px;
+        /* padding-top: 200px; */
+        margin-top: 200PX;
+        margin-left: 10PX;
+        text-align: center;
+    }
+}
