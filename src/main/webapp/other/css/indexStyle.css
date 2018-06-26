@@ -1,0 +1,88 @@
+/*-----navbar-----*/
+.myNavbar {
+    margin-bottom: 56px;
+}
+.navbarSize {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.navbar-brand img{
+    width: 50px;
+    height: 50px;
+}
+.navbar-brand {
+    padding: 3px 0px;
+}
+.searchBar {
+    line-height: 56px;
+    margin-left: 20px;
+}
+.myNavbar .form-control { 
+    display: inline-block;
+    padding: 8px 15px 8px 40px;
+    font-size: 16px;
+    color: #333333;
+    background-color: #eee;
+    border: 2px solid #000;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 8px; 
+    background-image: url('../images/searchicon.png');
+}
+.myNavbar a:hover {
+    text-decoration: none !important;
+    color: #ffcc88 !important;
+}
+/* //=============================================== */
+.list{
+    /* background:url('../img/background/bethany-legg-9248.jpg'); */
+    background-position: center;
+    background-size: cover;
+  }
+  .job{
+    /* padding: 50px;
+    padding-bottom: 25px; */
+    padding: 60px 120px 20px 120px;
+  }
+  .page{
+    text-align: center;
+  }
+  .caption{
+    text-align: center;
+  }
+  .blog {
+    margin-bottom: 30px;
+    position: relative;
+    background: #fff;
+    width: 90%;
+    padding: 30px;
+    float: right;
+    margin-top: -3em;
+    -webkit-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
+    box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
+  }
+  .storeSortList li a:before{
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .storeSortList li a:hover:before {
+    background:transparent;
+  }
+  .readMore{
+    padding-top: 60px;
+  }
+  .headSize{
+    height: 893px;
+  }
+
+
+  /* //============== */
+  #fh5co-portfolio-list li a:before {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  #fh5co-portfolio-list li a:hover:before {
+    /* background: rgba(0, 0, 0, 0.5); */
+    background:transparent;
+  }
+  

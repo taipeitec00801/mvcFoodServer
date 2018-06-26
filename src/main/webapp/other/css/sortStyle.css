@@ -1,0 +1,148 @@
+/*-----navbar-----*/
+
+.myNavbar {
+    margin-bottom: 56px;
+}
+
+.navbarSize {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.navbar-brand img {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar-brand {
+    padding: 3px 0px;
+}
+
+.searchBar {
+    line-height: 56px;
+    margin-left: 20px;
+}
+
+.myNavbar .form-control {
+    display: inline-block;
+    padding: 8px 15px 8px 40px;
+    font-size: 16px;
+    color: #333333;
+    background-color: #eee;
+    border: 2px solid #000;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: 10px 8px;
+    background-image: url('../images/searchicon.png');
+}
+
+.myNavbar a:hover {
+    color: #ffcc88 !important;
+}
+
+/*========================================= */
+
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+/*========================================= */
+
+/*-----override-----*/
+
+#fh5co-blog-section {
+    padding: 0;
+    margin-bottom: 0px;
+}
+
+.heading-section:after {
+    width: 200px;
+    margin-left: -100px;
+    background: #203a43;
+}
+
+.fh5co-blog .blog-text {
+    margin-bottom: 0px;
+    margin-top: -1em;
+}
+
+.row {
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+a {
+    color: #203a43;
+}
+
+/*========================================= */
+
+/* <!-- pags --> */
+
+.pags {
+    clear: both;
+    margin: 0px auto;
+    width: 20%;
+    text-align: center;
+}
+
+/*========================================= */
+
+/* <!-- title --> */
+
+.searchTitle {
+    padding: 5em 0 0 0;
+    background: url(../images/rawpixel-611122-unsplash.jpg);
+    background-size: cover;
+    font-family: 'cwTeXYen', sans-serif;
+}
+
+.searchTitle h1 {
+    font-size: 40px;
+    color: #000000;
+    font-weight: 900;
+}
+
+.searchTitle p {
+    color: #222222;
+}
+
+/*========================================= */
+
+/*-----list-----*/
+
+.myList {
+    width: 12%;
+    border-color: #203a43;
+    text-align: center;
+    margin-left: 8%;
+    margin-right: 3%;
+    float: left;
+}
+
+.myList .list-group a:hover {
+    background: #203a43 !important;
+    color: #ffcc88 !important;
+}
+
+/*========================================= */
+
+/*-----sort context-----*/
+
+.searchBackground {
+    background: url(../images/rawpixel-470092-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.searchCard {
+    padding: 100px 0px 30px 0px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.searchCard a:hover {
+    color: #203a43 !important;
+}
+/*========================================= */
+
+/*-----sort Content-----*/
+.sortContent {
+    float: left;
+}
