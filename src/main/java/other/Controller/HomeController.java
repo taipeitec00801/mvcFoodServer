@@ -15,4 +15,8 @@ public class HomeController {
 	public String sort() {		
 		return "sort";
 	}
+	@RequestMapping("/store_Info")
+	public String store_Info() {		
+		return "store_Info";
+	}
 }

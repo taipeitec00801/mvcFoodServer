@@ -118,7 +118,7 @@
 					<div class="row">
 						<div class="job">
 							<div class="row">
-								<a href="store_Info.html" class="color-3 animate-box">
+								<a href="store_Info" class="color-3 animate-box">
 									<div class="col-sm-6 col-md-4">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
@@ -132,7 +132,7 @@
 											</div>
 										</div>
 									</div>
-								</a> <a href="store_Info.html" class="color-3 animate-box">
+								</a> <a href="store_Info" class="color-3 animate-box">
 									<div class="col-sm-6 col-md-4">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
@@ -146,7 +146,7 @@
 											</div>
 										</div>
 									</div>
-								</a> <a href="store_Info.html" class="color-3 animate-box">
+								</a> <a href="store_Info" class="color-3 animate-box">
 									<div class="col-sm-6 col-md-4">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
@@ -163,7 +163,7 @@
 								</a>
 							</div>
 							<div class="row">
-								<a href="store_Info.html" class="color-3 animate-box">
+								<a href="store_Info" class="color-3 animate-box">
 									<div class="col-sm-6 col-md-4">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
@@ -177,7 +177,7 @@
 											</div>
 										</div>
 									</div>
-								</a> <a href="store_Info.html" class="color-3 animate-box">
+								</a> <a href="store_Info" class="color-3 animate-box">
 									<div class="col-sm-6 col-md-4">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
@@ -191,7 +191,7 @@
 											</div>
 										</div>
 									</div>
-								</a> <a href="store_Info.html" class="color-3 animate-box">
+								</a> <a href="store_Info" class="color-3 animate-box">
 									<div class="col-sm-6 col-md-4">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
