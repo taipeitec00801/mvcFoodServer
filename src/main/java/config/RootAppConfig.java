@@ -11,12 +11,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @PropertySource(value= {"classpath:/config/db.properties"},
 				ignoreResourceNotFound = true)
+@EnableTransactionManagement
 public class RootAppConfig {
 	@Value("${jdbc.user}")
 	String user;
