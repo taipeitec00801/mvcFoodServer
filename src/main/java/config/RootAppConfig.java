@@ -15,7 +15,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
-@PropertySource(value= {"classpath:db.properties"},
+@PropertySource(value= {"classpath:/config/db.properties"},
 				ignoreResourceNotFound = true)
 public class RootAppConfig {
 	@Value("${jdbc.user}")
