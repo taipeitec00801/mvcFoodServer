@@ -47,7 +47,8 @@ public class TableDataReset_Hibernate {
 		
 		try (
 				// Member.txt存放要新增的多筆資料
-				InputStreamReader isr0 = new InputStreamReader(new FileInputStream("data/Member.dat"), "UTF-8");
+				InputStreamReader isr0 = new InputStreamReader(
+						new FileInputStream("data/Member.dat"), "UTF-8");
 				BufferedReader br = new BufferedReader(isr0);)
 		// 由檔案("data/Member.dat")讀入Member的資料，然後寫入資料庫
 		{
@@ -63,7 +64,8 @@ public class TableDataReset_Hibernate {
 					
 //					member.setUserPassword(sa[1].trim());
 					// 若又進行編碼 需先至 member/Model/Member.java 中修改 欄位型態
-					member.setUserPassword(GlobalService.getMD5Endocing(GlobalService.encryptString(sa[1].trim())));
+					member.setUserPassword(GlobalService.getMD5Endocing(
+							GlobalService.encryptString(sa[1].trim())));
 
 					member.setNickname(sa[2].trim());
 					member.setBirthday(sa[3].trim());
@@ -74,7 +76,7 @@ public class TableDataReset_Hibernate {
 					// fileToBlob為自己編寫的方法,
 					// 本程式後來改用 Hibernate 4.3 提供的標準API:
 					// Hibernate.getLobCreator(session).createBlob(is, size)
-					if (sa[6].trim().length() > 0) {
+					if (sa[6].trim().length() > 4) {
 						File file = new File(sa[6].trim());
 						System.out.println(sa[2].trim() + "的 Portrait Path : " + file.getAbsolutePath());
 						long size = file.length();
@@ -84,10 +86,14 @@ public class TableDataReset_Hibernate {
 					}
 					member.setPreference(sa[7].trim());
 					member.setCollection(sa[8].trim());
-					member.setUserGift(sa[9].trim());
-					member.setUserFriends(sa[10].trim());
-
+					if (!sa[9].trim().equals(null)) {
+						member.setUserGift(sa[9].trim());
+					}
+					if (!sa[10].trim().equals(null)) {
+						member.setUserFriends(sa[10].trim());
+					}
 					session.save(member);
+					session.flush();
 					tx.commit();
 				} catch (Exception e) {
 					e.getMessage();
@@ -116,8 +122,8 @@ public class TableDataReset_Hibernate {
 
 		 try (
 			 // Store.txt存放要新增的多筆資料
-			 InputStreamReader isr0 = new InputStreamReader(new
-			 FileInputStream("data/Store.dat"), "UTF-8");
+			 InputStreamReader isr0 = new InputStreamReader(
+					 new FileInputStream("data/Store.dat"), "UTF-8");
 			 BufferedReader br = new BufferedReader(isr0);)
 			 // 由檔案("data/Store.txt")讀入Store的資料，然後寫入資料庫
 		 {
