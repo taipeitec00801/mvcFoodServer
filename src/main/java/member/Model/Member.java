@@ -110,7 +110,7 @@ public class Member implements Serializable {
 		this.userAccount = userAccount;
 	}
 
-	@Column(columnDefinition = "VARCHAR(12) NOT NULL")
+	@Column(columnDefinition = "VARCHAR(128) NOT NULL")
 	public String getUserPassword() {
 		return userPassword;
 	}

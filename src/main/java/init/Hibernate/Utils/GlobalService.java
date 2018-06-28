@@ -25,10 +25,9 @@ public class GlobalService {
 	public static final String USERID = "root";
 	public static final String PASSWORD = "password";
 	public static final String SYSTEM_NAME = "食在好評";
-	public static final String JNDI_DB_NAME = "java:comp/env/jdbc/BookDataSQLver";
 	public static final int    IMAGE_FILENAME_LENGTH = 20;
 	public static final String DB_URLMySQL = "jdbc:mysql://" + GlobalService.host + "/food?useUnicode=yes&characterEncoding=utf8" ;
-	public static final String KEY = "taipeitec00808";  //公用帳號		16, 24, 32
+	public static final String KEY = "taipeitecjava008";  //公用帳號		16, 24, 32
 //	public static final String KEY = "KittySnoopyMicky";  //老師範例	16, 24, 32
 	
 	public static final int ORDER_AMOUNT_LIMIT = 10000;
