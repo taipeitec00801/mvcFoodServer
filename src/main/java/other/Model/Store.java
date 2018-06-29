@@ -38,8 +38,10 @@ public class Store implements Serializable  {
 	private Double latitude;
 	private Double longitude;
 
+
 	public Store(Integer storeId, String storeName, String storeAddress, String storePhone, String serviceHours,
-			String storePicture, Integer sortNumber, Integer storeRecomCount, Integer storeCommentCount) {
+			String storePicture, Integer sortNumber, Integer storeRecomCount, Integer storeCommentCount,
+			Double latitude, Double longitude) {
 		super();
 		this.storeId = storeId;
 		this.storeName = storeName;
@@ -50,6 +52,8 @@ public class Store implements Serializable  {
 		this.sortNumber = sortNumber;
 		this.storeRecomCount = storeRecomCount;
 		this.storeCommentCount = storeCommentCount;
+		this.latitude = latitude;
+		this.longitude = longitude;
 	}
 
 	public Store() {
