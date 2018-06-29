@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="sort">分類</a></li>
 				<li><a href="#">商城</a></li>
-				<li><a href="#">會員</a></li>
+				<li><a href="member_setting">會員</a></li>
 			</ul>
 		</div>
 	</div>

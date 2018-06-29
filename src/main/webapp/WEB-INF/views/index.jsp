@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>食在好評 &mdash; 100% Free Fully Responsive HTML5 Template by
 	FREEHTML5.co</title>

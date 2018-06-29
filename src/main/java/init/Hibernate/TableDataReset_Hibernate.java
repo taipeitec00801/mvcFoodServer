@@ -33,8 +33,9 @@ import other.Model.StoreComment;
 import other.Service.StoreService;
 import other.Service.impl.StoreServiceImpl;
 
-
 public class TableDataReset_Hibernate {
+	public static final String UTF8_BOM = "\uFEFF"; // 定義 UTF-8的BOM字元
+		
 	public static void main(String[] args) throws FileNotFoundException, IOException, SerialException, SQLException {
 		System.out.println("Maven + Hibernate + MySQL 新增多筆資料到Food");
 		Session session = HibernateUtil_MySQL.getSessionFactory().openSession();
@@ -64,7 +65,11 @@ public class TableDataReset_Hibernate {
 			String line = "";
 			int count = 0;
 			while ((line = br.readLine()) != null) {
-				// 未處理BOM字元，若有需要，請自行加入
+				// 去除 UTF8_BOM
+				if (line.startsWith(UTF8_BOM)) {
+					line = line.substring(1);
+				}
+				
 				String[] sa = line.split("\\|");
 				try {
 					tx = session.beginTransaction();
@@ -146,6 +151,11 @@ public class TableDataReset_Hibernate {
 			 String line = "";
 			 int count = 0;
 			 while ((line = br.readLine()) != null) {
+				// 去除 UTF8_BOM
+					if (line.startsWith(UTF8_BOM)) {
+						line = line.substring(1);
+					}
+					count++;
 				 String[] sa = line.split("\\|");
 				 try {
 					 tx = session.beginTransaction();
@@ -165,12 +175,11 @@ public class TableDataReset_Hibernate {
 					 session.flush();
 					 tx.commit();		 
 				 } catch (Exception e) {
-					 e.getMessage();
+					 System.err.println("新增第 " + count + "筆記錄時發生例外: " + e.getMessage());
 					 if (tx != null) {
 						 tx.rollback();
 					 }
 				 } finally {
-					 count++;
 					 System.out.println("新增 Store 資料， 第" + count + "筆記錄 : " + sa[0]);
 				 }
 			 }
@@ -199,14 +208,21 @@ public class TableDataReset_Hibernate {
 			 String line = "";
 			 int count = 0;
 			 while ((line = br.readLine()) != null) {
-				 System.out.println("測試用-----------------------------");
+				// 去除 UTF8_BOM
+					if (line.startsWith(UTF8_BOM)) {
+						line = line.substring(1);
+					}
+					count++;
 				 String[] sa = line.split("\\|");
 				 try {
 					 tx = session.beginTransaction();	
 					 StoreComment comment = new StoreComment();
 					 MemberService ms = new MemberServiceImpl();
-					 Member sommentMId = ms.getMemberById(Integer.parseInt(sa[0].trim()));					 					 
-					 comment.setCommentMId(sommentMId);					 
+					 int n = Integer.parseInt(sa[0].trim());
+					 Member commentMId = ms.getMemberById(n);							 
+					 comment.setCommentMId(commentMId);					 
+					 
+					 
 					 StoreService ss = new StoreServiceImpl();
 					 Store sommentSId = ss.getStoreById(Integer.parseInt(sa[1].trim()));
 					 comment.setCommentSId(sommentSId);
@@ -241,17 +257,17 @@ public class TableDataReset_Hibernate {
 					 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					 Date date = formatter.parse(sa[6].trim());
 					 Timestamp ts = new Timestamp(date.getTime());
-					 					 comment.setCommentDate(ts);
+					 comment.setCommentDate(ts);
 			
 					 session.save(comment);
 					 tx.commit();		 
 				 } catch (Exception e) {
-					 e.getMessage();
+					 System.err.println("新增第 " + count + "筆記錄時發生例外: " + e.getMessage());
+					 e.getStackTrace();
 					 if (tx != null) {
 						 tx.rollback();
 					 }
 				 } finally {
-					 count++;
 					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 : " + sa[0]);
 				 }
 			 }

@@ -1,14 +1,10 @@
-package member.Model;
+package init.JDBC.Model;
 
 import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /*
 Member 欄位說明:
@@ -46,53 +42,7 @@ public class Member implements Serializable {
 		super();
 	}
 
-	public Member(String userAccount) {
-		super();
-		this.userAccount = userAccount;
-	}
-
-	public Member(String userAccount, String userPassword) {
-		super();
-		this.userAccount = userAccount;
-		this.userPassword = userPassword;
-	}
-
-	public Member(Integer memberId, String userPassword, String nickName, String birthday, Integer gender,
-			Integer userRank, String preference, String collection, String userGift, String userFriends) {
-		super();
-		this.userPassword = userPassword;
-		this.nickName = nickName;
-		this.birthday = Date.valueOf(birthday);
-		this.gender = gender;
-		this.memberId = memberId;
-		this.userRank = userRank;
-		this.preference = preference;
-		this.collection = collection;
-		this.userGift = userGift;
-		this.userFriends = userFriends;
-	}
-
-	public Member(String userAccount, String userPassword, String nickName, String birthday, int gender, int memberId,
-			int userRank, Blob portrait, String preference, String collection, String userGift, String userFriends) {
-		super();
-		this.userAccount = userAccount;
-		this.userPassword = userPassword;
-		this.nickName = nickName;
-		this.birthday = Date.valueOf(birthday);
-		this.gender = gender;
-		this.memberId = memberId;
-		this.userRank = userRank;
-		this.portrait = portrait;
-		this.preference = preference;
-		this.collection = collection;
-		this.userGift = userGift;
-		this.userFriends = userFriends;
-	}
-
 	// ---------------getter--setter-------------------------------------
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(columnDefinition = "INT NOT NULL AUTO_INCREMENT")
 	public Integer getMemberId() {
 		return memberId;
 	}
@@ -101,7 +51,6 @@ public class Member implements Serializable {
 		this.memberId = memberId;
 	}
 
-	@Column(columnDefinition = "VARCHAR(40) NOT NULL UNIQUE")
 	public String getUserAccount() {
 		return userAccount;
 	}
@@ -110,7 +59,6 @@ public class Member implements Serializable {
 		this.userAccount = userAccount;
 	}
 
-	@Column(columnDefinition = "VARCHAR(128) NOT NULL")
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -119,7 +67,6 @@ public class Member implements Serializable {
 		this.userPassword = userPassword;
 	}
 
-	@Column(columnDefinition = "VARCHAR(20) NOT NULL")
 	public String getNickname() {
 		return nickName;
 	}
@@ -128,16 +75,14 @@ public class Member implements Serializable {
 		this.nickName = nickName;
 	}
 
-	@Column(columnDefinition = "DATE NOT NULL")
-	public String getBirthday() {
-		return birthday.toString();
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
-		this.birthday = Date.valueOf(birthday);
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
-	@Column(columnDefinition = "TINYINT NOT NULL")
 	public Integer getGender() {
 		return gender;
 	}
@@ -146,7 +91,6 @@ public class Member implements Serializable {
 		this.gender = gender;
 	}
 
-	@Column(columnDefinition = "TINYINT DEFAULT '1'")
 	public Integer getUserRank() {
 		return userRank;
 	}
@@ -155,7 +99,6 @@ public class Member implements Serializable {
 		this.userRank = userRank;
 	}
 
-	@Column(columnDefinition = "MEDIUMBLOB")
 	public Blob getPortrait() {
 		return portrait;
 	}
@@ -164,7 +107,6 @@ public class Member implements Serializable {
 		this.portrait = portrait;
 	}
 
-	@Column(columnDefinition = "VARCHAR(20)")
 	public String getPreference() {
 		return preference;
 	}
@@ -173,7 +115,6 @@ public class Member implements Serializable {
 		this.preference = preference;
 	}
 
-	@Column(columnDefinition = "VARCHAR(1000)")
 	public String getCollection() {
 		return collection;
 	}
@@ -182,7 +123,6 @@ public class Member implements Serializable {
 		this.collection = collection;
 	}
 
-	@Column(columnDefinition = "VARCHAR(1000)")
 	public String getUserGift() {
 		return userGift;
 	}
@@ -191,7 +131,6 @@ public class Member implements Serializable {
 		this.userGift = userGift;
 	}
 
-	@Column(columnDefinition = "VARCHAR(1000)")
 	public String getUserFriends() {
 		return userFriends;
 	}
