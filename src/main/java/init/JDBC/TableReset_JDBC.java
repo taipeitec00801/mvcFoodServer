@@ -14,12 +14,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
+import init.GlobalService;
 import init.JDBC.Model.Member;
 import init.JDBC.Model.Store;
 import init.JDBC.Model.StoreComment;
 import init.JDBC.Utils.DBService;
-import init.GlobalService;
 import init.JDBC.Utils.SystemUtils;
+
 
 
 public class TableReset_JDBC {
@@ -202,7 +203,7 @@ public class TableReset_JDBC {
 				}
 			} finally {
 				// 印出資料新增成功的訊息
-				System.out.println("Member資料新增成功，共 " + count + "筆記錄");
+				System.out.println("StoreComment資料新增成功，共 " + count + "筆記錄");
 				count = 0;
 				System.out.println("============================================");
 			}

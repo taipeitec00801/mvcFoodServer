@@ -235,22 +235,22 @@
 						<div class="col-md-12">
 							<ul id="fh5co-portfolio-list" class="storeSortList">
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/chineseStyle.jpg);">
-									<a href="sort">
+									style="background-image: url(images/chineseStyle.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>中式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/westernStyle.jpg);">
-									<a href="sort">
+									style="background-image: url(images/westernStyle.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>西式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/koreanStyle.jpg);">
-									<a href="sort">
+									style="background-image: url(images/koreanStyle.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>韓式</h2>
 										</div>
@@ -265,8 +265,8 @@
 								</li>
 
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/thaiStyle.jpg);">
-									<a href="sort">
+									style="background-image: url(images/thaiStyle.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>泰式</h2>
 										</div>
@@ -280,15 +280,15 @@
 								</a>
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/snack.jpg);">
-									<a href="sort">
+									style="background-image: url(images/snack.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>小吃</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/iceProducts.jpg);">
-									<a href="sort">
+									style="background-image: url(images/iceProducts.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>冰品</h2>
 										</div>
@@ -305,8 +305,8 @@
 								</li>
 
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
-									style="background-image: url(images/otherStyle.jpg);">
-									<a href="sort">
+									style="background-image: url(images/otherStyle.jpg);"><a
+									href="sort">
 										<div class="case-studies-summary">
 											<h2>其他</h2>
 										</div>
@@ -422,6 +422,9 @@
 				</div>
 			</div>
 			<!-- fh5co-blog-section -->
+
+
+			<!-- footer -->
 			<footer>
 			<div id="footer">
 				<div class="container">

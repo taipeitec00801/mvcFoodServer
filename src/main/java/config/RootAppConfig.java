@@ -86,5 +86,5 @@ public class RootAppConfig {
 		txManager.setSessionFactory(sessionFactory().getObject());
 		
 		return txManager;
-	}
+	}	
 }
