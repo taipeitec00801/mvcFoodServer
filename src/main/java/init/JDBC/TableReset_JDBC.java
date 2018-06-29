@@ -13,14 +13,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
-import init.Hibernate.Utils.GlobalService;
 import init.JDBC.Model.Member;
 import init.JDBC.Model.Store;
 import init.JDBC.Model.StoreComment;
 import init.JDBC.Utils.DBService;
+import init.GlobalService;
 import init.JDBC.Utils.SystemUtils;
+
 
 public class TableReset_JDBC {
 	public static final String UTF8_BOM = "\uFEFF"; // 定義 UTF-8的BOM字元

@@ -1,4 +1,4 @@
-package init.JDBC.Utils;
+package init;
 
 import java.io.File;
 import java.io.FileInputStream;

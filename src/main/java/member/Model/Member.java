@@ -92,7 +92,6 @@ public class Member implements Serializable {
 	// ---------------getter--setter-------------------------------------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(columnDefinition = "INT NOT NULL AUTO_INCREMENT")
 	public Integer getMemberId() {
 		return memberId;
 	}
@@ -110,7 +109,7 @@ public class Member implements Serializable {
 		this.userAccount = userAccount;
 	}
 
-	@Column(columnDefinition = "VARCHAR(128) NOT NULL")
+	@Column(columnDefinition = "VARCHAR(32) NOT NULL")
 	public String getUserPassword() {
 		return userPassword;
 	}

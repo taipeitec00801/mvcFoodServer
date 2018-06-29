@@ -23,7 +23,7 @@ import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import init.Hibernate.Utils.GlobalService;
+import init.GlobalService;
 import init.Hibernate.Utils.HibernateUtil_MySQL;
 import member.Model.Member;
 import member.Service.MemberService;
@@ -168,8 +168,8 @@ public class TableDataReset_Hibernate {
 					 store.setSortNumber(Integer.parseInt(sa[5].trim()));
 					 store.setStoreRecomCount(Integer.parseInt(sa[6].trim()));
 					 store.setStoreCommentCount(Integer.parseInt(sa[7].trim()));
-//					 store.setLatitude(Double.parseDouble(sa[8].trim()));
-//					 store.setLongitude(Double.parseDouble(sa[9].trim()));
+					 store.setLatitude(Double.parseDouble(sa[8].trim()));
+					 store.setLongitude(Double.parseDouble(sa[9].trim()));
 
 					 session.save(store);
 					 session.flush();
@@ -274,6 +274,7 @@ public class TableDataReset_Hibernate {
 		 } catch (Exception e) {
 			 e.printStackTrace();
 		 }
+
 		if (session != null) {
 			session.close();
 		}
