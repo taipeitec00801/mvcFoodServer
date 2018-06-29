@@ -19,6 +19,8 @@ Store 欄位說明:
     sortNumber   	  : 分類編號       		TINYINT			NOT NULL, (0~9)
     storeRecomCount   : 推薦數			INT				預設 0
     storeCommentCount : 評論數			INT				預設 0
+    latitude		  : 緯度				DOUBLE
+    longitude		  : 經度				DOUBLE
 */
 
 @Entity
@@ -33,6 +35,8 @@ public class Store implements Serializable  {
 	private Integer sortNumber;
 	private Integer storeRecomCount;
 	private Integer storeCommentCount;
+	private Double latitude;
+	private Double longitude;
 
 	public Store(Integer storeId, String storeName, String storeAddress, String storePhone, String serviceHours,
 			String storePicture, Integer sortNumber, Integer storeRecomCount, Integer storeCommentCount) {
@@ -54,7 +58,7 @@ public class Store implements Serializable  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "INT NOT NULL AUTO_INCREMENT")
+//	@Column(columnDefinition = "INT NOT NULL AUTO_INCREMENT")
 	public Integer getStoreId() {
 		return storeId;
 	}
@@ -121,7 +125,7 @@ public class Store implements Serializable  {
 	public Integer getStoreRecomCount() {
 		return storeRecomCount;
 	}
-
+				
 	public void setStoreRecomCount(Integer storeRecomCount) {
 		this.storeRecomCount = storeRecomCount;
 	}
@@ -130,8 +134,27 @@ public class Store implements Serializable  {
 	public Integer getStoreCommentCount() {
 		return storeCommentCount;
 	}
-
+	
 	public void setStoreCommentCount(Integer storeCommentCount) {
 		this.storeCommentCount = storeCommentCount;
 	}
+	@Column(columnDefinition = "DOUBLE")
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+	@Column(columnDefinition = "DOUBLE")
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+	
+	
+	
 }
