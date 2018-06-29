@@ -35,10 +35,11 @@
 		<!-- validate 程式執行驗證資料對應表相關資料。 update 如果table已存在，就更新，不存在則新增 create 每次執行就自動刪除所有對應的table，再新增所有對應的table 
 			create-drop 新增所有對應的table , 程式關閉前刪除所有對應的table -->
 		<!-- 自動產生資料庫的Schema -->
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 		<!-- 對應資料表 ，所有的Persistent類別都需要定義一個Mapping檔 -->
 		<mapping class="member.Model.Member"></mapping>
 		<mapping class="other.Model.Store"></mapping>
+		<mapping class="other.Model.StoreComment"></mapping>
 		
 
 	</session-factory>
