@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan("member, other, shoppingCart")
+@ComponentScan("member, other, shoppingCart, config")
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 	//視圖解析器
 	@Bean

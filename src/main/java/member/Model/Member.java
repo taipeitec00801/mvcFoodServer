@@ -32,7 +32,7 @@ public class Member implements Serializable {
 	private Integer memberId;
 	private String userAccount;
 	private String userPassword;
-	private String nickName;
+	private String nickname;
 	private Date birthday;
 	private Integer gender;
 	private Integer userRank;
@@ -57,11 +57,11 @@ public class Member implements Serializable {
 		this.userPassword = userPassword;
 	}
 
-	public Member(Integer memberId, String userPassword, String nickName, String birthday, Integer gender,
+	public Member(Integer memberId, String userPassword, String nickname, String birthday, Integer gender,
 			Integer userRank, String preference, String collection, String userGift, String userFriends) {
 		super();
 		this.userPassword = userPassword;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.birthday = Date.valueOf(birthday);
 		this.gender = gender;
 		this.memberId = memberId;
@@ -72,12 +72,12 @@ public class Member implements Serializable {
 		this.userFriends = userFriends;
 	}
 
-	public Member(String userAccount, String userPassword, String nickName, String birthday, int gender, int memberId,
+	public Member(String userAccount, String userPassword, String nickname, String birthday, int gender, int memberId,
 			int userRank, Blob portrait, String preference, String collection, String userGift, String userFriends) {
 		super();
 		this.userAccount = userAccount;
 		this.userPassword = userPassword;
-		this.nickName = nickName;
+		this.nickname = nickname;
 		this.birthday = Date.valueOf(birthday);
 		this.gender = gender;
 		this.memberId = memberId;
@@ -120,11 +120,11 @@ public class Member implements Serializable {
 
 	@Column(columnDefinition = "VARCHAR(20) NOT NULL")
 	public String getNickname() {
-		return nickName;
+		return nickname;
 	}
 
-	public void setNickname(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 	@Column(columnDefinition = "DATE NOT NULL")

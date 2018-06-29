@@ -73,17 +73,17 @@
 						<!-- list -->
 						<div class="myList">
 							<div class="list-group">
-								<a href="#" class="list-group-item">不限種類</a> 
-								<a href="#" class="list-group-item">中式美食</a> 
-								<a href="#" class="list-group-item">西式美食</a>
-								<a href="#" class="list-group-item">日式美食</a> 
-								<a href="#" class="list-group-item">韓式美食</a> 
-								<a href="#" class="list-group-item">泰式美食</a> 
-								<a href="#" class="list-group-item">港式美食</a> 
-								<a href="#" class="list-group-item">路邊美食</a> 
-								<a href="#" class="list-group-item">甜點飲品</a> 
-								<a href="#" class="list-group-item">冰涼滋味</a> 
-								<a href="#" class="list-group-item">隱藏美食</a>
+								<a href="sorts" class="list-group-item">不限種類</a> 
+								<a href="sorts/0" class="list-group-item">中式美食</a> 
+								<a href="sorts/1" class="list-group-item">西式美食</a>
+								<a href="sorts/2" class="list-group-item">日式美食</a> 
+								<a href="sorts/3" class="list-group-item">韓式美食</a> 
+								<a href="sorts/4" class="list-group-item">泰式美食</a> 
+								<a href="sorts/5" class="list-group-item">港式美食</a> 
+								<a href="sorts/6" class="list-group-item">路邊美食</a> 
+								<a href="sorts/7" class="list-group-item">甜點飲品</a> 
+								<a href="sorts/8" class="list-group-item">冰涼滋味</a> 
+								<a href="sorts/9" class="list-group-item">隱藏美食</a>
 							</div>
 						</div>
 						<div class="sortContent">
