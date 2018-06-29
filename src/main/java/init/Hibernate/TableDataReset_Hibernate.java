@@ -26,12 +26,12 @@ import org.hibernate.Transaction;
 import init.Hibernate.Utils.GlobalService;
 import init.Hibernate.Utils.HibernateUtil_MySQL;
 import member.Model.Member;
-import member.Service.MemberService;
-import member.Service.impl.MemberServiceImpl;
+//import member.Service.MemberService;
+//import member.Service.impl.MemberServiceImpl;
 import other.Model.Store;
 import other.Model.StoreComment;
-import other.Service.StoreService;
-import other.Service.impl.StoreServiceImpl;
+//import other.Service.StoreService;
+//import other.Service.impl.StoreServiceImpl;
 
 
 public class TableDataReset_Hibernate {
@@ -188,76 +188,76 @@ public class TableDataReset_Hibernate {
 		// commentRecomCount 	: 推薦數			INT						預設 0
 		// commentDate       	: 評論時間			DATETIME NOT NULL		NOW() 紀錄評論上傳的時間
 
-		 try (
-				 
-			 // StoreComment.dat存放要新增的多筆資料
-			 InputStreamReader isr0 = new InputStreamReader(
-					 new FileInputStream("data/StoreComment.dat"), "UTF-8");
-			 BufferedReader br = new BufferedReader(isr0);)
-			 // 由檔案("data/StoreComment.dat")讀入Store的資料，然後寫入資料庫
-		 {
-			 String line = "";
-			 int count = 0;
-			 while ((line = br.readLine()) != null) {
-				 System.out.println("測試用-----------------------------");
-				 String[] sa = line.split("\\|");
-				 try {
-					 tx = session.beginTransaction();	
-					 StoreComment comment = new StoreComment();
-					 MemberService ms = new MemberServiceImpl();
-					 Member sommentMId = ms.getMemberById(Integer.parseInt(sa[0].trim()));					 					 
-					 comment.setCommentMId(sommentMId);					 
-					 StoreService ss = new StoreServiceImpl();
-					 Store sommentSId = ss.getStoreById(Integer.parseInt(sa[1].trim()));
-					 comment.setCommentSId(sommentSId);
-				// --------------處理Blob(圖片)欄位----------------
-					// Blob sb = fileToBlob(sa[2]);
-					// fileToBlob為自己編寫的方法,
-					// 本程式後來改用 Hibernate 4.3 提供的標準API:
-					// Hibernate.getLobCreator(session).createBlob(is, size)
-					 long size = 0;
-					 if (sa[2].trim().length() > 4) {
-					 		File fBlob = new File(sa[2].trim());
-					 		size = fBlob.length();
-					 		InputStream is = new FileInputStream(fBlob);
-					 		Blob sb = Hibernate.getLobCreator(session).createBlob(is, size);
-					 		comment.setCommentPicture(sb);
-					 }				 
-				// --------------處理Clob欄位----------------
-					// fileToClob為自己編寫的方法
-					// Clob clob = fileToClob(sa[3]);
-					// 本程式後來改用 Hibernate 4.3 提供的標準API:
-					// Hibernate.getLobCreator(session).createBlob(reader, size)
-					 if (sa[3].trim().length() > 4) {
-					 	File fClob = new File(sa[3].trim());
-					 	size = meteringReader(fClob);
-					 	Reader reader = new FileReader(fClob);
-					 	Clob clob = Hibernate.getLobCreator(session).createClob(reader, size);					 
-					 	comment.setCommentContent(clob);
-					 }
-					 comment.setCommentAlterCount(Integer.parseInt(sa[4].trim()));
-					 comment.setCommentRecomCount(Integer.parseInt(sa[5].trim()));
-					 
-					 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					 Date date = formatter.parse(sa[6].trim());
-					 Timestamp ts = new Timestamp(date.getTime());
-					 					 comment.setCommentDate(ts);
-			
-					 session.save(comment);
-					 tx.commit();		 
-				 } catch (Exception e) {
-					 e.getMessage();
-					 if (tx != null) {
-						 tx.rollback();
-					 }
-				 } finally {
-					 count++;
-					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 : " + sa[0]);
-				 }
-			 }
-		 } catch (Exception e) {
-			 e.printStackTrace();
-		 }
+//		 try (
+//				 
+//			 // StoreComment.dat存放要新增的多筆資料
+//			 InputStreamReader isr0 = new InputStreamReader(
+//					 new FileInputStream("data/StoreComment.dat"), "UTF-8");
+//			 BufferedReader br = new BufferedReader(isr0);)
+//			 // 由檔案("data/StoreComment.dat")讀入Store的資料，然後寫入資料庫
+//		 {
+//			 String line = "";
+//			 int count = 0;
+//			 while ((line = br.readLine()) != null) {
+//				 System.out.println("測試用-----------------------------");
+//				 String[] sa = line.split("\\|");
+//				 try {
+//					 tx = session.beginTransaction();	
+//					 StoreComment comment = new StoreComment();
+//					 MemberService ms = new MemberServiceImpl();
+//					 Member sommentMId = ms.getMemberById(Integer.parseInt(sa[0].trim()));					 					 
+//					 comment.setCommentMId(sommentMId);					 
+//					 StoreService ss = new StoreServiceImpl();
+//					 Store sommentSId = ss.getStoreById(Integer.parseInt(sa[1].trim()));
+//					 comment.setCommentSId(sommentSId);
+//				// --------------處理Blob(圖片)欄位----------------
+//					// Blob sb = fileToBlob(sa[2]);
+//					// fileToBlob為自己編寫的方法,
+//					// 本程式後來改用 Hibernate 4.3 提供的標準API:
+//					// Hibernate.getLobCreator(session).createBlob(is, size)
+//					 long size = 0;
+//					 if (sa[2].trim().length() > 4) {
+//					 		File fBlob = new File(sa[2].trim());
+//					 		size = fBlob.length();
+//					 		InputStream is = new FileInputStream(fBlob);
+//					 		Blob sb = Hibernate.getLobCreator(session).createBlob(is, size);
+//					 		comment.setCommentPicture(sb);
+//					 }				 
+//				// --------------處理Clob欄位----------------
+//					// fileToClob為自己編寫的方法
+//					// Clob clob = fileToClob(sa[3]);
+//					// 本程式後來改用 Hibernate 4.3 提供的標準API:
+//					// Hibernate.getLobCreator(session).createBlob(reader, size)
+//					 if (sa[3].trim().length() > 4) {
+//					 	File fClob = new File(sa[3].trim());
+//					 	size = meteringReader(fClob);
+//					 	Reader reader = new FileReader(fClob);
+//					 	Clob clob = Hibernate.getLobCreator(session).createClob(reader, size);					 
+//					 	comment.setCommentContent(clob);
+//					 }
+//					 comment.setCommentAlterCount(Integer.parseInt(sa[4].trim()));
+//					 comment.setCommentRecomCount(Integer.parseInt(sa[5].trim()));
+//					 
+//					 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//					 Date date = formatter.parse(sa[6].trim());
+//					 Timestamp ts = new Timestamp(date.getTime());
+//					 					 comment.setCommentDate(ts);
+//			
+//					 session.save(comment);
+//					 tx.commit();		 
+//				 } catch (Exception e) {
+//					 e.getMessage();
+//					 if (tx != null) {
+//						 tx.rollback();
+//					 }
+//				 } finally {
+//					 count++;
+//					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 : " + sa[0]);
+//				 }
+//			 }
+//		 } catch (Exception e) {
+//			 e.printStackTrace();
+//		 }
 		if (session != null) {
 			session.close();
 		}
