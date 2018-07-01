@@ -2,101 +2,143 @@
 /*========================================= */
 
 /*-----override-----*/
-
 #fh5co-blog-section {
-    padding: 0;
-    margin-bottom: 0px;
+	padding: 0;
+	margin-bottom: 0px;
 }
 
 .heading-section:after {
-    width: 200px;
-    margin-left: -100px;
-    background: #203a43;
+	width: 200px;
+	margin-left: -100px;
+	background: #203a43;
 }
 
 .fh5co-blog .blog-text {
-    margin-bottom: 0px;
-    margin-top: -1em;
+	margin-bottom: 0px;
+	margin-top: -1em;
+	padding: 20px;
 }
 
-.row {
-    margin-top: 0px;
-    margin-bottom: 50px;
+.pags .pagination {
+	width: 100%;
+	margin: 0px auto;
+	
 }
 
-a {
-    color: #203a43;
+.fh5co-blog .blog-text span {
+	margin-top: 10px;
+    margin-bottom: 10px;
 }
 
+.fh5co-blog .blog-text h3 {
+	margin-bottom: 10px;
+	font-weight: 900;
+}
+
+.comment {
+	color: #000000;
+}
+
+.comment .icon-heart3 {
+	color: #ff0000;
+}
 /*========================================= */
 
 /* <!-- pags --> */
-
 .pags {
-    clear: both;
-    margin: 0px auto;
-    width: 20%;
-    text-align: center;
+	text-align: center;
 }
 
 /*========================================= */
 
 /* <!-- title --> */
-
-.searchTitle {
-    padding: 5em 0 0 0;
-    background: url(../../images/sortHeader.jpg);
-    background-repeat: no-repeat;
-    font-family: 'cwTeXYen', sans-serif;
+.sortTitle {
+	padding: 5em 0 0 0;
+	background: url(../../images/sortHeader.jpg);
+	background-repeat: no-repeat;
+	font-family: 'cwTeXYen', sans-serif;
 }
 
-.searchTitle h1 {
-    font-size: 40px;
-    color: #000000;
-    font-weight: 900;
+.sortTitle h1 {
+	font-size: 40px;
+	color: #000000;
+	font-weight: 900;
 }
 
-.searchTitle p {
-    color: #222222;
+.sortTitle p {
+	color: #222222;
 }
 
 /*========================================= */
 
 /*-----list-----*/
-
 .myList {
-    width: 12%;
-    border-color: #203a43;
-    text-align: center;
-    margin-left: 8%;
-    margin-right: 3%;
-    float: left;
+	width: 12%;
+	border-color: #203a43;
+	text-align: center;
+	margin-left: 8%;
+	margin-right: 3%;
+	float: left;
 }
 
 .myList .list-group a:hover {
-    background: #203a43 !important;
-    color: #ffcc88 !important;
+	background: #9fafbc !important;
+	color: #203a43 !important;
+}
+
+.myList .list-group-item {
+	background-color: #203a43;
+	color: #fff;
 }
 
 /*========================================= */
 
-/*-----sort context-----*/
+/*-----sort background-----*/
 .sortBackground {
-    background: url(../../images/DecorativeBackground04.jpg);
-    background-position: center;
+	background: url(../../images/DecorativeBackground04.jpg);
+	background-position: center;
 }
 
 .sortCard {
-    padding: 100px 0px 30px 0px;
-    background: rgba(0, 0, 0, 0.5);
+	padding: 100px 0px 30px 0px;
+	background: rgba(0, 0, 0, 0.5);
 }
 
-.sortCard a:hover {
-    color: #203a43 !important;
-}
 /*========================================= */
 
 /*-----sort Content-----*/
+.sortContent .btn:hover {
+	background: #9fafbc !important;
+}
+
+.sortContent a {
+	color: #203a43;
+}
+
+.sortContent .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.sortContent .btn.btn-primary {
+	background: #203a43;
+}
+
 .sortContent {
-    float: left;
+	float: left;
+}
+
+.titleName {
+	position: absolute;
+	width: 80%;
+}
+
+.bottomPlace {	
+	margin-top: 0px;
+	margin-bottom: 50px;
+}
+
+.content {
+	position: absolute;
+    width: 80%;
+    height: 20px;
 }

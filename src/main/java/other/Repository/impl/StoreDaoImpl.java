@@ -30,15 +30,16 @@ public class StoreDaoImpl implements StoreDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Store> getAllStores() {
-		String hql = "FROM Store";
+		String hql = "FROM Store s ORDER BY s.sortNumber";
 		Session session = getSession();
 		return session.createQuery(hql).getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<Store> getStoreBySortNum() {
-//		String hql = "FROM Store";
-//		Session session = getSession();
-		return null;
+	public List<Store> getStoreBySortNum(Integer sortNum) {
+		String hql = "FROM Store s WHERE s.sortNumber = :sortNum";
+		Session session = getSession();		
+		return session.createQuery(hql).setParameter("sortNum", sortNum).getResultList();
 	}
 }

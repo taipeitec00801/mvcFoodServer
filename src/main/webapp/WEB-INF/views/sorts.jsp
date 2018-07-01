@@ -35,8 +35,9 @@
 <!-- 自訂義 -->
 <link rel="stylesheet" href="other/css/sortStyle.css">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css"  href="css/myNavbar.css" charset="UTF-8">
-	
+<link rel="stylesheet" type="text/css" href="css/myNavbar.css"
+	charset="UTF-8">
+
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
 
@@ -55,7 +56,7 @@
 			<!-- <div class="searchBackground"> -->
 			<div id="fh5co-blog-section" class="fh5co-section-gray">
 				<!-- title -->
-				<div class="searchTitle">
+				<div class="sortTitle">
 					<div class="container">
 						<div
 							class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
@@ -73,244 +74,49 @@
 						<!-- list -->
 						<div class="myList">
 							<div class="list-group">
-								<a href="sorts" class="list-group-item">不限種類</a> 
-								<a href="sorts/0" class="list-group-item">中式美食</a> 
-								<a href="sorts/1" class="list-group-item">西式美食</a>
-								<a href="sorts/2" class="list-group-item">日式美食</a> 
-								<a href="sorts/3" class="list-group-item">韓式美食</a> 
-								<a href="sorts/4" class="list-group-item">泰式美食</a> 
-								<a href="sorts/5" class="list-group-item">港式美食</a> 
-								<a href="sorts/6" class="list-group-item">路邊美食</a> 
-								<a href="sorts/7" class="list-group-item">甜點飲品</a> 
-								<a href="sorts/8" class="list-group-item">冰涼滋味</a> 
-								<a href="sorts/9" class="list-group-item">隱藏美食</a>
+								<a href="sorts" class="list-group-item">不限種類</a> <a
+									href="sorts/0" class="list-group-item">中式美食</a> <a
+									href="sorts/1" class="list-group-item">西式美食</a> <a
+									href="sorts/2" class="list-group-item">日式美食</a> <a
+									href="sorts/3" class="list-group-item">韓式美食</a> <a
+									href="sorts/4" class="list-group-item">泰式美食</a> <a
+									href="sorts/5" class="list-group-item">港式美食</a> <a
+									href="sorts/6" class="list-group-item">路邊美食</a> <a
+									href="sorts/7" class="list-group-item">甜點飲品</a> <a
+									href="sorts/8" class="list-group-item">冰涼滋味</a> <a
+									href="sorts/9" class="list-group-item">隱藏美食</a>
 							</div>
 						</div>
 						<div class="sortContent">
 							<div class="container">
-								<div class="row">
-								<c:forEach var="store" items="${stores}">
-									<div class="col-lg-4 col-md-4">
+
+								<c:forEach var="store" begin="0" end="8" items="${stores}">
+									<div class="col-lg-4 col-md-4 bottomPlace">
 										<div class="fh5co-blog animate-box">
 											<a href="#"> <img class="img-responsive"
 												src="images/036_02.jpg">
 											</a>
 											<div class="blog-text">
 												<div class="prod-title">
-													<h3>
-														${store.storeName}
-													</h3>
-													<span class="posted_by">Sep. 15th</span> <span
-														class="comment"> <a href="">21 <i
-															class="icon-bubble2"></i>
-													</a>
+													<div class="titleName">
+														<h3>${store.storeName}</h3>
+													</div>
+													<span class="comment"> <span>${store.storeRecomCount}
+															<i class="icon-heart3"></i>
 													</span>
-													<p>Far far away, behind the word mountains, far from
-														the countries Vokalia and Consonantia, there live the
-														blind texts.</p>
+													</span><br> <span class="posted_by">營業時間 : <br>${store.serviceHours}</span>
+
+													<p>
+														地址：${store.storeAddress}<br> 電話：${store.storePhone}
+													</p>
 													<a href="#" class="btn btn-primary">Read More</a>
 												</div>
 											</div>
 										</div>
 									</div>
-									</c:forEach>
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 								<div class="row"> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href="#">45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 								<div class="row"> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="col-lg-4 col-md-4"> -->
-<!-- 										<div class="fh5co-blog animate-box"> -->
-<!-- 											<a href="#"> <img class="img-responsive" -->
-<!-- 												src="images/036_02.jpg"> -->
-<!-- 											</a> -->
-<!-- 											<div class="blog-text"> -->
-<!-- 												<div class="prod-title"> -->
-<!-- 													<h3> -->
-<!-- 														<a href=""#>45 Minimal Worksspace Rooms for Web -->
-<!-- 															Savvys</a> -->
-<!-- 													</h3> -->
-<!-- 													<span class="posted_by">Sep. 15th</span> <span -->
-<!-- 														class="comment"> <a href="">21 <i -->
-<!-- 															class="icon-bubble2"></i> -->
-<!-- 													</a> -->
-<!-- 													</span> -->
-<!-- 													<p>Far far away, behind the word mountains, far from -->
-<!-- 														the countries Vokalia and Consonantia, there live the -->
-<!-- 														blind texts.</p> -->
-<!-- 													<a href="#" class="btn btn-primary">Read More</a> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-								</div>
+
+								</c:forEach>
+
 							</div>
 						</div>
 
@@ -319,12 +125,14 @@
 						<div class="pags">
 							<nav aria-label="Page navigation">
 							<ul class="pagination">
+
 								<li><a href="#" aria-label="Previous"> <span
 										aria-hidden="true">&laquo;</span>
 								</a></li>
 								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
+								<c:forEach var="page" begin="1" end="${pages}">
+									<li><a href="#">${page+1}</a></li>
+								</c:forEach>
 								<li><a href="#" aria-label="Next"> <span
 										aria-hidden="true">&raquo;</span>
 								</a></li>

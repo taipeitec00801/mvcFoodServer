@@ -22,6 +22,11 @@ import javax.sql.rowset.serial.SerialException;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import init.GlobalService;
 import init.Hibernate.Utils.HibernateUtil_MySQL;
@@ -196,7 +201,8 @@ public class TableDataReset_Hibernate {
 		// commentAlterCount 	: 修改次數			INT						預設 0
 		// commentRecomCount 	: 推薦數			INT						預設 0
 		// commentDate       	: 評論時間			DATETIME NOT NULL		NOW() 紀錄評論上傳的時間
-
+		 ApplicationContext ctx =
+					new ClassPathXmlApplicationContext("/init/Hibernate/applicationContext.xml");
 		 try (
 				 
 			 // StoreComment.dat存放要新增的多筆資料
@@ -217,13 +223,23 @@ public class TableDataReset_Hibernate {
 				 try {
 					 tx = session.beginTransaction();	
 					 StoreComment comment = new StoreComment();
-					 MemberService ms = new MemberServiceImpl();
+//					 MemberService ms = new MemberServiceImpl();
+					 
+					 
+						
+					 MemberService ms = ctx.getBean("ms", MemberService.class);
+					 
+//					 ApplicationContext ctx = 
+//								ApplicationContextUtils.getApplicationContext(getServletContext());
+//						MemberService ms = ctx.getBean(MemberService.class);
+					 
 					 int n = Integer.parseInt(sa[0].trim());
 					 Member commentMId = ms.getMemberById(n);							 
 					 comment.setCommentMId(commentMId);					 
 					 
+//					 StoreService ss = new StoreServiceImpl();
+					 StoreService ss = ctx.getBean("ss", StoreService.class);
 					 
-					 StoreService ss = new StoreServiceImpl();
 					 Store sommentSId = ss.getStoreById(Integer.parseInt(sa[1].trim()));
 					 comment.setCommentSId(sommentSId);
 				// --------------處理Blob(圖片)欄位----------------
@@ -269,6 +285,7 @@ public class TableDataReset_Hibernate {
 					 }
 				 } finally {
 					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 : " + sa[0]);
+					 ((ConfigurableApplicationContext)ctx).close();
 				 }
 			 }
 		 } catch (Exception e) {
@@ -279,6 +296,7 @@ public class TableDataReset_Hibernate {
 			session.close();
 		}
 		HibernateUtil_MySQL.close();
+		
 	}
 
 	// 計算一個文字檔的字元數

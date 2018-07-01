@@ -1,13 +1,9 @@
 package other.Controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import other.Model.Store;
 import other.Service.StoreService;
 
 @Controller("Home")
@@ -20,12 +16,10 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
-
-	@RequestMapping("/sorts")
-	public String sort(Model model) {
-		List<Store> list = storeService.getAllStores();
-		model.addAttribute("stores", list);
-		return "sorts";
+	
+	@RequestMapping("/home")
+	public String home() {
+		return "index";
 	}
 
 	@RequestMapping("/store_Info")
@@ -37,4 +31,9 @@ public class HomeController {
 //	public String member_setting() {
 //		return "member_setting";
 //	}
+	
+	
+	
+	
+	
 }

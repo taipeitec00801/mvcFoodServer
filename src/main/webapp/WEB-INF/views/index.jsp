@@ -236,28 +236,28 @@
 							<ul id="fh5co-portfolio-list" class="storeSortList">
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/chineseStyle.jpg);"><a
-									href="sort">
+									href="sorts/0">
 										<div class="case-studies-summary">
 											<h2>中式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/westernStyle.jpg);"><a
-									href="sort">
+									href="sorts/1">
 										<div class="case-studies-summary">
 											<h2>西式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/koreanStyle.jpg);"><a
-									href="sort">
+									href="sorts/2">
 										<div class="case-studies-summary">
 											<h2>韓式</h2>
 										</div>
 								</a></li>
 								<li class="two-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/japaneseStyle.jpg);">
-									<a href="sort">
+									<a href="sorts/3">
 										<div class="case-studies-summary">
 											<h2>日式</h2>
 										</div>
@@ -266,14 +266,14 @@
 
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/thaiStyle.jpg);"><a
-									href="sort">
+									href="sorts/4">
 										<div class="case-studies-summary">
 											<h2>泰式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/hongKongStyle.jpg);">
-									<a href="sort">
+									<a href="sorts/5">
 										<div class="case-studies-summary">
 											<h2>港式</h2>
 										</div>
@@ -281,32 +281,30 @@
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/snack.jpg);"><a
-									href="sort">
+									href="sorts/6">
 										<div class="case-studies-summary">
 											<h2>小吃</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/iceProducts.jpg);"><a
-									href="sort">
+									href="sorts/7">
 										<div class="case-studies-summary">
 											<h2>冰品</h2>
 										</div>
 								</a></li>
 								<li class="two-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images//dessertDrink.jpg);">
-									<a href="sort">
+									<a href="sorts/8">
 										<div class="case-studies-summary">
 											<h2>
 												甜點 <span>&</span> 飲品
 											</h2>
-										</div>
-								</a>
+										</div></a>
 								</li>
-
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/otherStyle.jpg);"><a
-									href="sort">
+									href="sorts/9">
 										<div class="case-studies-summary">
 											<h2>其他</h2>
 										</div>

@@ -8,5 +8,5 @@ public interface StoreDao {
 	Store getStoreById(Integer storeId);
 	
 	List<Store> getAllStores();
-	List<Store> getStoreBySortNum();
+	List<Store> getStoreBySortNum(Integer sortNum);
 }

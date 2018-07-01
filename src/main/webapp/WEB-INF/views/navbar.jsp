@@ -5,7 +5,7 @@
 
 		<div class="navbar-header">
 
-			<a class="navbar-brand" href="index.jsp"> <img alt="Brand"
+			<a class="navbar-brand" href="home"> <img alt="Brand"
 				src="images/Logo.png">
 			</a>
 

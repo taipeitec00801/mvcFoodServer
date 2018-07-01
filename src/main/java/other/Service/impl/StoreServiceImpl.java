@@ -30,9 +30,8 @@ public class StoreServiceImpl implements StoreService {
 
 
 	@Override
-	public List<Store> getStoreBySortNum() {
-		//...
-		return null;
+	public List<Store> getStoreBySortNum(Integer sortNum) {
+		return storeDao.getStoreBySortNum(sortNum);
 	}
 	
 }
