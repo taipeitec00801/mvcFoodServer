@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -236,28 +237,28 @@
 							<ul id="fh5co-portfolio-list" class="storeSortList">
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/chineseStyle.jpg);"><a
-									href="sorts/0">
+									href="<spring:url value='sorts/0?pages=${pagesNo}' />">
 										<div class="case-studies-summary">
 											<h2>中式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/westernStyle.jpg);"><a
-									href="sorts/1">
+									href="sort/1">
 										<div class="case-studies-summary">
 											<h2>西式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/koreanStyle.jpg);"><a
-									href="sorts/2">
+									href="sort/2">
 										<div class="case-studies-summary">
 											<h2>韓式</h2>
 										</div>
 								</a></li>
 								<li class="two-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/japaneseStyle.jpg);">
-									<a href="sorts/3">
+									<a href="sort/3">
 										<div class="case-studies-summary">
 											<h2>日式</h2>
 										</div>
@@ -266,14 +267,14 @@
 
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/thaiStyle.jpg);"><a
-									href="sorts/4">
+									href="sort/4">
 										<div class="case-studies-summary">
 											<h2>泰式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/hongKongStyle.jpg);">
-									<a href="sorts/5">
+									<a href="sort/5">
 										<div class="case-studies-summary">
 											<h2>港式</h2>
 										</div>
@@ -281,21 +282,21 @@
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/snack.jpg);"><a
-									href="sorts/6">
+									href="sort/6">
 										<div class="case-studies-summary">
 											<h2>小吃</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/iceProducts.jpg);"><a
-									href="sorts/7">
+									href="sort/7">
 										<div class="case-studies-summary">
 											<h2>冰品</h2>
 										</div>
 								</a></li>
 								<li class="two-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images//dessertDrink.jpg);">
-									<a href="sorts/8">
+									<a href="sort/8">
 										<div class="case-studies-summary">
 											<h2>
 												甜點 <span>&</span> 飲品
@@ -304,7 +305,7 @@
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/otherStyle.jpg);"><a
-									href="sorts/9">
+									href="sort/9">
 										<div class="case-studies-summary">
 											<h2>其他</h2>
 										</div>

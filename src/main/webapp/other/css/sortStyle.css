@@ -19,12 +19,6 @@
 	padding: 20px;
 }
 
-.pags .pagination {
-	width: 100%;
-	margin: 0px auto;
-	
-}
-
 .fh5co-blog .blog-text span {
 	margin-top: 10px;
     margin-bottom: 10px;
@@ -46,6 +40,11 @@
 
 /* <!-- pags --> */
 .pags {
+	text-align: center;
+}
+
+.pags .pagination {
+	width: 100%;
 	text-align: center;
 }
 
@@ -129,7 +128,7 @@
 
 .titleName {
 	position: absolute;
-	width: 80%;
+	width: 70%;
 }
 
 .bottomPlace {	

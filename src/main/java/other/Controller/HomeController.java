@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import other.Service.StoreService;
 
-@Controller("Home")
+@Controller
 public class HomeController {
 	
 	@Autowired
@@ -19,7 +19,7 @@ public class HomeController {
 	
 	@RequestMapping("/home")
 	public String home() {
-		return "index";
+		return "redirect:/";
 	}
 
 	@RequestMapping("/store_Info")

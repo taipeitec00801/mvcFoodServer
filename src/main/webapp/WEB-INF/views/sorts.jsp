@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,20 +22,19 @@
 	rel='stylesheet' type='text/css'>
 
 <!-- Animate.css -->
-<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/animate.css" type="text/css">
 <!-- Icomoon Icon Fonts-->
-<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/icomoon.css" type="text/css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <!-- Superfish -->
-<link rel="stylesheet" href="css/superfish.css">
+<link rel="stylesheet" href="css/superfish.css" type="text/css">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
 <!-- 自訂義 -->
-<link rel="stylesheet" href="other/css/sortStyle.css">
+<link rel="stylesheet" href="other/css/sortStyle.css" type="text/css">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="css/myNavbar.css"
-	charset="UTF-8">
+<link rel="stylesheet" href="css/myNavbar.css" type="text/css">
 
 <!-- Modernizr JS -->
 <script src="js/modernizr-2.6.2.min.js"></script>
@@ -74,24 +72,24 @@
 						<!-- list -->
 						<div class="myList">
 							<div class="list-group">
-								<a href="sorts" class="list-group-item">不限種類</a> <a
-									href="sorts/0" class="list-group-item">中式美食</a> <a
-									href="sorts/1" class="list-group-item">西式美食</a> <a
-									href="sorts/2" class="list-group-item">日式美食</a> <a
-									href="sorts/3" class="list-group-item">韓式美食</a> <a
-									href="sorts/4" class="list-group-item">泰式美食</a> <a
-									href="sorts/5" class="list-group-item">港式美食</a> <a
-									href="sorts/6" class="list-group-item">路邊美食</a> <a
-									href="sorts/7" class="list-group-item">甜點飲品</a> <a
-									href="sorts/8" class="list-group-item">冰涼滋味</a> <a
-									href="sorts/9" class="list-group-item">隱藏美食</a>
+								<a href="<spring:url value='sorts?sortNo=-1&pages=1' />" class="list-group-item">不限種類</a> 
+								<a href="<spring:url value='sorts?sortNo=0&pages=1' />" class="list-group-item">中式美食</a> 
+								<a href="<spring:url value='sorts?sortNo=1&pages=1' />" class="list-group-item">西式美食</a> 
+								<a href="<spring:url value='sorts?sortNo=2&pages=1' />" class="list-group-item">日式美食</a> 
+								<a href="<spring:url value='sorts?sortNo=3&pages=1' />" class="list-group-item">韓式美食</a> 
+								<a href="<spring:url value='sorts?sortNo=4&pages=1' />" class="list-group-item">泰式美食</a> 
+								<a href="<spring:url value='sorts?sortNo=5&pages=1' />" class="list-group-item">港式美食</a> 
+								<a href="<spring:url value='sorts?sortNo=6&pages=1' />" class="list-group-item">路邊美食</a> 
+								<a href="<spring:url value='sorts?sortNo=7&pages=1' />" class="list-group-item">甜點飲品</a> 
+								<a href="<spring:url value='sorts?sortNo=8&pages=1' />" class="list-group-item">冰涼滋味</a> 
+								<a href="<spring:url value='sorts?sortNo=9&pages=1' />" class="list-group-item">隱藏美食</a>
 							</div>
 						</div>
 						<div class="sortContent">
 							<div class="container">
 
 								<c:forEach var="store" begin="0" end="8" items="${stores}">
-									<div class="col-lg-4 col-md-4 bottomPlace">
+									<div class="col-lg-4 col-md-6 .col-sm-8 bottomPlace">
 										<div class="fh5co-blog animate-box">
 											<a href="#"> <img class="img-responsive"
 												src="images/036_02.jpg">
@@ -114,9 +112,7 @@
 											</div>
 										</div>
 									</div>
-
 								</c:forEach>
-
 							</div>
 						</div>
 
@@ -126,14 +122,14 @@
 							<nav aria-label="Page navigation">
 							<ul class="pagination">
 
-								<li><a href="#" aria-label="Previous"> <span
+								<li><a href="<spring:url value='sorts?pages=1' />" aria-label="Previous"> <span
 										aria-hidden="true">&laquo;</span>
 								</a></li>
-								<li><a href="#">1</a></li>
-								<c:forEach var="page" begin="1" end="${pages}">
-									<li><a href="#">${page+1}</a></li>
+								<c:forEach var="pagesNo" begin="1" end="${totalPages}">
+									<li><a href="<spring:url value='sorts?sortNo=${sortNumber}&pages=${pagesNo}' />">${pagesNo}</a></li>
+										
 								</c:forEach>
-								<li><a href="#" aria-label="Next"> <span
+								<li><a href="<spring:url value='sorts?pages=${totalPages}' />" aria-label="Next"> <span
 										aria-hidden="true">&raquo;</span>
 								</a></li>
 							</ul>

@@ -1,6 +1,9 @@
 package other.Repository.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.Query;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +15,9 @@ import other.Repository.StoreDao;
 
 @Repository
 public class StoreDaoImpl implements StoreDao {
+	private Integer recordsPerPage = 9; // 預設值：每頁9筆
+	private Integer pageNo = 1;		// 存放目前顯示之頁面的編號
+	private Integer totalPages = 1;
 
 	@Autowired
 	SessionFactory factory;
@@ -30,16 +36,60 @@ public class StoreDaoImpl implements StoreDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Store> getAllStores() {
-		String hql = "FROM Store s ORDER BY s.sortNumber";
+		List<Store> list = new ArrayList<Store>();
+		String hql = "FROM Store s";		
 		Session session = getSession();
-		return session.createQuery(hql).getResultList();
+		Query query = session.createQuery(hql);
+		int startNo = (pageNo - 1) * recordsPerPage;
+		query.setFirstResult(startNo);
+		query.setMaxResults(recordsPerPage);
+		list = (List<Store>)query.getResultList();
+		return list;
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Store> getStoreBySortNum(Integer sortNum) {
+		List<Store> list = new ArrayList<Store>();
 		String hql = "FROM Store s WHERE s.sortNumber = :sortNum";
-		Session session = getSession();		
-		return session.createQuery(hql).setParameter("sortNum", sortNum).getResultList();
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("sortNum", sortNum);
+		int startNo = (pageNo - 1) * recordsPerPage;
+		query.setFirstResult(startNo);
+		query.setMaxResults(recordsPerPage);
+		list = (List<Store>)query.getResultList();
+		return list;
 	}
+	
+	@Override
+	public Integer getPageNo() {
+		return pageNo;
+	}
+	
+	@Override
+	public void setPageNo(Integer pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	@Override
+	public Integer getTotalPages(Integer sortNum) {
+		totalPages = (int) (Math.ceil(getRecordCounts(sortNum) / (double) recordsPerPage));
+		return totalPages;
+	}
+	
+	@Override
+	public Long getRecordCounts(Integer sortNum) {
+		long count = 0; // 必須使用 long 型態
+		String hql = "SELECT COUNT(*) FROM Store";
+		Session session = getSession();
+		if (sortNum < 10 && sortNum >= 0) {
+			hql = "SELECT COUNT(*) FROM Store s WHERE s.sortNumber = :sortNum";
+			count = (long) session.createQuery(hql).setParameter("sortNum", sortNum).getSingleResult();	
+		} else {
+			count = (long) session.createQuery(hql).getSingleResult();
+		}			
+		return count;
+	}
+	
 }

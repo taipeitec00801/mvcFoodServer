@@ -16,7 +16,7 @@
 				<input type="search" class="form-control" placeholder="Search...">
 			</div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="sorts">分類</a></li>
+				<li><a href="<spring:url value='sorts?sortNo=-1&pages=1' />">分類</a></li>
 				<li><a href="#">商城</a></li>
 				<li><a href="member_setting">會員</a></li>
 			</ul>

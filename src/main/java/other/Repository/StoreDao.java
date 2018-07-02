@@ -9,4 +9,9 @@ public interface StoreDao {
 	
 	List<Store> getAllStores();
 	List<Store> getStoreBySortNum(Integer sortNum);
+	
+	Integer getPageNo();
+	void setPageNo(Integer pageNo);
+	Integer getTotalPages(Integer sortNum);
+	Long getRecordCounts(Integer sortNum);
 }

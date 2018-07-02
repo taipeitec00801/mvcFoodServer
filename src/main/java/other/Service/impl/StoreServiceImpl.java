@@ -33,5 +33,26 @@ public class StoreServiceImpl implements StoreService {
 	public List<Store> getStoreBySortNum(Integer sortNum) {
 		return storeDao.getStoreBySortNum(sortNum);
 	}
+
+	@Override
+	public void setPageNo(Integer pageNo) {
+		storeDao.setPageNo(pageNo);
+	}
+
+	@Override
+	public Integer getTotalPages(Integer sortNum) {
+		return storeDao.getTotalPages(sortNum);
+	}
+
+
+	@Override
+	public Integer getPageNo() {
+		return storeDao.getPageNo();
+	}
+
+	@Override
+	public Long getRecordCounts(Integer sortNum) {
+		return storeDao.getRecordCounts(sortNum);
+	}
 	
 }
