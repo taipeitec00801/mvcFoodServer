@@ -15,7 +15,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.sql.rowset.serial.SerialException;
 
@@ -25,18 +27,13 @@ import org.hibernate.Transaction;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import init.GlobalService;
 import init.Hibernate.Utils.HibernateUtil_MySQL;
 import member.Model.Member;
 import member.Service.MemberService;
-import member.Service.impl.MemberServiceImpl;
 import other.Model.Store;
 import other.Model.StoreComment;
-import other.Service.StoreService;
-import other.Service.impl.StoreServiceImpl;
 
 public class TableDataReset_Hibernate {
 	public static final String UTF8_BOM = "\uFEFF"; // 定義 UTF-8的BOM字元
@@ -49,7 +46,7 @@ public class TableDataReset_Hibernate {
 		// Member 欄位說明: 
 		// memberId : 		會員編號 	INT AUTO_INCREMENT		主鍵  
 		// userAccount : 	帳號  		VARCHAR(40) NOT NULL	信箱 
-		// userPassword : 	密碼 		VARCHAR(12) NOT NULL 
+		// userPassword : 	密碼 		VARCHAR(32) NOT NULL 
 		// nickname : 		暱稱 		VARCHAR(20) 			預設 UserAccount "@"前字串 
 		// birthday : 		生日 		DATE NOT NULL 
 		// gender : 		性別 		TINYINT NOT NULL		(0~1), 0=女, 1=男 
@@ -59,7 +56,7 @@ public class TableDataReset_Hibernate {
 		// collection : 	收藏 		VARCHAR(1000) 			紀錄 StoreId 
 		// userGift : 		禮物 		VARCHAR(1000) 			紀錄GiftId 
 		// userFriends : 	追蹤 		VARCHAR(1000) 			紀錄 MemberId
-
+		List<Member> listMember = new ArrayList<>();
 		try (
 				// Member.txt存放要新增的多筆資料
 				InputStreamReader isr0 = new InputStreamReader(
@@ -111,7 +108,7 @@ public class TableDataReset_Hibernate {
 					if (!sa[10].trim().equals(null) && sa[10].trim().length() != 4) {
 						member.setUserFriends(sa[10].trim());
 					}
-//					listMember.add(member);
+					listMember.add(member);
 					session.save(member);
 					session.flush();
 					tx.commit();
@@ -145,7 +142,7 @@ public class TableDataReset_Hibernate {
 		// 定義儲存Store的List物件，當讀入每筆Store資料後，不立即
 		// 寫入資料庫而是等到讀入StoreComment時，將對應的Store存入StoreComment，
 		// 再寫入StoreComment(當然同時寫入Store)
-		
+		List<Store> listStore = new ArrayList<>();
 		 try (
 			 // Store.txt存放要新增的多筆資料
 			 InputStreamReader isr0 = new InputStreamReader(
@@ -175,7 +172,8 @@ public class TableDataReset_Hibernate {
 					 store.setStoreCommentCount(Integer.parseInt(sa[7].trim()));
 					 store.setLatitude(Double.parseDouble(sa[8].trim()));
 					 store.setLongitude(Double.parseDouble(sa[9].trim()));
-
+					 
+					 listStore.add(store);
 					 session.save(store);
 					 session.flush();
 					 tx.commit();		 
@@ -201,8 +199,8 @@ public class TableDataReset_Hibernate {
 		// commentAlterCount 	: 修改次數			INT						預設 0
 		// commentRecomCount 	: 推薦數			INT						預設 0
 		// commentDate       	: 評論時間			DATETIME NOT NULL		NOW() 紀錄評論上傳的時間
-		 ApplicationContext ctx =
-					new ClassPathXmlApplicationContext("/init/Hibernate/applicationContext.xml");
+//		 ApplicationContext ctx =
+//					new ClassPathXmlApplicationContext("/init/Hibernate/applicationContext.xml");
 		 try (
 				 
 			 // StoreComment.dat存放要新增的多筆資料
@@ -222,26 +220,9 @@ public class TableDataReset_Hibernate {
 				 String[] sa = line.split("\\|");
 				 try {
 					 tx = session.beginTransaction();	
-					 StoreComment comment = new StoreComment();
-//					 MemberService ms = new MemberServiceImpl();
-					 
-					 
-						
-					 MemberService ms = ctx.getBean("ms", MemberService.class);
-					 
-//					 ApplicationContext ctx = 
-//								ApplicationContextUtils.getApplicationContext(getServletContext());
-//						MemberService ms = ctx.getBean(MemberService.class);
-					 
-					 int n = Integer.parseInt(sa[0].trim());
-					 Member commentMId = ms.getMemberById(n);							 
-					 comment.setCommentMId(commentMId);					 
-					 
-//					 StoreService ss = new StoreServiceImpl();
-					 StoreService ss = ctx.getBean("ss", StoreService.class);
-					 
-					 Store sommentSId = ss.getStoreById(Integer.parseInt(sa[1].trim()));
-					 comment.setCommentSId(sommentSId);
+					 StoreComment comment = new StoreComment(); 					 
+					 comment.setCommentMId(listMember.get(Integer.parseInt(sa[0]) - 1 )); 
+					 comment.setCommentSId(listStore.get(Integer.parseInt(sa[1]) - 1 ));
 				// --------------處理Blob(圖片)欄位----------------
 					// Blob sb = fileToBlob(sa[2]);
 					// fileToBlob為自己編寫的方法,
@@ -285,7 +266,7 @@ public class TableDataReset_Hibernate {
 					 }
 				 } finally {
 					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 : " + sa[0]);
-					 ((ConfigurableApplicationContext)ctx).close();
+					 
 				 }
 			 }
 		 } catch (Exception e) {
