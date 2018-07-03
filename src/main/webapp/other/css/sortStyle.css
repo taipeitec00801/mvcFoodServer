@@ -2,50 +2,37 @@
 /*========================================= */
 
 /*-----override-----*/
-#fh5co-blog-section {
-	padding: 0;
-	margin-bottom: 0px;
-}
-
 .heading-section:after {
-	width: 200px;
-	margin-left: -100px;
-	background: #203a43;
+    width: 200px;
+    margin-left: -100px;
+    background: #203a43;
 }
 
-.fh5co-blog .blog-text {
-	margin-bottom: 0px;
-	margin-top: -1em;
-	padding: 20px;
+::selection {
+    background: #203a43;
 }
 
-.fh5co-blog .blog-text span {
-	margin-top: 10px;
-    margin-bottom: 10px;
+.list-group-item {
+    border: 1px solid #9fafbc;
 }
 
-.fh5co-blog .blog-text h3 {
-	margin-bottom: 10px;
-	font-weight: 900;
-}
-
-.comment {
-	color: #000000;
-}
-
-.comment .icon-heart3 {
-	color: #ff0000;
+.a.list-group-item {
+    color: #222;
 }
 /*========================================= */
 
 /* <!-- pags --> */
-.pags {
+
+.pageBox {
+	width: 100%;
+	height: 3%;
+	clear: both;
 	text-align: center;
 }
 
-.pags .pagination {
-	width: 100%;
-	text-align: center;
+.pages a:hover {
+	color: #203a43 !important;
+	background: #9fafbc !important;
 }
 
 /*========================================= */
@@ -65,29 +52,7 @@
 }
 
 .sortTitle p {
-	color: #222222;
-}
-
-/*========================================= */
-
-/*-----list-----*/
-.myList {
-	width: 12%;
-	border-color: #203a43;
-	text-align: center;
-	margin-left: 8%;
-	margin-right: 3%;
-	float: left;
-}
-
-.myList .list-group a:hover {
-	background: #9fafbc !important;
-	color: #203a43 !important;
-}
-
-.myList .list-group-item {
-	background-color: #203a43;
-	color: #fff;
+	color: #222;
 }
 
 /*========================================= */
@@ -105,7 +70,38 @@
 
 /*========================================= */
 
+/*-----list-----*/
+.myList {
+	width: 10%;
+	border-color: #203a43;
+	text-align: center;
+	margin-left: 5%;
+	margin-right: 3%;
+	float: left;
+}
+
+.myList .list-group a:hover {
+	background: #9fafbc !important;
+	color: #203a43 !important;
+}
+
+/*========================================= */
+
 /*-----sort Content-----*/
+.sortContent {
+	width: 70%;
+	float: left;
+	margin-right: 5%;
+}
+
+.captionBottom span {
+	margin-left: 33%;
+}
+
+.sortContent .captionBottom {
+	margin-top: 15px;
+}
+
 .sortContent .btn:hover {
 	background: #9fafbc !important;
 }
@@ -114,16 +110,25 @@
 	color: #203a43;
 }
 
+.sortContent h4 {
+	font-weight: 900;
+	color: #000;
+	margin: 0 0 15px 0;
+	font-size: 20px;
+}
+
 .sortContent .btn.btn-primary:hover {
 	color: #203a43 !important;
 }
 
 .sortContent .btn.btn-primary {
-	background: #203a43;
+	background: #203a43;	
 }
 
-.sortContent {
+
+.sortContent>.thumbnail {
 	float: left;
+	padding: 6px;
 }
 
 .titleName {
@@ -131,13 +136,7 @@
 	width: 70%;
 }
 
-.bottomPlace {	
+.bottomPlace {
 	margin-top: 0px;
-	margin-bottom: 50px;
-}
-
-.content {
-	position: absolute;
-    width: 80%;
-    height: 20px;
+	margin-bottom: 1%;
 }

@@ -20,7 +20,7 @@ public class SortController {
 
 	@RequestMapping("/sorts")
 	public String getStore(@RequestParam("sortNo") Integer sortNum,
-									@RequestParam("pages") Integer pages, Model model) {
+							@RequestParam("pages") Integer pages, Model model) {
 		storeService.setPageNo(pages);
 		List<Store> list = new ArrayList<Store>();
 		if (sortNum < 10 && sortNum >= 0) {

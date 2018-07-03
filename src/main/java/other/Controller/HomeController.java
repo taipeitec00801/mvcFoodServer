@@ -19,7 +19,7 @@ public class HomeController {
 	
 	@RequestMapping("/home")
 	public String home() {
-		return "redirect:/";
+		return "forward:/";
 	}
 
 	@RequestMapping("/store_Info")
