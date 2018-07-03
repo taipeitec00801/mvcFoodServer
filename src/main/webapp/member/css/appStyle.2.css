@@ -1,8 +1,6 @@
 
-html{
-    margin: 0 auto;
-    width: 100%;
-    
+ html{
+    margin-left: 235px;
 }
 
 /* .test{
@@ -10,17 +8,7 @@ html{
 } */
 
 /* <!-- navbar --> */
-.nav-full {
-   border-radius: 0px;
-  
-}
 
-.navbar{
-    margin-bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    position: fixed;
-}
 /* <!-- sidebar --> */
 .sidebar{
     height: 500px;
@@ -176,18 +164,27 @@ padding-bottom: 25px;
     opacity: 0.5;
     margin: 180px auto;
   }
+/* ================================== */
+/* 1520 */
+@media only screen and (max-width: 1520px) {
 
+}
 /* ================================== */
 /* 1024 */
 @media only screen and (max-width: 1024px) {
-  
+  html{
+    margin: 0px auto;
+}
 
 }
 /* ================================== */
 /* ================================== */
 /* 990 */
-@media only screen and (max-width: 1024px) {
-    
+@media only screen and (max-width: 990px) {
+  html{
+    margin: 0px auto;
+}
+
 
 }
 /* ================================== */

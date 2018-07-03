@@ -1,0 +1,150 @@
+
+
+
+/* .test{
+    border: 1px pink solid;
+} */
+
+
+
+/* <!-- memberBar --> */
+.memberBar  {
+height: 250px;
+}
+
+
+/* memberFoto */
+/* .fotoInfo{
+    position: fixed;
+   
+} */
+.fotoCase{
+    width: 150px;
+    height: 150px;
+    margin-left: 200px;
+    margin-top: 50px;
+   
+}
+
+.fotoCase img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-radius: 50%;
+    border: 2px solid #aaa;
+}
+.separateLine{
+    width: 2px;
+    height: 500px;
+    margin-left: 275px;
+    border-left: 2px solid;
+    border-color: #c1c1c1;
+    margin-top: 50px;
+}
+/* <!-- memberName --> */
+.name p{
+    color: rgb(36, 31, 31);
+    font: 100px Tahoma;
+    margin-left: 400px;
+    margin-top: -120px;
+   
+}
+.btn-group{
+   
+font: 8px Verdana #333;
+  margin-left: 800px;
+  margin-top: -200px;
+  border-radius: 5px;
+  box-shadow:1px 1px rgba(20%,20%,40%,0.2);
+}
+.btSetting btn {
+    text-transform: none;
+    letter-spacing: 1px;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+.wdLike{
+    font-size: 30px;
+    margin-left: 50px;
+    margin-top: -50px;
+}
+/* <!-- like --> */
+.like{
+    margin-top: 100px;
+}
+
+  
+
+/* <!-- copyright --> */
+
+/* ================================== */
+/* 1024 */
+@media only screen and (max-width: 1024px) {
+    html{
+        width: 100%;
+        margin: 0px auto;
+    }
+
+}
+/* ================================== */
+/* 768 */
+@media only screen and (max-width: 768px) {
+    .title{
+        font-size: 50px;
+        
+    }
+    .subTitle{
+        width: 300px;
+        font-size: 10px;
+        text-align: center;
+        color: aliceblue;
+        border-bottom: 1px solid;
+        margin: 0 auto;   
+    }
+    .mainBanner{
+        padding: 50px;
+    
+    }
+    .list-group{
+        width: 150px;
+        /* padding-top: 200px; */
+        margin-top: 200PX;
+        margin-left: 10PX;
+        text-align: center;
+    }
+    
+}
+/* ================================== */
+/* 320 */
+@media only screen and (max-width: 320px) {
+    .title{
+        font-size: 30px;
+        
+    }
+    .mainBanner{
+        padding: 30px;
+    }
+    .subTitle{
+        width: 200px;
+        font-size: 10px;
+        text-align: center;
+        color: aliceblue;
+        border-bottom: 1px solid;
+        margin: 0 auto;   
+    }
+    .appForm{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        color: aliceblue;
+        margin-top: 30px;
+    }
+    .list-group{
+        width: 100px;
+        /* padding-top: 200px; */
+        margin-top: 200PX;
+        margin-left: 10PX;
+        text-align: center;
+    }
+}
