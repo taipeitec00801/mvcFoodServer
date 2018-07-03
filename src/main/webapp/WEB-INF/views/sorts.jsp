@@ -32,7 +32,7 @@
     <!-- 自訂義 -->
     <link rel="stylesheet" href="other/css/sortStyle.css" type="text/css">
     <!-- Navbar css -->
-    <link rel="stylesheet" href="css/myNavbar.css" type="text/css">
+    <link rel="stylesheet" href="css/myNavbarFooter.css" type="text/css">
 
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
@@ -79,19 +79,15 @@
 
         });	
     </script>
-
 </head>
 
 <body>
     <div id="fh5co-wrapper">
         <div id="fh5co-page">
-
             <!-- navbar -->
             <div class="myNavbar">
                 <%@ include file="navbar.jsp"%>
             </div>
-
-
             <!-- title -->
             <div class="sortTitle">
                 <div class="container">
@@ -102,7 +98,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- sort context -->
             <div class="sortBackground">
                 <div class="sortCard">
@@ -145,8 +140,6 @@
                             </div>
                         </c:forEach>
                     </div>
-
-
                     <!-- pag -->
                     <div class="pageBox">
                     <span class="pages">
@@ -173,53 +166,11 @@
                     </div>
                 </div>
             </div>
-
-
-            <footer>
-                <div id="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3 text-center">
-                                <p class="fh5co-social-icons">
-                                    <a href="#">
-                                        <i class="icon-twitter2"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="icon-facebook2"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="icon-instagram"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="icon-dribbble2"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="icon-youtube"></i>
-                                    </a>
-                                </p>
-                                <p>
-                                    Copyright 2016 Free Html5
-                                    <a href="#">Pentagon</a>. All Rights Reserved.
-                                    <br>Made with
-                                    <i class="icon-heart3"></i> by
-                                    <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images:
-                                    <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-
-
+			<%@ include file="footer.jsp"%>
         </div>
         <!-- END fh5co-page -->
-
     </div>
     <!-- END fh5co-wrapper -->
-
-
-
 </body>
 
 </html>

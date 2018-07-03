@@ -33,7 +33,7 @@
 <link rel="stylesheet" type="text/css" href="other/css/indexStyle.css"
 	charset="UTF-8">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="css/myNavbar.css"
+<link rel="stylesheet" type="text/css" href="css/myNavbarFooter.css"
 	charset="UTF-8">
 
 <!-- Modernizr JS -->
@@ -237,28 +237,28 @@
 							<ul id="fh5co-portfolio-list" class="storeSortList">
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/chineseStyle.jpg);"><a
-									href="<spring:url value='sorts/0?pages=${pagesNo}' />">
+									href="<spring:url value='sorts?sortNo=0&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>中式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/westernStyle.jpg);"><a
-									href="sort/1">
+									href="<spring:url value='sorts?sortNo=1&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>西式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/koreanStyle.jpg);"><a
-									href="sort/2">
+									href="<spring:url value='sorts?sortNo=3&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>韓式</h2>
 										</div>
 								</a></li>
 								<li class="two-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/japaneseStyle.jpg);">
-									<a href="sort/3">
+									<a href="<spring:url value='sorts?sortNo=2&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>日式</h2>
 										</div>
@@ -267,14 +267,14 @@
 
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/thaiStyle.jpg);"><a
-									href="sort/4">
+									href="<spring:url value='sorts?sortNo=4&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>泰式</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/hongKongStyle.jpg);">
-									<a href="sort/5">
+									<a href="<spring:url value='sorts?sortNo=5&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>港式</h2>
 										</div>
@@ -282,21 +282,21 @@
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/snack.jpg);"><a
-									href="sort/6">
+									href="<spring:url value='sorts?sortNo=6&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>小吃</h2>
 										</div>
 								</a></li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/iceProducts.jpg);"><a
-									href="sort/7">
+									href="<spring:url value='sorts?sortNo=8&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>冰品</h2>
 										</div>
 								</a></li>
 								<li class="two-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images//dessertDrink.jpg);">
-									<a href="sort/8">
+									<a href="<spring:url value='sorts?sortNo=7&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>
 												甜點 <span>&</span> 飲品
@@ -305,7 +305,7 @@
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/otherStyle.jpg);"><a
-									href="sort/9">
+									href="<spring:url value='sorts?sortNo=9&pages=1' />">
 										<div class="case-studies-summary">
 											<h2>其他</h2>
 										</div>
@@ -421,33 +421,8 @@
 				</div>
 			</div>
 			<!-- fh5co-blog-section -->
-
-
 			<!-- footer -->
-			<footer>
-			<div id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-md-offset-3 text-center">
-							<p class="fh5co-social-icons">
-								<a href="#"> <i class="icon-twitter2"></i>
-								</a> <a href="#"> <i class="icon-facebook2"></i>
-								</a> <a href="#"> <i class="icon-instagram"></i>
-								</a> <a href="#"> <i class="icon-dribbble2"></i>
-								</a> <a href="#"> <i class="icon-youtube"></i>
-								</a>
-							</p>
-							<p>
-								Copyright 2018 Free Html5 <a href="#">Pentagon</a>. All Rights
-								Reserved. <br>Made with <i class="icon-heart3"></i> by <a
-									href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> /
-								Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			</footer>
+			<%@ include file="footer.jsp"%>
 
 
 		</div>

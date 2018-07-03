@@ -22,13 +22,13 @@ public class SortController {
 	public String getStore(@RequestParam("sortNo") Integer sortNum,
 							@RequestParam("pages") Integer pages, Model model) {
 		storeService.setPageNo(pages);
+		model.addAttribute("totalPages", storeService.getTotalPages(sortNum));
 		List<Store> list = new ArrayList<Store>();
 		if (sortNum < 10 && sortNum >= 0) {
 			list = storeService.getStoreBySortNum(sortNum);
 		} else {
 			list = storeService.getAllStores();
 		}
-		model.addAttribute("totalPages", storeService.getTotalPages(sortNum));
 		model.addAttribute("stores", list);
 		model.addAttribute("sortNumber", sortNum);
 		return "sorts";
