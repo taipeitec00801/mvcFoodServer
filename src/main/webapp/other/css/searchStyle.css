@@ -1,123 +1,125 @@
-/*-----navbar-----*/
-
-.myNavbar {
-    margin-bottom: 56px;
-}
-
-.navbarSize {
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-.navbar-brand img {
-    width: 50px;
-    height: 50px;
-}
-
-.navbar-brand {
-    padding: 3px 0px;
-}
-
-.searchBar {
-    line-height: 56px;
-    margin-left: 20px;
-}
-
-.myNavbar .form-control {
-    display: inline-block;
-    padding: 8px 15px 8px 40px;
-    font-size: 16px;
-    color: #333333;
-    background-color: #eee;
-    border: 2px solid #000;
-    border-radius: 20px;
-    background-repeat: no-repeat;
-    background-position: 10px 8px;
-    background-image: url('../images/searchicon.png');
-}
-
-.myNavbar a:hover {
-    color: #ffcc88 !important;
-}
-
-/*========================================= */
-
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
 /*========================================= */
 
 /*-----override-----*/
-
-#fh5co-blog-section {
-    padding: 0;
-    margin-bottom: 0px;
-}
-
 .heading-section:after {
     width: 200px;
     margin-left: -100px;
     background: #203a43;
 }
 
-.fh5co-blog .blog-text {
-    margin-bottom: 0px;
-    margin-top: -1em;
+::selection {
+    background: #203a43;
 }
 
-.row {
-    margin-top: 0px;
-    margin-bottom: 50px;
+.list-group-item {
+    border: 1px solid #9fafbc;
 }
 
-a {
-    color: #203a43;
+.a.list-group-item {
+    color: #222;
 }
-
 /*========================================= */
 
-/* <!-- pag --> */
+/* <!-- pags --> */
 
-.pags {
-    margin: 0px auto;
-    width: 20%;
-    text-align: center;
+.pageBox {
+	width: 100%;
+	height: 3%;
+	clear: both;
+	text-align: center;
+}
+
+.pages a:hover {
+	color: #203a43 !important;
+	background: #9fafbc !important;
 }
 
 /*========================================= */
 
 /* <!-- title --> */
-
 .searchTitle {
-    padding: 5em 0 0 0;
-    background: url(../images/rawpixel-unsplash.jpg);
-    background-size: cover;
-    font-family: 'cwTeXYen', sans-serif;
+	padding: 5em 0 0 0;
+	background: url(../../images/sortHeader.jpg);
+	background-repeat: no-repeat;
+	font-family: 'cwTeXYen', sans-serif;
 }
 
 .searchTitle h1 {
-    font-size: 40px;
-    color: #000000;
-    font-weight: 900;
+	font-size: 40px;
+	color: #000000;
+	font-weight: 900;
 }
 
 .searchTitle p {
-    color: #222222;
+	color: #222;
 }
 
 /*========================================= */
 
-/*-----search context-----*/
-
+/*-----sort background-----*/
 .searchBackground {
-    background: url(../images/ales-krivec-623956-unsplash.jpg);
-    background-position: center;
-    background-size: cover;
+	background: url(../../images/DecorativeBackground04.jpg);
+	background-position: center;
 }
 
 .searchCard {
-    padding: 100px 0px 30px 0px;
-    background: rgba(0, 0, 0, 0.3);
+	padding: 100px 0px 30px 0px;
+	background: rgba(0, 0, 0, 0.5);
 }
 
-.searchCard a:hover {
-    color: #203a43 !important;
+/*========================================= */
+
+/*-----sort Content-----*/
+.searchContent {
+	width: 70%;
+	float: left;
+	margin-right: 5%;
+}
+
+.captionBottom span {
+	margin-left: 33%;
+}
+
+.searchContent .captionBottom {
+	margin-top: 15px;
+}
+
+.searchContent .btn:hover {
+	background: #9fafbc !important;
+}
+
+.searchContent a {
+	color: #203a43;
+}
+
+.searchContent h4 {
+	font-weight: 900;
+	color: #000;
+	margin: 0 0 15px 0;
+	font-size: 20px;
+}
+
+.searchContent .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.searchContent .btn.btn-primary {
+	background: #203a43;	
+}
+
+
+.searchContent>.thumbnail {
+	float: left;
+	padding: 6px;
+}
+
+.titleName {
+	position: absolute;
+	width: 70%;
+}
+
+.bottomPlace {
+	margin-top: 0px;
+	margin-bottom: 1%;
 }

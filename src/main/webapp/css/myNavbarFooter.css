@@ -3,37 +3,47 @@
 	margin-bottom: 56px;
 }
 
-.navbarSize {
+.myNavbar .navbarSize {
 	margin-left: 50px;
 	margin-right: 50px;
 }
 
-.navbar-brand img {
-	width: 50px;
-	height: 50px;
-}
-
-.navbar-brand {
+.myNavbar .navbar-brand {
 	padding: 3px 0px;
 }
 
 .myNavbar .searchBar {
-    line-height: 56px;
-    margin-left: 5%;
-    margin-top: 7px;
+	line-height: 56px;
+	margin-left: 2%;
+	margin-top: 7px;
+}
+
+.myNavbar button {
+	border-radius: 0 20px 20px 0;
+	height: 40px;
+	background-color: #eee;
+	margin-left: -20px;
+}
+
+.myNavbar .navbar-brand>img {
+	display: inline;
+	width: 50px;
+	height: 50px;
+}
+
+.myNavbar .navbar-brand>span {
+	font-size: 24px;
+	color: #fff;
 }
 
 .myNavbar .form-control {
 	display: inline-block;
-	padding: 8px 15px 8px 40px;
+	padding: 8px 0 8px 15px;
 	font-size: 16px;
 	color: #333333;
 	background-color: #eee;
-	border: 2px solid #000;
-	border-radius: 20px;
-	background-repeat: no-repeat;
-	background-position: 10px 8px;
-	background-image: url('../images/searchicon.png');
+	border: 2px solid #888;
+	border-radius: 20px;	
 }
 
 .myNavbar a:hover {
@@ -42,5 +52,11 @@
 }
 /* ---------------------------------------------------------- */
 #footer {
-    background: #203a43;
+	background: #203a43;
+}
+
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group
+	{
+	z-index: 0;
+	margin-left: 0px;
 }

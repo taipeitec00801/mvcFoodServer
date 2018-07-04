@@ -33,14 +33,6 @@ public class SortController {
 		model.addAttribute("sortNumber", sortNum);
 		return "sorts";
 	}
-		
-//	@RequestMapping("/sort")
-//	public String pages(@RequestParam("pages") Integer pages, Model model) {
-//		storeService.setPageNo(pages);
-//		List<Store> list = storeService.getAllStores();
-//		model.addAttribute("totalPages", storeService.getTotalPages(-1));
-//		model.addAttribute("stores", list);
-//		return "sorts";
-//	}
+
 
 }

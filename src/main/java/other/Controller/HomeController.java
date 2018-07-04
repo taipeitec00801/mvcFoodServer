@@ -19,12 +19,17 @@ public class HomeController {
 	
 	@RequestMapping("/home")
 	public String home() {
-		return "forward:/";
+		return "redirect:/";
 	}
 
 	@RequestMapping("/store_Info")
 	public String store_Info() {
 		return "store_Info";
+	}
+	
+	@RequestMapping("/search")
+	public String search() {
+		return "search";
 	}
 
 //	@RequestMapping("/member_setting")

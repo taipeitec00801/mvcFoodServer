@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge charset=tf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sort &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co
+    <title>Search &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <!-- 自訂義 -->
-    <link rel="stylesheet" href="other/css/sortStyle.css" type="text/css">
+    <link rel="stylesheet" href="other/css/searchStyle.css" type="text/css">
     <!-- Navbar css -->
     <link rel="stylesheet" href="css/myNavbarFooter.css" type="text/css">
 
@@ -48,40 +48,7 @@
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- Main JS (Do not remove) -->
     <script src="js/main.js"></script>
-    
-    <script src="js/mySearchBar.js"></script>
-    
-    
-    
-    
     <!-- jQuery -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var strUrl = location.search;
-            var getPara;
-            var sortNum, isPages;
-
-            if (strUrl.indexOf("?") != -1) {
-                var getSearch = strUrl.split("?");
-                getPara = getSearch[1].split("&");
-                /* ?sortNo=sortNum&pages=isPages */
-                sortNum = getPara[0].substring(getPara[0].indexOf("=") + 1);
-                isPages = getPara[1].substring(getPara[1].indexOf("=") + 1);
-            }
-            var page = ".pagesNo_" + isPages;
-            $(page).css({
-                backgroundColor: '#203a43',
-                color: '#fff'
-            });
-
-            var sortNumer = ".myItem_" + sortNum;
-            $(sortNumer).css({
-                backgroundColor: '#203a43',
-                color: '#fff'
-            });
-            
-        });	
-    </script>
 </head>
 
 <body>
@@ -92,7 +59,7 @@
                 <%@ include file="navbar.jsp"%>
             </div>
             <!-- title -->
-            <div class="sortTitle">
+            <div class="searchTitle">
                 <div class="container">
                     <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
                         <h1>各種驚奇美食</h1>
@@ -102,26 +69,10 @@
                 </div>
             </div>
             <!-- sort context -->
-            <div class="sortBackground">
-                <div class="sortCard">
-                    <!-- list -->
-                    <div class="myList">
-                        <div class="list-group">
-                            <a href="<spring:url value='sorts?sortNo=-1&pages=1' />" class="list-group-item myItem_-1">不限種類</a>
-                            <a href="<spring:url value='sorts?sortNo=0&pages=1' />" class="list-group-item myItem_0">中式美食</a>
-                            <a href="<spring:url value='sorts?sortNo=1&pages=1' />" class="list-group-item myItem_1">西式美食</a>
-                            <a href="<spring:url value='sorts?sortNo=2&pages=1' />" class="list-group-item myItem_2">日式美食</a>
-                            <a href="<spring:url value='sorts?sortNo=3&pages=1' />" class="list-group-item myItem_3">韓式美食</a>
-                            <a href="<spring:url value='sorts?sortNo=4&pages=1' />" class="list-group-item myItem_4">泰式美食</a>
-                            <a href="<spring:url value='sorts?sortNo=5&pages=1' />" class="list-group-item myItem_5">港式美食</a>
-                            <a href="<spring:url value='sorts?sortNo=6&pages=1' />" class="list-group-item myItem_6">路邊美食</a>
-                            <a href="<spring:url value='sorts?sortNo=7&pages=1' />" class="list-group-item myItem_7">甜點飲品</a>
-                            <a href="<spring:url value='sorts?sortNo=8&pages=1' />" class="list-group-item myItem_8">冰涼滋味</a>
-                            <a href="<spring:url value='sorts?sortNo=9&pages=1' />" class="list-group-item myItem_9">隱藏美食</a>
-                        </div>
-                    </div>
+            <div class="searchBackground">
+                <div class="searchCard">                    
                     <!-- Content -->
-                    <div class="sortContent">
+                    <div class="searchContent">
                         <c:forEach var="store" begin="0" end="9" items="${stores}">
                             <div class="col-sm-6 col-md-4 bottomPlace">
                                 <div class="thumbnail">
