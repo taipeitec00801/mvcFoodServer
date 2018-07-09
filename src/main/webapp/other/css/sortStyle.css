@@ -19,6 +19,7 @@
 .a.list-group-item {
     color: #222;
 }
+
 /*========================================= */
 
 /* <!-- pags --> */
@@ -95,7 +96,7 @@
 }
 
 .captionBottom span {
-	margin-left: 33%;
+	margin-left: 26%;
 }
 
 .sortContent .captionBottom {

@@ -14,12 +14,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 
-import init.GlobalService;
 import init.JDBC.Model.Member;
 import init.JDBC.Model.Store;
 import init.JDBC.Model.StoreComment;
 import init.JDBC.Utils.DBService;
 import init.JDBC.Utils.SystemUtils;
+import javaClass.GlobalService;
 
 
 
@@ -91,8 +91,7 @@ public class TableReset_JDBC {
 					String[] sa = line.split("\\|");
 					Member member = new Member();
 					member.setUserAccount(sa[0].trim());
-					member.setUserPassword(GlobalService.getMD5Endocing(
-							GlobalService.encryptString(sa[1].trim())));
+					member.setUserPassword(GlobalService.getMD5Endocing(GlobalService.encryptString(sa[1].trim())));
 
 					member.setNickname(sa[2].trim());
 					

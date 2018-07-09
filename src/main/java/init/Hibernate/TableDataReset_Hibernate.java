@@ -24,14 +24,10 @@ import javax.sql.rowset.serial.SerialException;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import init.GlobalService;
 import init.Hibernate.Utils.HibernateUtil_MySQL;
+import javaClass.GlobalService;
 import member.Model.Member;
-import member.Service.MemberService;
 import other.Model.Store;
 import other.Model.StoreComment;
 
@@ -80,8 +76,7 @@ public class TableDataReset_Hibernate {
 					
 //					member.setUserPassword(sa[1].trim());
 					// 若又進行編碼 需先至 member/Model/Member.java 中修改 欄位型態
-					member.setUserPassword(GlobalService.getMD5Endocing(
-							GlobalService.encryptString(sa[1].trim())));
+					member.setUserPassword(GlobalService.getMD5Endocing(GlobalService.encryptString(sa[1].trim())));
 
 					member.setNickname(sa[2].trim());
 					member.setBirthday(sa[3].trim());
@@ -220,7 +215,7 @@ public class TableDataReset_Hibernate {
 				 String[] sa = line.split("\\|");
 				 try {
 					 tx = session.beginTransaction();	
-					 StoreComment comment = new StoreComment(); 					 
+					 StoreComment comment = new StoreComment(); 
 					 comment.setCommentMId(listMember.get(Integer.parseInt(sa[0]) - 1 )); 
 					 comment.setCommentSId(listStore.get(Integer.parseInt(sa[1]) - 1 ));
 				// --------------處理Blob(圖片)欄位----------------

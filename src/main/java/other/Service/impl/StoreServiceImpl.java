@@ -69,5 +69,10 @@ public class StoreServiceImpl implements StoreService {
 	public List<Store> getStoresById(Integer storeId) {
 		return storeDao.getStoresById(storeId);
 	}
+
+	@Override
+	public List<Store> getStoreByName(String myRequest) {
+		return storeDao.getStoreByName(myRequest);
+	}
 	
 }

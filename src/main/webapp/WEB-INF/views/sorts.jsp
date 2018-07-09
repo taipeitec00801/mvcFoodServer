@@ -31,57 +31,6 @@
     <!-- Navbar css -->
     <link rel="stylesheet" href="css/myNavbarFooter.css" type="text/css">
 
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Stellar -->
-    <script src="js/jquery.stellar.min.js"></script>
-    <!-- Superfish -->
-    <script src="js/hoverIntent.js"></script>
-    <script src="js/superfish.js"></script>
-    <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    <!-- Main JS (Do not remove) -->
-    <script src="js/main.js"></script>
-    
-    <script src="js/mySearchBar.js"></script>
-    
-    
-    
-    
-    <!-- jQuery -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var strUrl = location.search;
-            var getPara;
-            var sortNum, isPages;
-
-            if (strUrl.indexOf("?") != -1) {
-                var getSearch = strUrl.split("?");
-                getPara = getSearch[1].split("&");
-                /* ?sortNo=sortNum&pages=isPages */
-                sortNum = getPara[0].substring(getPara[0].indexOf("=") + 1);
-                isPages = getPara[1].substring(getPara[1].indexOf("=") + 1);
-            }
-            var page = ".pagesNo_" + isPages;
-            $(page).css({
-                backgroundColor: '#203a43',
-                color: '#fff'
-            });
-
-            var sortNumer = ".myItem_" + sortNum;
-            $(sortNumer).css({
-                backgroundColor: '#203a43',
-                color: '#fff'
-            });
-            
-        });	
-    </script>
 </head>
 
 <body>
@@ -117,7 +66,7 @@
                             <a href="<spring:url value='sorts?sortNo=6&pages=1' />" class="list-group-item myItem_6">路邊美食</a>
                             <a href="<spring:url value='sorts?sortNo=7&pages=1' />" class="list-group-item myItem_7">甜點飲品</a>
                             <a href="<spring:url value='sorts?sortNo=8&pages=1' />" class="list-group-item myItem_8">冰涼滋味</a>
-                            <a href="<spring:url value='sorts?sortNo=9&pages=1' />" class="list-group-item myItem_9">隱藏美食</a>
+                            <a href="<spring:url value='sorts?sortNo=9&pages=1' />" class="list-group-item myItem_9">其他美食</a>
                         </div>
                     </div>
                     <!-- Content -->
@@ -125,13 +74,13 @@
                         <c:forEach var="store" begin="0" end="9" items="${stores}">
                             <div class="col-sm-6 col-md-4 bottomPlace">
                                 <div class="thumbnail">
-                                    <img src="images/036_02.jpg">
+                                    <img src="<c:url value='/getPicture/${store.storeId}/0'/>" style="height: 270px"/>
                                     <div class="caption">
                                         <h4>${store.storeName}</h4>
                                         <span>地址：</span><span>${store.storeAddress}</span><br>
                                         <span>電話：</span><span>${store.storePhone}</span><br>
                                         <div class="captionBottom">
-                                        <a href="#" class="btn btn-primary" role="button">Read More</a>
+                                        <a href="<spring:url value='store_Info?storeId=${store.storeId}' />" class="btn btn-primary" role="button">Read More</a>
                                         <span class="comment">
                                         ${store.storeRecomCount} <i class="icon-heart4" style="color:red;"></i>
                                         &nbsp;&nbsp;
@@ -174,6 +123,55 @@
         <!-- END fh5co-page -->
     </div>
     <!-- END fh5co-wrapper -->
+    
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+    <!-- Stellar -->
+    <script src="js/jquery.stellar.min.js"></script>
+    <!-- Superfish -->
+    <script src="js/hoverIntent.js"></script>
+    <script src="js/superfish.js"></script>
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <!-- Main JS (Do not remove) -->
+    <script src="js/main.js"></script>
+    
+    <script src="js/mySearchBar.js"></script>    
+    
+    <!-- jQuery -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var strUrl = location.search;
+            var getPara;
+            var sortNum, isPages;
+
+            if (strUrl.indexOf("?") != -1) {
+                var getSearch = strUrl.split("?");
+                getPara = getSearch[1].split("&");
+                /* ?sortNo=sortNum&pages=isPages */
+                sortNum = getPara[0].substring(getPara[0].indexOf("=") + 1);
+                isPages = getPara[1].substring(getPara[1].indexOf("=") + 1);
+            }
+            var page = ".pagesNo_" + isPages;
+            $(page).css({
+                backgroundColor: '#203a43',
+                color: '#fff'
+            });
+
+            var sortNumer = ".myItem_" + sortNum;
+            $(sortNumer).css({
+                backgroundColor: '#203a43',
+                color: '#fff'
+            });
+            
+        });	
+    </script>
 </body>
 
 </html>

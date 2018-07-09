@@ -73,12 +73,11 @@
 /*-----sort Content-----*/
 .searchContent {
 	width: 70%;
-	float: left;
-	margin-right: 5%;
+	margin: 0 auto;
 }
 
 .captionBottom span {
-	margin-left: 33%;
+	margin-left: 30%;
 }
 
 .searchContent .captionBottom {

@@ -12,6 +12,7 @@ public interface StoreService {
 	List<Store> getUserStores(String userPref);
 	List<Store> getTopStores();
 	List<Store> getStoresById(Integer storeId);
+	List<Store> getStoreByName(String myRequest);
 	
 	Integer getPageNo();
 	void setPageNo(Integer pageNo);

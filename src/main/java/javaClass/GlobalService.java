@@ -1,4 +1,4 @@
-package init;
+package javaClass;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,9 +17,10 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import javax.xml.bind.DatatypeConverter;
+
+import sun.misc.*;
 // asasash.jpeg
 public class GlobalService {
-	public static final int    RECORDS_PER_PAGE = 2;
 	public static final String host = "127.0.0.1";
 	//public static final String host = "192.168.11.22";
 	public static final String USERID = "root";
@@ -28,12 +29,9 @@ public class GlobalService {
 	public static final int    IMAGE_FILENAME_LENGTH = 20;
 	public static final String DB_URLMySQL = "jdbc:mysql://" + GlobalService.host + "/food?useUnicode=yes&characterEncoding=utf8" ;
 	public static final String KEY = "taipeitecjava008";  //公用帳號		16, 24, 32
-//	public static final String KEY = "KittySnoopyMicky";  //老師範例	16, 24, 32
 	
 	public static final int ORDER_AMOUNT_LIMIT = 10000;
 	
-	//public static final String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-
 	public String getSystemName() {   //  systemName 
 		return SYSTEM_NAME;
 	}
@@ -110,27 +108,7 @@ public class GlobalService {
 		fis.close();
 		return buffer.toString();
 	}
-    // 為了測試本類別的其他方法而準備的main()方法。
-	public static void main(String[] args) throws Exception {
-		//
-//		System.out.println(System.getProperty("java.home"));
-//		File file = new File("C:\\Users\\user\\Downloads\\apache-tomcat-8.0.32-windows-x64.zip");
-//		
-//		String s = "PHP[PHP] 範例實做 RSA, 公私鑰非對稱加解密";
-		String encStr = "", decStr="";
-		String s = "123";
-		encStr = encryptString(s);
-		String t = getMD5Endocing(encStr);
-		//decStr = decryptString(KEY, encStr);
-		
-		// c7f3a235792b037b6aa77aced86ac6ae
-		// c7f3a235792b037b6aa77aced86ac6ae
-//		file = new File("d:\\apache-tomcat-6.0.18.exe");
-		// fb827381b1eca44bf32273db548157d3
-		
-//		e3bef82f712da7110aaeae5a64ebdb20
-//      e3bef82f712da7110aaeae5a64ebdb20
-	}
+  
     // 本方法調整fileName的長度小於或等於maxLength。
 	// 如果fileName的長度小於或等於maxLength，直接傳回fileName
 	// 否則保留最後一個句點與其後的附檔名，縮短主檔名使得fileName的總長度
@@ -201,6 +179,7 @@ public class GlobalService {
 	 * @throws IllegalBlockSizeException 
 	 * @throws Throwable
 	 */
+	@SuppressWarnings("restriction")
 	public static String encryptString(String message) 
     {
 	//  DES : Data Encryption Standard, 一種對稱式加密演算法。
@@ -226,6 +205,7 @@ public class GlobalService {
 		Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding"); 
 		SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), "AES");
 		cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+//		encryptedString = new BASE64Encoder().encode(cipher.doFinal(message.getBytes()));
 		encryptedString = DatatypeConverter.printBase64Binary(cipher.doFinal(message.getBytes()));
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -238,15 +218,16 @@ public class GlobalService {
 	 *   傳回值為解密後的字串(Plaintext)
 	 *   
 	 */
-	public static String decryptString(String key, String stringToDecrypt)
-			 {
+	public static String decryptString(String key, String stringToDecrypt) {
 		String decryptedString = "";
 		try {
 			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding"); 
 			SecretKeySpec secretKey = new SecretKeySpec(key.getBytes(), "AES");
 			cipher.init(Cipher.DECRYPT_MODE, secretKey);
+//			byte[] b = cipher.doFinal(new BASE64Decoder().decodeBuffer(stringToDecrypt));
 			byte[] b = DatatypeConverter.parseBase64Binary(stringToDecrypt);
 			decryptedString = new String(cipher.doFinal(b));
+		
 		} catch (InvalidKeyException e) {
 			e.printStackTrace();
 		} catch (NoSuchAlgorithmException e) {
@@ -257,14 +238,13 @@ public class GlobalService {
 			e.printStackTrace();
 		} catch (BadPaddingException e) {
 			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
 		}
+		
 		return decryptedString;
 	}	
 }
-// c58c619950f96f4c04da28b48b296de0
-// c58c619950f96f4c04da28b48b296de0
-// c58c619950f96f4c04da28b48b296de0
-// c58c619950f96f4c04da28b48b296de0
 
 
 class SecurityException extends RuntimeException {

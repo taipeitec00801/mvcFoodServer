@@ -48,7 +48,30 @@
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- Main JS (Do not remove) -->
     <script src="js/main.js"></script>
+    
+    <script src="js/mySearchBar.js"></script>
+    
     <!-- jQuery -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var strUrl = location.search;
+            var getPara;
+            var isPages;
+
+            if (strUrl.indexOf("?") != -1) {
+                var getSearch = strUrl.split("?");
+                getPara = getSearch[1].split("&");
+                /* ?pages=isPages */
+                isPages = getPara[0].substring(getPara[1].indexOf("=") + 1);
+            }
+            var page = ".pagesNo_" + isPages;
+            $(page).css({
+                backgroundColor: '#203a43',
+                color: '#fff'
+            });
+
+        });	
+    </script>
 </head>
 
 <body>
@@ -100,17 +123,17 @@
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
                                 <li>
-                                    <a href="<spring:url value='sorts?sortNo=${sortNumber}&pages=1' />" aria-label="Previous">
+                                    <a href="<spring:url value='search?pages=1' />" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
                                 <c:forEach var="pagesNo" begin="1" end="${totalPages}">
                                     <li>
-                                        <a href="<spring:url value='sorts?sortNo=${sortNumber}&pages=${pagesNo}' />" class="pagesNo_${pagesNo}">${pagesNo}</a>
+                                        <a href="<spring:url value='search?pages=${pagesNo}' />" class="pagesNo_${pagesNo}">${pagesNo}</a>
                                     </li>
                                 </c:forEach>
                                 <li>
-                                    <a href="<spring:url value='sorts?sortNo=${sortNumber}&pages=${totalPages}' />" aria-label="Next">
+                                    <a href="<spring:url value='search?pages=${totalPages}' />" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
