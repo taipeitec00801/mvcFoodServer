@@ -1,5 +1,7 @@
 package other.Controller;
 
+import java.sql.Clob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import other.Model.Store;
+import other.Model.StoreComment;
 import other.Repository.impl.StoreDaoImpl;
 import other.Service.StoreService;
 
@@ -23,11 +26,27 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(@RequestParam(value="userPref",defaultValue = "null") String userPref,Model model) {
 		List<Store> list = new ArrayList<Store>();
+		List<StoreComment> comList = new ArrayList<>();
+		List<String> contentList = new ArrayList<>();
 		if(userPref == null)
 			list = storeService.getUserStores(userPref);
 		else
 			list = storeService.getTopStores();
+		comList = storeService.getTopComm();
+		//Clob to Sring
+		for(int i=0;i<comList.size();i++) {
+			Clob clob = comList.get(i).getCommentContent();
+			try {
+				String clobString = clob.getSubString(1, (int) clob.length());
+				contentList.add(clobString);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("contentList:"+contentList.size());
 		model.addAttribute("stores", list);
+		model.addAttribute("storeComments",comList);
+		model.addAttribute("contentList",contentList);
 		return "index";
 	}
 	

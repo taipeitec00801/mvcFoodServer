@@ -1,5 +1,7 @@
 package other.Repository.impl;
 
+import java.sql.Clob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import other.Model.Store;
+import other.Model.StoreComment;
 import other.Repository.StoreDao;
 
 @Repository
@@ -128,6 +131,18 @@ public class StoreDaoImpl implements StoreDao {
 		Query query = session.createQuery(hql);
 		query.setParameter("storeId", storeId);
 		return (List<Store>) query.getResultList();
+	}
+	
+	@Override
+	public List<StoreComment> getTopComm() {
+		List<StoreComment> list = new ArrayList<>();
+		String hql = "FROM StoreComment sc ORDER BY sc.commentRecomCount DESC";
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setFirstResult(0);
+		query.setMaxResults(3);
+		list = (List<StoreComment>)query.getResultList();
+		return list;
 	}
 
 }

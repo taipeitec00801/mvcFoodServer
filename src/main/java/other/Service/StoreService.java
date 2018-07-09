@@ -3,6 +3,7 @@ package other.Service;
 import java.util.List;
 
 import other.Model.Store;
+import other.Model.StoreComment;
 
 public interface StoreService {
 	Store getStoreById(Integer storeId);
@@ -13,6 +14,7 @@ public interface StoreService {
 	List<Store> getTopStores();
 	List<Store> getStoresById(Integer storeId);
 	List<Store> getStoreByName(String myRequest);
+	List<StoreComment> getTopComm();
 	
 	Integer getPageNo();
 	void setPageNo(Integer pageNo);

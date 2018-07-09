@@ -115,7 +115,7 @@
 								<div class="col-sm-6 col-md-6">
 									<div class="thumbnail one-third animate-box"
 										data-animate-effect="fadeIn">
-										<img src="<c:url value='/getPicture/${store.storeId}/${i}'/>" />
+										<img src="<c:url value='/getPicture/${store.storeId}/${i}'/>" style="height:350px; width:100% "/>
 									</div>
 								</div>
 							</c:forEach>

@@ -117,25 +117,24 @@
 					<div class="row">
 						<div class="row color-3 animate-box">
 							<c:forEach var="store" begin="0" end="9" items="${stores}">
-									<div class="col-sm-6 col-md-4 bottomPlace">
-										<div class="thumbnail">
-											<img src="images/036_00.jpg">
-											<div class="caption">
-												<h4>${store.storeName}</h4>
-												<span>地址：</span><span>${store.storeAddress}</span><br>
-												<span>電話：</span><span>${store.storePhone}</span><br>
-												<div class="captionBottom">
-													<a href="<spring:url value='store_Info?storeId=${store.storeId}' />" class="btn btn-primary" role="button">Read
-														More
-													</a> 
-													<span class="comment">
-														${store.storeRecomCount} <i class="icon-heart4"
-														style="color: red;"></i>
-													</span>
-												</div>
+								<div class="col-sm-6 col-md-4 bottomPlace">
+									<div class="thumbnail">
+										<img src="<c:url value='/getOnePicture/${store.storeId}'/>"
+											style="height: 350px; width: 100%" />
+										<div class="caption">
+											<h4>${store.storeName}</h4>
+											<span>地址：</span><span>${store.storeAddress}</span><br> <span>電話：</span><span>${store.storePhone}</span><br>
+											<div class="captionBottom">
+												<a
+													href="<spring:url value='store_Info?storeId=${store.storeId}' />"
+													class="btn btn-primary" role="button">Read More </a> <span
+													class="comment"> ${store.storeRecomCount} <i
+													class="icon-heart4" style="color: red;"></i>
+												</span>
 											</div>
 										</div>
 									</div>
+								</div>
 							</c:forEach>
 						</div>
 					</div>
@@ -256,92 +255,32 @@
 				</div>
 				<div class="container">
 					<div class="row row-bottom-padded-md">
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/036_01.jpg">
-								</a>
-								<div class="blog">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
+						<c:forEach var="storeComment" begin="0" end="3"
+							items="${storeComments}" varStatus="loop">
+							<div class="col-lg-4 col-md-4">
+								<div class="fh5co-blog animate-box">
+									<a href="#"> <img class="img-responsive"
+										src="images/036_01.jpg">
+									</a>
+									<div class="blog">
+										<div class="prod-title">
+											<h3>
+												<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
+											</h3>
+											<span class="posted_by">${storeComment.commentDate}</span> <span
+												class="comment"> <a href="">${storeComment.commentRecomCount}
+													<i class="icon-bubble2"></i>
+											</a>
+											</span>
+											<c:forEach begin="${loop.index}" end="${loop.index}" items="${contentList}">
+												<p>${contentList[loop.index]}</p>
+											</c:forEach>
+											<a href="#" class="btn btn-primary">Read More</a>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/036_01.jpg">
-								</a>
-								<div class="blog">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/036_02.jpg">
-								</a>
-								<div class="blog">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-4 col-md-offset-4 text-center animate-box">
-							<div class="page">
-								<nav aria-label="Page navigation">
-								<ul class="pagination">
-									<li><a href="#" aria-label="Previous"> <span
-											aria-hidden="true">&laquo;</span>
-									</a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-
-									<li><a href="#" aria-label="Next"> <span
-											aria-hidden="true">&raquo;</span>
-									</a></li>
-								</ul>
-								</nav>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

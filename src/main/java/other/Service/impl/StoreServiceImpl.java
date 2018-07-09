@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import other.Model.Store;
+import other.Model.StoreComment;
 import other.Repository.StoreDao;
 import other.Service.StoreService;
 
@@ -73,6 +74,11 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public List<Store> getStoreByName(String myRequest) {
 		return storeDao.getStoreByName(myRequest);
+	}
+	
+	@Override
+	public List<StoreComment> getTopComm() {
+		return storeDao.getTopComm();
 	}
 	
 }
