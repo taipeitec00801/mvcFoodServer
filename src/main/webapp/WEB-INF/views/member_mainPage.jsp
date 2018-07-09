@@ -2,10 +2,14 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id"
+	content="891658422538-ccj5goer8ah8440aq7f0iq80p43e2l0j.apps.googleusercontent.com">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -14,10 +18,9 @@
 <!-- Superfish -->
 <link rel="stylesheet" href="css/superfish.css">
 <link rel="stylesheet" href="member/css/styles.css">
-<link rel="stylesheet" href="css/bootstrap.css"
-	type="text/css">
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="css/myNavbar.css"
+<link rel="stylesheet" type="text/css" href="css/myNavbarFooter.css"
 	charset="UTF-8">
 <link rel="stylesheet" href="member/css/appStyle.1.css">
 
@@ -26,7 +29,7 @@
 
 
 
-<script src="member/js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="member/js/wow.min.js"></script>
 <script src="js/modernizr-2.6.2.min.js"></script>
 <title>MemberInfo</title>
@@ -50,8 +53,7 @@
 				<div class="fotoInfo test">
 
 					<div class="fotoCase test wow bounceInDown ">
-						<a href="#"> <img
-							src="images/memberFoto.jpg" alt="...">
+						<a href="#"> <img src="images/memberFoto.jpg" alt="...">
 						</a>
 
 					</div>
@@ -234,6 +236,10 @@
 
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
+	<!-- cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/mySearchBar.js"></script>
 </body>
 
 </html>

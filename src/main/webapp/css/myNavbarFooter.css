@@ -18,7 +18,7 @@
 	margin-top: 7px;
 }
 
-.myNavbar button {
+.myNavbar .searchBar button {
 	border-radius: 0 20px 20px 0;
 	height: 40px;
 	background-color: #eee;
@@ -36,14 +36,14 @@
 	color: #fff;
 }
 
-.myNavbar .form-control {
+.myNavbar .searchBar .form-control {
 	display: inline-block;
 	padding: 8px 0 8px 15px;
 	font-size: 16px;
 	color: #333333;
 	background-color: #eee;
 	border: 2px solid #888;
-	border-radius: 20px;	
+	border-radius: 20px;
 }
 
 .myNavbar a:hover {
@@ -59,4 +59,131 @@
 	{
 	z-index: 0;
 	margin-left: 0px;
+}
+/*-------------------------------------------------------------*/
+.myForm {
+	width: 250px;
+	height: 400px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
+.formIn {
+	padding-top: 20px;
+}
+
+.myMenu {
+	width: 350px;
+	height: 400px;
+	left: 100;
+}
+
+.inputMargin {
+	margin-top: 10px;
+	margin-bottom: 8px;
+	padding-left: 20px;
+}
+
+.myMenu:after {
+	right: 40px;
+}
+
+.form-group {
+	text-align: center;
+}
+
+.clearFloat {
+	clear: both;
+}
+
+.submitDiv {
+	text-align: center;
+}
+
+.myButton.btn {
+	width: 150px;
+	height: 30px;
+}
+
+.submitError {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: red;
+	text-align: center;
+	visibility: hidden;
+}
+
+.btnLine {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0px;
+	border: 0;
+	height: 2px;
+	background-image: linear-gradient(to right, rgba(120, 120, 120, 0),
+		rgba(120, 120, 120, 0.75), rgba(120, 120, 120, 0));
+}
+
+.memberImg {
+	width: 200px;
+	height: 140px;
+	margin: 0 auto;
+}
+
+.myLabel {
+	text-align: center;
+}
+
+.memberImg img {
+	max-width: 200px;
+	max-height: 140px;
+	background-size: cover;
+	border-radius: 20px;
+	border: 3px solid black;
+}
+
+.memberId {
+	font-size: 25px;
+}
+
+.logOutBt {
+	margin-top: 10px;
+}
+/* .myButton#logInBt{
+    margin-top: 8px;
+} */
+.giftBt {
+	width: 60px;
+	height: 30px;
+}
+
+.GCdiv {
+	margin-top: 60px;
+	text-align: center;
+}
+
+.reDiv {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.reDiv label {
+	font-size: 16px;
+}
+
+.collectionBt {
+	width: 60px;
+	height: 30px;
+}
+
+.inBtnLine {
+	margin-top: 10px;
+}
+
+#fh5co-primary-menu .fh5co-sub-menu:after {
+	left: 250px;
+}
+
+#fh5co-primary-menu .fh5co-sub-menu {
+	left: -300%;
 }

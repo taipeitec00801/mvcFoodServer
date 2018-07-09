@@ -7,7 +7,10 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge charset=tf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Sort &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co
+    <meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id"
+	content="891658422538-ccj5goer8ah8440aq7f0iq80p43e2l0j.apps.googleusercontent.com">
+    <title>Sort &mdash; 100% Free Fully Responsive HTML5
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
@@ -141,8 +144,10 @@
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- Main JS (Do not remove) -->
     <script src="js/main.js"></script>
-    
-    <script src="js/mySearchBar.js"></script>    
+    <!-- cookie -->
+    <script src="js/jquery.cookie.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/mySearchBar.js"></script>
     
     <!-- jQuery -->
     <script type="text/javascript">

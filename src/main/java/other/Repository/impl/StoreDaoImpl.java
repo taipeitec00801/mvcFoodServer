@@ -133,6 +133,7 @@ public class StoreDaoImpl implements StoreDao {
 		return (List<Store>) query.getResultList();
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<StoreComment> getTopComm() {
 		List<StoreComment> list = new ArrayList<>();

@@ -4,7 +4,7 @@ import member.Model.Member;
 
 public interface MemberDao {
 	
-	boolean userLogin(String userAccount, String password);
+	
 	
 	boolean checkAccount(String userAccount);
 	
@@ -12,7 +12,6 @@ public interface MemberDao {
 	
 	int insertMemberDate(Member mb);
 	
-	byte[] getPortrait(String userAccount);	
 	
 	Member getUserDateNoPortrait(String userAccount);
 

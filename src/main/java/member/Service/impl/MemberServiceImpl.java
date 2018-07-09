@@ -1,6 +1,5 @@
 package member.Service.impl;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,19 +8,14 @@ import member.Model.Member;
 import member.Repository.MemberDao;
 import member.Service.MemberService;
 
-
 @Transactional
 @Service
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
-	MemberDao  dao;
-	
-	public MemberServiceImpl() {}
+	MemberDao dao;
 
-	@Override
-	public boolean userLogin(String userAccount, String password) {
-		return false;
+	public MemberServiceImpl() {
 	}
 
 	@Override
@@ -43,29 +37,21 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public byte[] getPortrait(String userAccount) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Member getUserDateNoPortrait(String userAccount) {
-		
+
 		return dao.getUserDateNoPortrait(userAccount);
 	}
 
 	@Override
-	public  boolean checkACPassword(String userAccount, String userPassword) {
-		boolean exist = dao.checkACPassword(userAccount ,userPassword);
+	public boolean checkACPassword(String userAccount, String userPassword) {
+		boolean exist = dao.checkACPassword(userAccount, userPassword);
 		return exist;
 	}
 
 	@Override
 	public Member getUserId(String userAccount) {
-		
+
 		return dao.getUserId(userAccount);
 	}
-	
-	
 
 }

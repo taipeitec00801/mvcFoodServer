@@ -76,7 +76,7 @@ public class TableDataReset_Hibernate {
 					
 //					member.setUserPassword(sa[1].trim());
 					// 若又進行編碼 需先至 member/Model/Member.java 中修改 欄位型態
-					member.setUserPassword(GlobalService.getMD5Endocing(GlobalService.encryptString(sa[1].trim())));
+					member.setUserPassword(GlobalService.getMD5Endocing(sa[1].trim()));
 
 					member.setNickname(sa[2].trim());
 					member.setBirthday(sa[3].trim());

@@ -56,7 +56,18 @@ public class Member implements Serializable {
 		this.userAccount = userAccount;
 		this.userPassword = userPassword;
 	}
-
+	
+	public Member(String userAccount, String userPassword, String nickname, Date birthday, Integer gender) {
+		super();
+		this.userAccount = userAccount;
+		this.userPassword = userPassword;
+		this.nickname = nickname;
+		this.birthday = birthday;
+		this.gender = gender;
+	}
+	
+	
+	
 	public Member(Integer memberId, String userPassword, String nickname, String birthday, Integer gender,
 			Integer userRank, String preference, String collection, String userGift, String userFriends) {
 		super();

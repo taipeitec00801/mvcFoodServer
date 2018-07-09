@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id"
+	content="891658422538-ccj5goer8ah8440aq7f0iq80p43e2l0j.apps.googleusercontent.com">
 <title>食在好評 &mdash; 100% Free Fully Responsive HTML5 Template by
 	FREEHTML5.co</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,11 +35,6 @@
 <!-- Navbar css -->
 <link rel="stylesheet" type="text/css" href="css/myNavbarFooter.css"
 	charset="UTF-8">
-
-<!-- Modernizr JS -->
-<script src="js/modernizr-2.6.2.min.js"></script>
-
-<script src="js/mySearchBar.js"></script>
 
 </head>
 <body>
@@ -272,7 +270,8 @@
 													<i class="icon-bubble2"></i>
 											</a>
 											</span>
-											<c:forEach begin="${loop.index}" end="${loop.index}" items="${contentList}">
+											<c:forEach begin="${loop.index}" end="${loop.index}"
+												items="${contentList}">
 												<p>${contentList[loop.index]}</p>
 											</c:forEach>
 											<a href="#" class="btn btn-primary">Read More</a>
@@ -310,9 +309,14 @@
 	<!-- Superfish -->
 	<script src="js/hoverIntent.js"></script>
 	<script src="js/superfish.js"></script>
-
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
+	<!-- cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/mySearchBar.js"></script>
 
 </body>
 

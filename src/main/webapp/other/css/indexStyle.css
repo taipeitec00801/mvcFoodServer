@@ -60,7 +60,7 @@
 	height: 893px;
 }
 .section-gray {
-	background: rgba(220,220,220);
+	background: rgba(220,220,220,0.5);
 }
 /*-----store Content-----*/
 .storeContent {

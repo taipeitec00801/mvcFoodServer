@@ -99,11 +99,11 @@ padding-bottom: 25px;
     width: 700px;
 }
 .imgForm{
-    width: 700px;
+/*     width: 700px; */
 }
-.imageCase{
-    width: 700px;
-    height: 700px;
+#imageCase{
+/*     width: 700px; */
+    height: 130px;
 }
 .imageCase img{
     max-width:100%;
@@ -132,6 +132,7 @@ padding-bottom: 25px;
 }
 .oldPassword{
     font-size: 20px;
+    
 }
 .newPassword{
     font-size: 20px;

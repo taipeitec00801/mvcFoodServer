@@ -7,31 +7,26 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import javaClass.GlobalService;
 import member.Model.Member;
 import member.Repository.MemberDao;
-
-
 
 @Repository
 public class MemberDaoImpl implements MemberDao {
 	@Autowired
 	SessionFactory factory;
-	
-
-	public MemberDaoImpl() {
-		super();
-	}
+		
 	@Override
 	public boolean checkAccount(String userAccount) {
 		boolean exist = false;
-		Member mb = null;
 		String hql = "FROM Member m WHERE m.userAccount = :userAccount ";
 		
 		try {
 			Session session = getSession();
 			Query query = session.createQuery(hql);
 			query = query.setParameter("userAccount", userAccount);
-			mb = (Member) query.getSingleResult();
+			Member mb = (Member) query.getSingleResult();
 			exist = true;
 		} catch(NoResultException ex) {
 			exist = false;
@@ -52,12 +47,11 @@ public class MemberDaoImpl implements MemberDao {
 		}
 		return mb;
 	}
-
 	
 	@Override
 	public int updateMemberDate(Member mb) {
 		int n = 0;
-		Session session = factory.getCurrentSession();
+		Session session = getSession();
 		session.update(mb);
 		n++;
 		return n;
@@ -66,18 +60,12 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public int insertMemberDate(Member mb ) {
 		int n = 0;
-		Session session = factory.getCurrentSession();
+		Session session = getSession();
 		session.save(mb);
 		n++;
 		return n;
 	}
-
-	@Override
-	public byte[] getPortrait(String userAccount) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public Member getUserDateNoPortrait(String userAccount) {
 		Member mb = null;
@@ -107,7 +95,7 @@ public class MemberDaoImpl implements MemberDao {
 			try {
 				memb = (Member) session.createQuery(hql)
 						.setParameter("userAccount", userAccount)
-			             .setParameter("userPassword", userPassword)
+			             .setParameter("userPassword", GlobalService.getMD5Endocing(userPassword))
 						.getSingleResult();
 				if(memb!=null) {
 					exist = true;
@@ -127,11 +115,4 @@ public class MemberDaoImpl implements MemberDao {
 	private Session getSession() {
         return factory.getCurrentSession();
 	}
-	@Override
-	public boolean userLogin(String userAccount, String password) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-
 }
