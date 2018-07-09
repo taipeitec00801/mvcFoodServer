@@ -91,5 +91,34 @@ public class StoreDaoImpl implements StoreDao {
 		}			
 		return count;
 	}
+
+	@Override
+	public List<Store> getUserStores(String userPref) {
+		String[] spiltUserPref = userPref.split(",");
+		return null;
+	}
+
+	@Override
+	public List<Store> getTopStores() {
+		List<Store> list = new ArrayList<Store>();
+		String hql = "FROM Store s ORDER BY s.storeRecomCount DESC";
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setFirstResult(0);
+		query.setMaxResults(6);
+		list = (List<Store>)query.getResultList();
+		return list;
+	}
+
+	@Override
+	public List<Store> getStoresById(Integer storeId) {
+		List<Store> list = new ArrayList<Store>();
+		String hql = "FROM Store s WHERE s.storeId = :storeId";
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("storeId", storeId);
+		list = (List<Store>)query.getResultList();
+		return list;
+	}
 	
 }

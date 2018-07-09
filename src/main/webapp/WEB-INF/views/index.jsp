@@ -101,8 +101,8 @@
 			</div>
 
 			<!-- 為您推薦 -->
-			<div id="fh5co-content-section" class="fh5co-section-gray">
-				<div class="container">
+			<div id="fh5co-content-section" class="section-gray">
+				<div class="container storeContent">
 					<div class="row">
 						<div
 							class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
@@ -113,109 +113,34 @@
 						</div>
 					</div>
 				</div>
-				<div class="container">
+				<div class="container storeContent">
 					<div class="row">
-						<div class="job">
-							<div class="row">
-								<a href="store_Info" class="color-3 animate-box">
-									<div class="col-sm-6 col-md-4">
+						<div class="row color-3 animate-box">
+							<c:forEach var="store" begin="0" end="9" items="${stores}">
+									<div class="col-sm-6 col-md-4 bottomPlace">
 										<div class="thumbnail">
 											<img src="images/036_00.jpg">
 											<div class="caption">
-												<h3>店家名稱</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Error vel, minus quo esse molestiae quidem quis cum
-													nulla doloribus doloremque harum ipsum, sint, natus totam
-													alias ipsam rem nostrum fuga!</p>
-												<!-- fh5co-testimonial text-center animate-box -->
+												<h4>${store.storeName}</h4>
+												<span>地址：</span><span>${store.storeAddress}</span><br>
+												<span>電話：</span><span>${store.storePhone}</span><br>
+												<div class="captionBottom">
+													<a href="<spring:url value='store_Info?storeId=${store.storeId}' />" class="btn btn-primary" role="button">Read
+														More
+													</a> 
+													<span class="comment">
+														${store.storeRecomCount} <i class="icon-heart4"
+														style="color: red;"></i>
+													</span>
+												</div>
 											</div>
 										</div>
 									</div>
-								</a> <a href="store_Info" class="color-3 animate-box">
-									<div class="col-sm-6 col-md-4">
-										<div class="thumbnail">
-											<img src="images/036_00.jpg">
-											<div class="caption">
-												<h3>店家名稱</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Error vel, minus quo esse molestiae quidem quis cum
-													nulla doloribus doloremque harum ipsum, sint, natus totam
-													alias ipsam rem nostrum fuga!</p>
-
-											</div>
-										</div>
-									</div>
-								</a> <a href="store_Info" class="color-3 animate-box">
-									<div class="col-sm-6 col-md-4">
-										<div class="thumbnail">
-											<img src="images/036_00.jpg">
-											<div class="caption">
-												<h3>店家名稱</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Error vel, minus quo esse molestiae quidem quis cum
-													nulla doloribus doloremque harum ipsum, sint, natus totam
-													alias ipsam rem nostrum fuga!</p>
-
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="row">
-								<a href="store_Info" class="color-3 animate-box">
-									<div class="col-sm-6 col-md-4">
-										<div class="thumbnail">
-											<img src="images/036_00.jpg">
-											<div class="caption">
-												<h3>店家名稱</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Error vel, minus quo esse molestiae quidem quis cum
-													nulla doloribus doloremque harum ipsum, sint, natus totam
-													alias ipsam rem nostrum fuga!</p>
-
-											</div>
-										</div>
-									</div>
-								</a> <a href="store_Info" class="color-3 animate-box">
-									<div class="col-sm-6 col-md-4">
-										<div class="thumbnail">
-											<img src="images/036_00.jpg">
-											<div class="caption">
-												<h3>店家名稱</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Error vel, minus quo esse molestiae quidem quis cum
-													nulla doloribus doloremque harum ipsum, sint, natus totam
-													alias ipsam rem nostrum fuga!</p>
-
-											</div>
-										</div>
-									</div>
-								</a> <a href="store_Info" class="color-3 animate-box">
-									<div class="col-sm-6 col-md-4">
-										<div class="thumbnail">
-											<img src="images/036_00.jpg">
-											<div class="caption">
-												<h3>店家名稱</h3>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-													elit. Error vel, minus quo esse molestiae quidem quis cum
-													nulla doloribus doloremque harum ipsum, sint, natus totam
-													alias ipsam rem nostrum fuga!</p>
-
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div
-								class="col-md-4 col-md-offset-4 text-center animate-box readMore">
-								<a href="#" class="btn btn-primary">Read More</a>
-							</div>
-
+							</c:forEach>
 						</div>
 					</div>
 				</div>
 			</div>
-
 
 			<!-- 美食分類 -->
 			<div id="fh5co-portfolio">
@@ -300,7 +225,8 @@
 											<h2>
 												甜點 <span>&</span> 飲品
 											</h2>
-										</div></a>
+										</div>
+								</a>
 								</li>
 								<li class="one-third animate-box" data-animate-effect="fadeIn"
 									style="background-image: url(images/otherStyle.jpg);"><a
@@ -316,7 +242,7 @@
 			</div>
 
 			<!-- 熱門評論 -->
-			<div id="fh5co-blog-section" class="fh5co-section-gray">
+			<div id="fh5co-blog-section" class="section-gray">
 				<div class="container">
 					<div class="row">
 						<div

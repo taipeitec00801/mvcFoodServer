@@ -9,6 +9,9 @@ public interface StoreService {
 	
 	List<Store> getAllStores();
 	List<Store> getStoreBySortNum(Integer sortNum);
+	List<Store> getUserStores(String userPref);
+	List<Store> getTopStores();
+	List<Store> getStoresById(Integer storeId);
 	
 	Integer getPageNo();
 	void setPageNo(Integer pageNo);

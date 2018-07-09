@@ -13,6 +13,10 @@
 	background-size: cover;
 }
 
+::selection {
+    background: #203a43;
+}
+
 .job {
 	/* padding: 50px;
     padding-bottom: 25px; */
@@ -24,7 +28,7 @@
 }
 
 .caption {
-	text-align: center;
+	/*)text-align: center;*/
 }
 
 .blog {
@@ -54,6 +58,60 @@
 
 .headSize {
 	height: 893px;
+}
+.section-gray {
+	background: rgba(220,220,220);
+}
+/*-----store Content-----*/
+.storeContent {
+	width:70%;
+}
+
+.captionBottom span {
+	margin-left: 33%;
+}
+
+.storeContent .captionBottom {
+	margin-top: 15px;
+}
+
+.storeContent .btn:hover {
+	background: #9fafbc !important;
+}
+
+.storeContent a {
+	color: #203a43;
+}
+
+.storeContent h4 {
+	font-weight: 900;
+	color: #000;
+	margin: 0 0 15px 0;
+	font-size: 20px;
+}
+
+.storeContent .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.storeContent .btn.btn-primary {
+	background: #203a43;	
+}
+
+
+.storeContent>.thumbnail {
+	float: left;
+	padding: 6px;
+}
+
+.titleName {
+	position: absolute;
+	width: 70%;
+}
+
+.bottomPlace {
+	margin-top: 0px;
+	margin-bottom: 1%;
 }
 
 /* //============== */

@@ -54,5 +54,20 @@ public class StoreServiceImpl implements StoreService {
 	public Long getRecordCounts(Integer sortNum) {
 		return storeDao.getRecordCounts(sortNum);
 	}
+
+	@Override
+	public List<Store> getUserStores(String userPref) {
+		return storeDao.getUserStores(userPref);
+	}
+
+	@Override
+	public List<Store> getTopStores() {
+		return storeDao.getTopStores();
+	}
+
+	@Override
+	public List<Store> getStoresById(Integer storeId) {
+		return storeDao.getStoresById(storeId);
+	}
 	
 }

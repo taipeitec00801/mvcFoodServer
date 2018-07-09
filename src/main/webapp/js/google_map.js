@@ -5,14 +5,15 @@ function init() {
     var mapElement = document.getElementById('map');
     
     
-    var addresses = ['台北市大安區忠孝東路三段1號'];
+    //var addresses = ['台北市大安區忠孝東路三段1號'];
+    var addresses = document.getElementById("address").innerText;
+    console.log(addresses);
     //台北市信義區信義路五段7號  台北市大安區忠孝東路三段1號
     for (var x = 0; x < addresses.length; x++) {
         $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='+addresses[x]+'&sensor=false', null, function (data) {
             var p = data.results[0].geometry.location
             var latlng = new google.maps.LatLng(p.lat, p.lng);
             console.log(p);
-            console.log(addresses);
             var mapOptions = {
                 // How zoomed in you want the map to start at (always required)
                 zoom: 17,

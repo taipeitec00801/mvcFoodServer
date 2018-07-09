@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -44,8 +45,7 @@
 <link rel="stylesheet" href="other/css/indexStyle.css">
 <link rel="stylesheet" href="other/css/storeInfo.css">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="css/myNavbar.css"
-	charset="UTF-8">
+<link rel="stylesheet" href="css/myNavbarFooter.css" type="text/css">
 <!-- FOR IE9 below -->
 <!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -75,17 +75,14 @@
 					<form action="#">
 						<div class="row">
 							<div class="col-md-6">
-								<h3 class="section-title">Our Address</h3>
+								<h3 class="section-title">${store.storeName}</h3>
 								<p>Far far away, behind the word mountains, far from the
 									countries Vokalia and Consonantia, there live the blind texts.</p>
 								<ul class="contact-info">
-									<li><i class="icon-location-pin"></i>198 West 21th Street,
-										Suite 721 New York NY 10016</li>
-									<li><i class="icon-phone2"></i>+ 1235 2355 98</li>
-									<li><i class="icon-mail"></i> <a href="#">info@yoursite.com</a>
-									</li>
-									<li><i class="icon-globe2"></i> <a href="#">www.yoursite.com</a>
-									</li>
+									<li id="address"><i class="icon-location-pin"></i>${store.storeAddress}</li>
+									<li><i class="icon-phone2"></i>${store.storePhone}</li>
+									<li><i class="icon-back-in-time"></i>${store.serviceHours}</li>
+									<li><i class="icon-heart3"></i>${store.storeRecomCount}</li>
 								</ul>
 							</div>
 							<div class="col-md-6">
@@ -114,30 +111,14 @@
 
 					<div class="row row-bottom-padded-md">
 						<div class="row">
-							<div class="col-sm-6 col-md-6">
-								<div class="thumbnail one-third animate-box"
-									data-animate-effect="fadeIn">
-									<img src="images/036_00.jpg" alt="...">
+							<c:forEach var="i" begin="0" end="3">
+								<div class="col-sm-6 col-md-6">
+									<div class="thumbnail one-third animate-box"
+										data-animate-effect="fadeIn">
+										<img src="<c:url value='/getPicture/${store.storeId}/${i}'/>" />
+									</div>
 								</div>
-							</div>
-							<div class="col-sm-6 col-md-6">
-								<div class="thumbnail one-third animate-box"
-									data-animate-effect="fadeIn">
-									<img src="images/036_01.jpg" alt="...">
-								</div>
-							</div>
-							<div class="col-sm-6 col-md-6">
-								<div class="thumbnail one-third animate-box"
-									data-animate-effect="fadeIn">
-									<img src="images/036_02.jpg" alt="...">
-								</div>
-							</div>
-							<div class="col-sm-6 col-md-6">
-								<div class="thumbnail one-third animate-box"
-									data-animate-effect="fadeIn">
-									<img src="images/036_02.jpg" alt="...">
-								</div>
-							</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
@@ -160,8 +141,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="fh5co-testimonial text-center animate-box Comment">
-								<figure> <img src="images/man.png" alt="user">
-								</figure>
+								<figure> <img src="images/man.png" alt="user"> </figure>
 								<blockquote>
 									<p>“Creativity is just connecting things. When you ask
 										creative people how they did something, they feel a little
@@ -267,8 +247,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="fh5co-testimonial text-center animate-box Comment">
-								<figure> <img src="images/man.png" alt="user">
-								</figure>
+								<figure> <img src="images/man.png" alt="user"> </figure>
 								<blockquote>
 									<p>“Creativity is just connecting things. When you ask
 										creative people how they did something, they feel a little
@@ -400,9 +379,9 @@
 	<script src="js/hoverIntent.js"></script>
 	<script src="js/superfish.js"></script>
 	<!-- Google Map -->
-	<script
-		type="text/javascript" 
+	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?region=cn&language=zh-TW&key=AIzaSyA9aukSBXl-4rQpunvDAmIO9l7b9porPVI">
+		
 	</script>
 	<script src="js/google_map.js"></script>
 	<!-- Main JS -->
