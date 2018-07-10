@@ -257,13 +257,14 @@
 							items="${storeComments}" varStatus="loop">
 							<div class="col-lg-4 col-md-4">
 								<div class="fh5co-blog animate-box">
-									<a href="#"> <img class="img-responsive"
-										src="images/036_01.jpg">
+									<a href="#"> 
+									<img class="img-responsive" style="height:240px"
+										src="<c:url value='/getOnePicture/${storeComment.commentSId.storeId}'/>">			
 									</a>
-									<div class="blog">
+									<div class="blog indexblog">
 										<div class="prod-title">
 											<h3>
-												<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
+												<a>${storeComment.commentMId.nickname}</a>
 											</h3>
 											<span class="posted_by">${storeComment.commentDate}</span> <span
 												class="comment"> <a href="">${storeComment.commentRecomCount}
@@ -272,9 +273,10 @@
 											</span>
 											<c:forEach begin="${loop.index}" end="${loop.index}"
 												items="${contentList}">
-												<p>${contentList[loop.index]}</p>
+												<p class="content">${contentList[loop.index]}</p>
 											</c:forEach>
-											<a href="#" class="btn btn-primary">Read More</a>
+											<a href="<spring:url value='store_Info?storeId=${storeComment.commentSId.storeId}' />" 
+												class="btn btn-primary">Read More</a>
 										</div>
 									</div>
 								</div>
@@ -317,6 +319,19 @@
 	<script src="js/jquery.cookie.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script src="js/mySearchBar.js"></script>
+	
+	   <!-- jQuery -->
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		var len = 80;
+    		$(".content").each(function(i){
+    			if($(this).text().length > len) {
+    				var text = $(this).text().substring(0,len-1)+".....";
+    				$(this).text(text);
+            	}
+    		}); 	
+    	});
+    </script>
 
 </body>
 
