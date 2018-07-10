@@ -23,9 +23,7 @@ $(document).ready(function () {
 						alert("Ajax執行結果正確"+data);
 						$("#opInput").css("border-color", "green");
 					}else{
-						alert("Ajax執行結果錯誤"+data);
-						$("#opInput").css("border-color", "red");
-					}
+}
 					
 				}
 
@@ -35,7 +33,7 @@ $(document).ready(function () {
 			
 		});
 	 
-});
+
 	
 	
 		$('#btChangePassword').click(function () {
@@ -51,7 +49,7 @@ $(document).ready(function () {
 				alert("密碼不一樣");
 			}
 	});
-
+});
 
 	// 相片管理
 	
@@ -120,7 +118,6 @@ $(document).ready(function () {
 //
 //			});
 //		});
-//
-//	    });
+//  });
 
 	

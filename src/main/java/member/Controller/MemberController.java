@@ -46,26 +46,34 @@ public class MemberController {
 	ServletContext context;
 	
 	
-//	@RequestMapping("/memInfo")			
-//	public String setting_memInfo(Model model, 
-//			HttpServletResponse response,
-//			HttpServletRequest request
-////			@CookieValue("帳號") String mbCookie,會員登入後不須自行設定Cookie,直接抓值就行
-//	) {
-////		Cookie cookie = getCookie(request, cookieName);
-////		String userAccount = "hikarumiyasaki@gmail.com";
-//		Member mb = memberService.getUserDateNoPortrait(userAccount);
-//		Member mb1 = new Member();
-//		Member mb2 = new Member();
-//		
-//		mb1.setUserAccount(mb.getUserAccount());
-//		mb1.setNickname(mb.getNickname());
-//		mb1.setBirthday(mb.getBirthday());
-//		
-//		mb2.setBirthday(mb.getBirthday());
-//		model.addAttribute("member",mb2);
-//		System.out.println(mb1.getUserAccount());
-//
+	@RequestMapping("/memInfo")			
+	public String setting_memInfo(Model model, 
+			HttpServletResponse response,
+			HttpServletRequest request
+//			@CookieValue("帳號") String mbCookie,會員登入後不須自行設定Cookie,直接抓值就行
+	) {
+		Member mb = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			 for (Cookie cookie : cookies) {
+			   if (cookie.getName().equals("user")) {
+				   mb = memberService.getUserDateNoPortrait(cookie.getValue());
+				   //取得使用者帳號
+			    }
+			  }
+			}
+		
+		Member mb1 = new Member();
+		Member mb2 = new Member();
+		
+		mb1.setUserAccount(mb.getUserAccount());
+		mb1.setNickname(mb.getNickname());
+		mb1.setBirthday(mb.getBirthday());
+		
+		mb2.setBirthday(mb.getBirthday());
+		model.addAttribute("member",mb1);
+		System.out.println("進入會員設定: "+mb1.getUserAccount());
+
 //				Cookie cookieUser = null;
 //
 //				if (mb != null) { 
@@ -75,18 +83,23 @@ public class MemberController {
 //					System.out.println(cookieUser.getValue());
 //				}
 //				response.addCookie(cookieUser);
-//		return "setting_memInfo";
-//	}
-//	
-//	@RequestMapping(value = "/memInfo", method = RequestMethod.POST)
-//	public @ResponseBody String mbInfoChange(@ModelAttribute("member") Member bb,
-//			BindingResult result, HttpServletRequest requst) {
-//		System.out.println(bb);
-//		System.out.println(bb.getNickname());
-//		System.out.println(String.valueOf(bb.getBirthday()));
-//		return "setting_memInfo";
-//			
-//	}
+		return "setting_memInfo";
+	}
+	
+	@RequestMapping(value = "/memInfo", method = RequestMethod.POST)
+	public String mbInfoChange(
+			@ModelAttribute("member") Member mb,
+			@CookieValue("user") String user) {
+		System.out.println("mb: "+ mb.getNickname());
+		
+//		Member mb = memberService.getUserDateNoPortrait(user);
+		//利用user先取得永續物件
+//		mb.setNickname(nickname);
+//		mb.setBirthday(birthday);
+//		memberService.updateMemberDate(mb);
+			return "setting_memInfo";
+			
+	}
 	
 	@RequestMapping("/foto")			
 	public String setting_memInfo_foto(Model model) {
@@ -180,7 +193,7 @@ public class MemberController {
 	public ResponseEntity<byte[]> getPicture(HttpServletResponse resp,
 											@PathVariable("Picture") String pictureNO) {
 		System.out.println("收到:"+pictureNO+"請求");
-		String filePath = "/WEB-INF/data/images/Store_img/" + pictureNO + ".jpg";
+		String filePath = "/images/Store_img/" + pictureNO + ".jpg";
 		InputStream is = context.getResourceAsStream(filePath);
 		System.out.println(is);
 		File file = new File(filePath);

@@ -15,15 +15,16 @@
 
 
 <!-- ============================ -->
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<!-- Bootstrap  -->
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-<link rel="stylesheet" href="css/animate.css" type="text/css">
-<link rel="stylesheet" href="member/css/facebox.css" type="text/css">
-<!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="css/myNavbar.css"
-	charset="UTF-8">
-<link rel="stylesheet" href="member/css/appStyle.2.css" type="text/css">
+<!-- Superfish -->
+<link rel="stylesheet" href="css/superfish.css" type="text/css">
 
+<link rel="stylesheet" href="member/css/facebox.css" type="text/css">
+<link rel="stylesheet" href="member/css/appStyle.2.css" type="text/css">
+<!-- Navbar css -->
+<link rel="stylesheet" type="text/css" href="css/myNavbarFooter.css"
+	charset="UTF-8">
 
 <!-- =============================================== -->
 <script src="js/jquery-3.2.1.min.js"></script>
@@ -57,7 +58,7 @@
 				<!-- sidebar -->
 				<div class="sidebar test">
 					<h2>帳號設定</h2>
-					<a href="setting_memInfo" class="sidebarInfo">基本資料</a> <br> <a
+					<a href="memInfo" class="sidebarInfo">基本資料</a> <br> <a
 						href="foto" class="phtoManager">管理相片</a> <br> <a
 						href="password" class="sidebarCHPassword">更改密碼</a> <br> <a
 						href="history">歷史留言</a> <br>
