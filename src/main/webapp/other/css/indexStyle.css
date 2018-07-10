@@ -38,7 +38,7 @@
 	width: 90%;
 	padding: 30px;
 	float: right;
-	margin-top: -3em;
+	margin-top: -1.5em;
 	-webkit-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
 	-moz-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
 	box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
@@ -113,6 +113,29 @@
 	margin-top: 0px;
 	margin-bottom: 1%;
 }
+
+/* indexblog   */
+.indexblog a {
+	color: #203a43;
+}
+.indexblog h3 {
+	font-weight: 900;
+	color: #000;
+	margin: 0 0 15px 0;
+	font-size: 20px;
+}
+.indexblog .btn:hover {
+	background: #9fafbc !important;
+}
+.indexblog .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.indexblog .btn.btn-primary {
+	background: #203a43;	
+}
+
+
 
 /* //============== */
 #fh5co-portfolio-list li a:before {

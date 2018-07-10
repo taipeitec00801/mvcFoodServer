@@ -326,7 +326,7 @@ public class LoginController {
 				throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
 			}
 		} else {
-			InputStream is = context.getResourceAsStream("image/member/liam-stahnke-261528-unsplash.jpg");
+			InputStream is = context.getResourceAsStream("images/liam-stahnke-261528-unsplash.jpg");
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			byte[] b = new byte[8192];
 			try {

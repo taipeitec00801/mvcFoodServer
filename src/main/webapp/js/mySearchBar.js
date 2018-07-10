@@ -53,6 +53,7 @@ $(document).ready(function() {
 	});
 	function onSignIn(googleUser) {
 		// Useful data for your client-side scripts:
+		alert("googleUser");
 		var profile = googleUser.getBasicProfile();
 		if(typeof $.cookie('user') === 'undefined'){
 				$.ajax({
@@ -68,15 +69,6 @@ $(document).ready(function() {
 					}
 				});
 		}
-		// 			console.log(userName);
-		// 			console.log(userName[0]);
-
-		// 			$(".memberId").text(userName[0]);
-		// 			$(".memberImg img").attr("src", profile.getImageUrl());
-
-		// 			$('.formOut').css("display", "none");
-		// 			$('.formIn').css("display", "block");
-
 		// console.log("ID: " + profile.getId());
 		// console.log('Full Name: ' + profile.getName());
 		// console.log('Given Name: ' + profile.getGivenName());
@@ -87,18 +79,6 @@ $(document).ready(function() {
 		// var id_token = googleUser.getAuthResponse().id_token;
 		// console.log("ID Token: " + id_token);
 	};
-
-	// 		$('button[name=logOutBt]').on("click", function() {
-	// 			$('.formOut').css("display", "block");
-	// 			$('.formIn').css("display", "none");
-	// 			function signOut() {
-	// 				var auth2 = gapi.auth2.getAuthInstance();
-	// 				auth2.signOut().then(function() {
-	// 					console.log('User signed out.');
-	// 				});
-	// 			}
-	// 		});
-
 	userAccount = "";
 	userPassword = "";
 	$("input[name=inputEmail]").on("focusout", function() {
@@ -179,3 +159,23 @@ $(document).ready(function() {
 			}
 	});
 });
+
+function onSignIn(googleUser) {
+	// Useful data for your client-side scripts:
+	var profile = googleUser.getBasicProfile();
+	if(typeof $.cookie('user') === 'undefined'){
+			$.ajax({
+				url : 'googleAdd',
+				type : 'POST',
+				data : {
+					userId : profile.getEmail()
+				},
+				dataType : 'json',
+				success : function() {
+//						alert("Google 回來了");
+					window.location.href = 'memberLogin22';
+				}
+			});
+	}
+}
+
