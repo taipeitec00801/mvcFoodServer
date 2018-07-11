@@ -4,6 +4,9 @@ package member.Controller;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +15,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sql.rowset.serial.SerialBlob;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -20,7 +24,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import member.Model.Member;
 import member.Service.MemberService;
 import other.Model.Store;
@@ -70,35 +74,117 @@ public class MemberController {
 		mb1.setNickname(mb.getNickname());
 		mb1.setBirthday(mb.getBirthday());
 		
-		mb2.setBirthday(mb.getBirthday());
+		mb2.setUserAccount(mb.getUserAccount());
 		model.addAttribute("member",mb1);
+		model.addAttribute("foto",mb2);
 		System.out.println("進入會員設定: "+mb1.getUserAccount());
 
-//				Cookie cookieUser = null;
-//
-//				if (mb != null) { 
-//					cookieUser = new Cookie("user", userAccount);
-//					cookieUser.setMaxAge(7 * 24 * 60 * 60);     // Cookie的存活期: 七天
-//					cookieUser.setPath(request.getContextPath());
-//					System.out.println(cookieUser.getValue());
-//				}
-//				response.addCookie(cookieUser);
 		return "setting_memInfo";
 	}
 	
 	@RequestMapping(value = "/memInfo", method = RequestMethod.POST)
 	public String mbInfoChange(
 			@ModelAttribute("member") Member mb,
+//			@ModelAttribute("portrait") Member mbPortrait,
 			@CookieValue("user") String user) {
-		System.out.println("mb: "+ mb.getNickname());
 		
-//		Member mb = memberService.getUserDateNoPortrait(user);
-		//利用user先取得永續物件
-//		mb.setNickname(nickname);
-//		mb.setBirthday(birthday);
-//		memberService.updateMemberDate(mb);
-			return "setting_memInfo";
-			
+		Member mbAllInfo = memberService.getUserDateNoPortrait(user);
+		Integer mbId = mbAllInfo.getMemberId();
+		
+//		=======================檔案上傳==========================
+		
+		MultipartFile mbImage = mb.getMbImage();
+		String originalFilename = mbImage.getOriginalFilename();
+		System.out.println("length: "+originalFilename.length());
+		String rootDirectory = context.getRealPath("/");
+		String ext = null;
+		if(originalFilename.length() > 0) {
+
+		ext = originalFilename.substring(originalFilename.lastIndexOf("."));
+		
+		//  建立Blob物件，交由 Hibernate 寫入資料庫
+		if (mbImage != null && !mbImage.isEmpty() ) {
+			try {
+				byte[] b = mbImage.getBytes();
+				Blob blob = new SerialBlob(b);
+//				Member mb1 = new Member();
+//				mb1.setPortrait(blob);
+//				mb1.setBirthday(mb.getBirthday());
+//				mb1.setNickname(mb.getNickname());
+				memberService.updateMemInfo(mbId, mb.getNickname(), mb.getBirthday(), blob);
+				System.out.println("上傳成功");
+			} catch(Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+			}
+		}else {
+			System.out.println("照片: "+mbImage.isEmpty());
+		}
+		
+		}
+//	    productService.addProduct(bb);
+//	//  將上傳的檔案移到指定的資料夾
+//			try {
+//				File imageFolder = new File(rootDirectory, "images");
+//				if (!imageFolder.exists()) imageFolder.mkdirs();
+//				File file = new File(imageFolder, bb.getBookId() + ext);
+//				productImage.transferTo(file);
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//				throw new RuntimeException("檔案上傳發生異常: " + e.getMessage());
+//			}
+//	    return "redirect:/products";
+		
+//		=======================檔案上傳==========================
+			return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/mbPicture/mbfoto", method = RequestMethod.GET)			
+	public ResponseEntity<byte[]> setting_portrait(Model model, 
+			HttpServletResponse response,
+			HttpServletRequest request
+	) {
+		Member mb = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			 for (Cookie cookie : cookies) {
+			   if (cookie.getName().equals("user")) {
+				   mb = memberService.getUserDateNoPortrait(cookie.getValue());
+				   //取得使用者帳號
+			    }
+			  }
+			}
+		HttpHeaders headers = new HttpHeaders();
+		Blob blob = mb.getPortrait();
+	    int len = 0;
+	    byte[] media = null;
+	    if (blob != null) {
+	        try {
+	            len = (int) blob.length();
+	            media = blob.getBytes(1, len);
+	        } catch (SQLException e) {
+	            throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
+	        }
+	    } else {
+//	    	System.out.println("context: " + context.getContextPath());
+//	        InputStream is = context.getResourceAsStream(filePath);
+//	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//	        byte[] b = new byte[8192];
+//	        try {
+//	            while ((len = is.read(b)) != -1) {
+//	                baos.write(b, 0, len);
+//	            } 
+//	        
+//	  	  } catch (Exception e) {
+//	            throw new RuntimeException("ProductController的getPicture()發生IOException: " 
+//				+ e.getMessage());
+//	        }
+//	        media = baos.toByteArray();
+	    }
+	    headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+	    ResponseEntity<byte[]> responseEntity = 
+					new ResponseEntity<>(media, headers, HttpStatus.OK);
+	    return responseEntity;
 	}
 	
 	@RequestMapping("/foto")			

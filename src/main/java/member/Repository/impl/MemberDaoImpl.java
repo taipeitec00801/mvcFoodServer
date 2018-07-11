@@ -1,5 +1,8 @@
 package member.Repository.impl;
 
+import java.sql.Blob;
+import java.sql.Date;
+
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
@@ -109,6 +112,20 @@ public class MemberDaoImpl implements MemberDao {
 				
 			}
 			return exist;
+		}
+		@Override
+		public void updateMemInfo(Integer memberId, String nickname, String birthday, Blob portrait) {
+			String hql = "UPDATE Member mb SET mb.nickname = :newNickname,"
+					+ " mb.birthday = :newBirthday,"
+					+ " mb.portrait = :newPortrait"
+					+ " WHERE mb.memberId = :id";
+			Session session = getSession();
+			int n = session.createQuery(hql)
+					.setParameter("newNickname", nickname)
+					.setParameter("newBirthday", birthday)
+					.setParameter("newPortrait", portrait)
+					.setParameter("id", memberId)
+					.executeUpdate();
 		}
 		
 

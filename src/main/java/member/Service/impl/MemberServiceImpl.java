@@ -1,5 +1,8 @@
 package member.Service.impl;
 
+import java.sql.Blob;
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +55,12 @@ public class MemberServiceImpl implements MemberService {
 	public Member getUserId(String userAccount) {
 
 		return dao.getUserId(userAccount);
+	}
+
+	@Override
+	public void updateMemInfo(Integer memberId, String nickname, String birthday, Blob portrait) {
+		
+		dao.updateMemInfo(memberId, nickname, birthday, portrait);
 	}
 
 }

@@ -1,5 +1,8 @@
 package member.Repository;
 
+import java.sql.Blob;
+import java.sql.Date;
+
 import member.Model.Member;
 
 public interface MemberDao {
@@ -18,5 +21,7 @@ public interface MemberDao {
 	boolean checkACPassword(String userAccount, String userPassword);
 
 	Member getUserId(String userAccount);
+
+	void updateMemInfo(Integer memberId, String nickname, String birthday, Blob portrait);
 
 }

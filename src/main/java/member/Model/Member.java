@@ -3,13 +3,14 @@ package member.Model;
 import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 /*
 Member 欄位說明:
@@ -42,6 +43,16 @@ public class Member implements Serializable {
 	private String collection;
 	private String userGift;
 	private String userFriends;
+	
+	private MultipartFile  mbImage;
+	@Transient
+	public MultipartFile getMbImage() {
+		return mbImage;
+	}
+
+	public void setMbImage(MultipartFile mbImage) {
+		this.mbImage = mbImage;
+	}
 
 	public Member() {
 		super();

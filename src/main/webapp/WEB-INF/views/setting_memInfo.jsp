@@ -66,18 +66,21 @@
 					<div class="taitle test">
 						<H2>基本資料</H2>
 					</div>
-					<!-- Account Setting -->
+
 				<form:form method='POST' modelAttribute="member" 
 				class='form-horizontal' enctype="multipart/form-data">
 					<div class="fotoSetting test">
 						<div class="fotoCase test">
-							<img src="<c:url value='/mbPicture/${Member.memberId}' />"
+							<img src="<c:url value='/mbPicture/mbfoto' />"
 								alt="...">
 						</div>
 						<div class="fsWord test">
 							<a href="#">更改頭像</a>
+							<form:input id="mbImage" path="mbImage" type='file'
+							class='form:input-large' />
 						</div>
 					</div>
+					
 
 					<div class="nameAndEmail test">
 						<div class="memberId test">
