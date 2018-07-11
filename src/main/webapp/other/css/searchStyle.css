@@ -19,6 +19,10 @@
 .a.list-group-item {
     color: #222;
 }
+
+a:hover {
+    color: #ffcc88 !important;
+}
 /*========================================= */
 
 /* <!-- pags --> */
@@ -69,6 +73,15 @@
 }
 
 /*========================================= */
+.noReq {
+	margin: 5% 0;
+	text-align: center;
+}
+
+.noReq a {
+	color: #fff;
+	font-size: 40px;
+}
 
 /*-----sort Content-----*/
 .searchContent {

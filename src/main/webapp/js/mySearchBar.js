@@ -150,10 +150,8 @@ $(document).ready(function() {
 	
 	
 	//-----search--------------------------------
-	$(".mySearchBot").on("click", function() {
-		var content = $(".mySearchReq").val();
-	});
-	$(".mySearchReq").focus(function(){
+	$('.searchBar').append("<Input type='hidden' name='nowPosition' value='" + window.location.href + "'>");
+	$(".form-control").focus(function(){
 		$(this).attr('placeholder', '').css('borderColor','#203a43');
 	})
 	.blur(function(){
@@ -162,6 +160,7 @@ $(document).ready(function() {
 				$(this).attr('placeholder','Search...')
 			}
 	});
+
 });
 
 function onSignIn(googleUser) {

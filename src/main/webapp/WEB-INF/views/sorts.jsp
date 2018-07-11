@@ -155,7 +155,6 @@
             var strUrl = location.search;
             var getPara;
             var sortNum, isPages;
-
             if (strUrl.indexOf("?") != -1) {
                 var getSearch = strUrl.split("?");
                 getPara = getSearch[1].split("&");

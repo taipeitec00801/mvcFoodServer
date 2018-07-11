@@ -2,7 +2,9 @@ package other.Controller;
 
 import java.sql.Clob;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,19 +60,30 @@ public class HomeController {
 
 	
 	@RequestMapping("/search")
-	public String search(@RequestParam(value="mySearch") String myRequest, 
+	public String search(@RequestParam(value="mySearchReq") String myRequest, 
+						@RequestParam(value="nowPosition") String nowPosition, 
 			@RequestParam("pages") Integer pages, Model model) {
-		if (myRequest != null) {
+		System.out.println("搜尋內容---------------\"" + myRequest + "\"--length--" + myRequest.length());
+		if (myRequest.length() > 0) {
 			storeService.setPageNo(pages);
 			List<Store> list = new ArrayList<Store>();
-			System.out.println("---------------------------------------" + myRequest);
 			list = storeService.getStoreByName(myRequest);			
 			model.addAttribute("totalPages",(int) Math.ceil(list.size()/ (double) StoreDaoImpl.RECORDS_PER_PAGE));
 			model.addAttribute("stores", list);
+			model.addAttribute("requestSize", list.size());
+			model.addAttribute("searchReq", myRequest);
+			
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date date = new Date();
+			String nowTime = sdf.format(date);
+			model.addAttribute("nowTime", nowTime);
+			
 			return "search";
 		} else {
-			//需改成不跳頁
-			return "redirect:/";
+			int slash = nowPosition.lastIndexOf("/");
+			//不跳頁
+			String NoPageJump = nowPosition.substring(slash);
+			return "redirect:" + NoPageJump;
 		}		
 	}
 	
