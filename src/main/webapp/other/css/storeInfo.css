@@ -60,4 +60,20 @@
 .customPanel{
     margin-bottom:0;
 }
+input,
+button,
+select,
+textarea {
+  resize: vertical;
+}
+.indexblog .btn:hover {
+	background: #9fafbc !important;
+}
+.indexblog .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.indexblog .btn.btn-primary {
+	background: #203a43;	
+}
 

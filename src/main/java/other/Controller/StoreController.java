@@ -2,6 +2,8 @@ package other.Controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.sql.Clob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import other.Model.Store;
+import other.Model.StoreComment;
 import other.Service.StoreService;
 
 @Controller
@@ -104,13 +107,25 @@ public class StoreController {
 
 	@RequestMapping("/store_Info")
 	public String store_Info(@RequestParam("storeId") Integer storeId, Model model) {
-		// List<Store> list = new ArrayList<Store>();
-		// list = storeService.getStoresById(storeId);
-		// System.out.println(list.get(0).getStoreName());
-		// model.addAttribute("store",list);
 		Store store = new Store();
+		List<StoreComment> comList = new ArrayList<>();
+		List<String> contentList = new ArrayList<>();
 		store = storeService.getStoreById(storeId);
+		System.out.println("storeId!!!:"+storeId);
+		comList = storeService.getCommByStore(storeId);
+		//Clob to Sring
+		for(int i=0;i<comList.size();i++) {
+			Clob clob = comList.get(i).getCommentContent();
+			try {
+				String clobString = clob.getSubString(1, (int) clob.length());
+				contentList.add(clobString);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		model.addAttribute("store", store);
+		model.addAttribute("storeComments",comList);
+		model.addAttribute("contentList",contentList);
 		return "store_Info";
 	}
 }

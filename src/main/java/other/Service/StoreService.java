@@ -15,6 +15,7 @@ public interface StoreService {
 	List<Store> getStoresById(Integer storeId);
 	List<Store> getStoreByName(String myRequest);
 	List<StoreComment> getTopComm();
+	List<StoreComment> getCommByStore(Integer storeId);
 	
 	Integer getPageNo();
 	void setPageNo(Integer pageNo);

@@ -1,7 +1,5 @@
 package other.Repository.impl;
 
-import java.sql.Clob;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,10 +104,27 @@ public class StoreDaoImpl implements StoreDao {
 		return count;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Store> getUserStores(String userPref) {
+		Session session = getSession();
 		String[] spiltUserPref = userPref.split(",");
-		return null;
+		StringBuilder sb = 
+				new StringBuilder("FROM Store s WHERE s.sortNumber = :sortNumber0");
+		for(int i=1;i<spiltUserPref.length;i++) {
+			sb.append(" OR s.sortNumber = :sortNumber"+i);
+		}
+		sb.append(" ORDER BY s.storeRecomCount DESC");
+		String hql = sb.toString();
+		System.out.println("getUserStores HQL!!:"+hql);
+		Query query = session.createQuery(hql);
+		for(int i=0;i<spiltUserPref.length;i++) {
+			String s = spiltUserPref[i];
+			query.setParameter("sortNumber"+i, Integer.parseInt(s));
+		}
+		query.setFirstResult(0);
+		query.setMaxResults(6);
+		return (List<Store>) query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -144,6 +159,17 @@ public class StoreDaoImpl implements StoreDao {
 		query.setMaxResults(3);
 		list = (List<StoreComment>)query.getResultList();
 		return list;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<StoreComment> getCommByStore(Integer storeId) {
+		List<StoreComment> list = new ArrayList<>();
+		String hql = "FROM StoreComment sc WHERE sc.commentSId.storeId = :storeId";
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("storeId", storeId);
+		return query.getResultList();
 	}
 
 }

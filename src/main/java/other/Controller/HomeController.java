@@ -7,12 +7,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import member.Model.Member;
+import member.Service.MemberService;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Repository.impl.StoreDaoImpl;
@@ -23,14 +29,31 @@ public class HomeController {
 	
 	@Autowired
 	StoreService storeService;
+	
+	@Autowired
+	MemberService memberService;
 
 
 	@RequestMapping("/")
-	public String index(@RequestParam(value="userPref",defaultValue = "null") String userPref,Model model) {
+	public String index(Model model,HttpServletResponse response,HttpServletRequest request) {
 		List<Store> list = new ArrayList<Store>();
 		List<StoreComment> comList = new ArrayList<>();
 		List<String> contentList = new ArrayList<>();
-		if(userPref == null)
+		//get User Data
+		Member mb = null;
+		String userPref = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			 for (Cookie cookie : cookies) {
+			   if (cookie.getName().equals("user")) {
+				   mb = memberService.getUserDateNoPortrait(cookie.getValue());
+				   System.out.println("UserPreference!!!!"+mb.getPreference());
+				   userPref = mb.getPreference();
+				   //取得使用者偏好
+			    }
+			  }
+			}
+		if(userPref != null)
 			list = storeService.getUserStores(userPref);
 		else
 			list = storeService.getTopStores();

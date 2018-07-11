@@ -1,12 +1,13 @@
 
 var google;
 
-function init() {
+function initmap() {
     var mapElement = document.getElementById('map');
     
     
-    //var addresses = ['台北市大安區忠孝東路三段1號'];
-    var addresses = document.getElementById("address").innerText;
+    //var addresses = ['台北市中山區市民大道三段137號'];
+    var storeAddresses = document.getElementById("address").innerText;
+    var addresses = [storeAddresses];
     console.log(addresses);
     //台北市信義區信義路五段7號  台北市大安區忠孝東路三段1號
     for (var x = 0; x < addresses.length; x++) {
@@ -36,4 +37,4 @@ function init() {
     }
     
 }
-google.maps.event.addDomListener(window, 'load', init);
+google.maps.event.addDomListener(window, 'load', initmap);

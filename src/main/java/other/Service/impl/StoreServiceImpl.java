@@ -80,5 +80,10 @@ public class StoreServiceImpl implements StoreService {
 	public List<StoreComment> getTopComm() {
 		return storeDao.getTopComm();
 	}
+
+	@Override
+	public List<StoreComment> getCommByStore(Integer storeId) {
+		return storeDao.getCommByStore(storeId);
+	}
 	
 }
