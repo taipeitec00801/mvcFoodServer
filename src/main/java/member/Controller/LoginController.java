@@ -5,13 +5,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Blob;
+import java.sql.Clob;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -24,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -31,6 +35,8 @@ import com.google.gson.Gson;
 import javaClass.GlobalService;
 import member.Model.Member;
 import member.Service.MemberService2;
+import other.Model.Store;
+import other.Model.StoreComment;
 
 @Controller
 public class LoginController {
@@ -172,7 +178,7 @@ public class LoginController {
 		}
 	}
 
-	@RequestMapping("rememberMe")
+	@RequestMapping("/rememberMe")
 	@ResponseBody
 	public boolean rememberMe(ServletRequest request, ServletResponse response) {
 		System.out.println("開始測試rememberMe");
@@ -313,7 +319,7 @@ public class LoginController {
 		response.addCookie(cookieRememberMe);
 	}
 
-	@RequestMapping("getMemberImg")
+	@RequestMapping("/getMemberImg")
 	public void getMemberImg(HttpServletRequest request, HttpServletResponse resp) {
 		Blob blob = service.getMember(request.getParameter("userId")).getPortrait();
 		int len = 0;
@@ -350,6 +356,42 @@ public class LoginController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping("/member9487/member_mainPage")
+	public String index(Model model, HttpServletRequest request) {
+		List<Store> list = new ArrayList<Store>();
+		
+		String cookieName = "";
+		String user = "";
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) { // 如果含有Cookie
+			System.out.println("開始找Cookie");
+			for (int i = 0; i < cookies.length; i++) {
+				// 檢視每個Cookie
+				cookieName = cookies[i].getName();
+				if (cookieName.equals("user")) {
+					// 找到user這個Cookie
+					user = cookies[i].getValue();					
+				}
+			}
+		}	
+		String[] likes = null;
+		try {
+			System.out.println("--------------" + user + "--------------");
+			likes = service.getMember(user).getCollection().split(",");
+			System.out.println("-----------------" + likes.toString() + "-----------------");
+			list = service.getMemberLikeStore(likes);
+		}catch(NoResultException e) {
+			System.out.println("------------------回應是空的----------------------");
+		}catch(NullPointerException ex) {
+			System.out.println("------------------收藏是空的----------------------");
+			likes = new String[]{"1"};
+			list = service.getMemberLikeStore(likes);
+		}
+		model.addAttribute("stores", list);
+		
+		return "member_mainPage";
 	}
 
 }

@@ -1,7 +1,7 @@
 $(document).ready(function() {
-	//--------login--------------------------------
+	//--------login--------------------------------	
 	$.ajax({
-		url : 'member9487/testLogin88',
+		url : '/mvcFoodServer/member9487/testLogin88',
 		type : 'POST',
 		data : {},
 		dataType : 'json', //text,json,xml
@@ -11,7 +11,7 @@ $(document).ready(function() {
 			$(".memberId").text(date.nickname);
 			
 			$.ajax({
-				url : 'getMemberImg',
+				url : '/mvcFoodServer/getMemberImg',
 				type : 'POST',
 				data : {
 					userId : date.userAccount
@@ -25,11 +25,11 @@ $(document).ready(function() {
 		},
 		error : function() {
 			$.ajax({
-				url : 'rememberMe',
+				url : '/mvcFoodServer/rememberMe',
 				type : 'POST',
 				success : function(date) {
 					if (date) {
-						window.location.href = 'memberLogin22';
+						window.location.href = '/mvcFoodServer/memberLogin22';
 					}
 				}
 			});
@@ -43,7 +43,7 @@ $(document).ready(function() {
 			data : {},
 			dataType : 'json',
 			error : function() {
-				location.reload();
+				window.location.href = '/mvcFoodServer/memberLogin22';
 			}
 		});
 		var auth2 = gapi.auth2.getAuthInstance();
@@ -65,7 +65,7 @@ $(document).ready(function() {
 					dataType : 'json',
 					success : function() {
 //							alert("Google 回來了");
-						window.location.href = 'memberLogin22';
+						window.location.href = '/mvcFoodServer/memberLogin22';
 					}
 				});
 		}
@@ -141,6 +141,10 @@ $(document).ready(function() {
 
 	$(".registerBt").on("click", function() {
 		window.location.href = 'member9487';
+	});
+	
+	$(".settingBt").on("click" , function(){		
+		window.location.href = 'member9487/member_mainPage';		
 	});
 	
 	

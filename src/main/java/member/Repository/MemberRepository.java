@@ -3,6 +3,7 @@ package member.Repository;
 import java.util.List;
 
 import member.Model.Member;
+import other.Model.Store;
 
 public interface MemberRepository {
 
@@ -15,4 +16,6 @@ public interface MemberRepository {
 	String getUserPass(String userId);
 
 	Member getMember(String userId);
+	
+	List<Store> getMemberLikeStore(String[] like);
 }

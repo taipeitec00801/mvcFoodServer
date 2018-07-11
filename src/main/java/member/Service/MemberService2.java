@@ -5,6 +5,7 @@ package member.Service;
 import java.util.List;
 
 import member.Model.Member;
+import other.Model.Store;
 
 public interface MemberService2 {
 
@@ -17,4 +18,6 @@ public interface MemberService2 {
 	String getUserPass(String userId);
 	
 	Member getMember(String userId);
+	
+	List<Store> getMemberLikeStore(String[] like);
 }

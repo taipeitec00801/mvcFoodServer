@@ -13,25 +13,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/animate.css" type="text/css">
+<link rel="stylesheet" href="/mvcFoodServer/css/style.css">
+<link rel="stylesheet" href="/mvcFoodServer/css/animate.css" type="text/css">
 <!-- Superfish -->
-<link rel="stylesheet" href="css/superfish.css">
-<link rel="stylesheet" href="member/css/styles.css">
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/mvcFoodServer/css/superfish.css">
+<link rel="stylesheet" href="/mvcFoodServer/member/css/styles.css">
+<link rel="stylesheet" href="/mvcFoodServer/css/bootstrap.css" type="text/css">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="css/myNavbarFooter.css"
+<link rel="stylesheet" type="text/css" href="/mvcFoodServer/css/myNavbarFooter.css"
 	charset="UTF-8">
-<link rel="stylesheet" href="member/css/appStyle.1.css">
+<link rel="stylesheet" href="/mvcFoodServer/member/css/appStyle.1.css">
 
 
 
 
 
 
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="member/js/wow.min.js"></script>
-<script src="js/modernizr-2.6.2.min.js"></script>
+<script src="/mvcFoodServer/js/jquery-3.2.1.min.js"></script>
+<script src="/mvcFoodServer/member/js/wow.min.js"></script>
+<script src="/mvcFoodServer/js/modernizr-2.6.2.min.js"></script>
 <title>MemberInfo</title>
 
 </head>
@@ -53,7 +53,7 @@
 				<div class="fotoInfo test">
 
 					<div class="fotoCase test wow bounceInDown ">
-						<a href="#"> <img src="images/memberFoto.jpg" alt="...">
+						<a href="#"> <img alt="..." class="memberImg">
 						</a>
 
 					</div>
@@ -77,138 +77,27 @@
 				<!-- like -->
 				<div class="container like test">
 					<div class="row">
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/blog-1.jpg" alt="">
-								</a>
-								<div class="blog-text">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
+						<div class="row color-3 animate-box">
+							<c:forEach var="store" begin="0" end="9" items="${stores}">
+								<div class="col-sm-6 col-md-4 bottomPlace">
+									<div class="thumbnail">
+										<img src="<c:url value='/getOnePicture/${store.storeId}'/>"
+											style="height: 350px; width: 100%" />
+										<div class="caption">
+											<h4>${store.storeName}</h4>
+											<span>地址：</span><span>${store.storeAddress}</span><br> <span>電話：</span><span>${store.storePhone}</span><br>
+											<div class="captionBottom">
+												<a
+													href="<spring:url value='/store_Info?storeId=${store.storeId}' />"
+													class="btn btn-primary" role="button">Read More </a> <span
+													class="comment"> ${store.storeRecomCount} <i
+													class="icon-heart4" style="color: red;"></i>
+												</span>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/blog-2.jpg" alt="">
-								</a>
-								<div class="blog-text">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/blog-3.jpg" alt="">
-								</a>
-								<div class="blog-text">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/blog-1.jpg" alt="">
-								</a>
-								<div class="blog-text">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/blog-2.jpg" alt="">
-								</a>
-								<div class="blog-text">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4">
-							<div class="fh5co-blog animate-box">
-								<a href="#"> <img class="img-responsive"
-									src="images/blog-3.jpg" alt="">
-								</a>
-								<div class="blog-text">
-									<div class="prod-title">
-										<h3>
-											<a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a>
-										</h3>
-										<span class="posted_by">Sep. 15th</span> <span class="comment">
-											<a href="">21 <i class="icon-bubble2"></i>
-										</a>
-										</span>
-										<p>Far far away, behind the word mountains, far from the
-											countries Vokalia and Consonantia, there live the blind
-											texts.</p>
-										<a href="#" class="btn btn-primary">Read More</a>
-									</div>
-								</div>
-							</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
@@ -221,25 +110,26 @@
 	<!-- jQuery -->
 
 
-	<script src="js/jquery.min.js"></script>
+	<script src="/mvcFoodServer/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="/mvcFoodServer/js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="/mvcFoodServer/js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="/mvcFoodServer/js/jquery.waypoints.min.js"></script>
 	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
+	<script src="/mvcFoodServer/js/jquery.stellar.min.js"></script>
 	<!-- Superfish -->
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.js"></script>
+	<script src="/mvcFoodServer/js/hoverIntent.js"></script>
+	<script src="/mvcFoodServer/js/superfish.js"></script>
 
 	<!-- Main JS (Do not remove) -->
-	<script src="js/main.js"></script>
+	<script src="/mvcFoodServer/js/main.js"></script>
 	<!-- cookie -->
-	<script src="js/jquery.cookie.js"></script>
+	<script src="/mvcFoodServer/js/jquery.cookie.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<script src="js/mySearchBar.js"></script>
+	<script src="/mvcFoodServer/js/mySearchBar.js"></script>
+	<script src="/mvcFoodServer/js/memberMainPage.js"></script>
 </body>
 
 </html>

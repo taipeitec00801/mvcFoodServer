@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import member.Model.Member;
 import member.Repository.MemberRepository;
 import member.Service.MemberService2;
+import other.Model.Store;
 
 @Service
 @Transactional
@@ -42,5 +43,13 @@ public class MemberServiceImpl2 implements MemberService2 {
 	public Member getMember(String userId) {
 		return repository.getMember(userId);
 	}
+
+	@Override
+	public List<Store> getMemberLikeStore(String[] like) {
+		// TODO Auto-generated method stub
+		return repository.getMemberLikeStore(like);
+	}
+	
+	
 
 }
