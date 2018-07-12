@@ -28,8 +28,10 @@ import org.hibernate.Transaction;
 import init.Hibernate.Utils.HibernateUtil_MySQL;
 import javaClass.GlobalService;
 import member.Model.Member;
+import other.Model.Message;
 import other.Model.Store;
 import other.Model.StoreComment;
+import shoppingCart.Model.Gift;
 
 public class TableDataReset_Hibernate {
 	public static final String UTF8_BOM = "\uFEFF"; // 定義 UTF-8的BOM字元
@@ -54,7 +56,7 @@ public class TableDataReset_Hibernate {
 		// userFriends : 	追蹤 		VARCHAR(1000) 			紀錄 MemberId
 		List<Member> listMember = new ArrayList<>();
 		try (
-				// Member.txt存放要新增的多筆資料
+				// Member.dat存放要新增的多筆資料
 				InputStreamReader isr0 = new InputStreamReader(
 						new FileInputStream("data/Member.dat"), "UTF-8");
 				BufferedReader br = new BufferedReader(isr0);)
@@ -139,7 +141,7 @@ public class TableDataReset_Hibernate {
 		// 再寫入StoreComment(當然同時寫入Store)
 		List<Store> listStore = new ArrayList<>();
 		 try (
-			 // Store.txt存放要新增的多筆資料
+			 // Store.dat存放要新增的多筆資料
 			 InputStreamReader isr0 = new InputStreamReader(
 					 new FileInputStream("data/Store.dat"), "UTF-8");
 			 BufferedReader br = new BufferedReader(isr0);)
@@ -194,15 +196,13 @@ public class TableDataReset_Hibernate {
 		// commentAlterCount 	: 修改次數			INT						預設 0
 		// commentRecomCount 	: 推薦數			INT						預設 0
 		// commentDate       	: 評論時間			DATETIME NOT NULL		NOW() 紀錄評論上傳的時間
-//		 ApplicationContext ctx =
-//					new ClassPathXmlApplicationContext("/init/Hibernate/applicationContext.xml");
-		 try (
-				 
+		 List<StoreComment> listComment = new ArrayList<>();
+		 try (				 
 			 // StoreComment.dat存放要新增的多筆資料
 			 InputStreamReader isr0 = new InputStreamReader(
 					 new FileInputStream("data/StoreComment.dat"), "UTF-8");
 			 BufferedReader br = new BufferedReader(isr0);)
-			 // 由檔案("data/StoreComment.dat")讀入Store的資料，然後寫入資料庫
+			 // 由檔案("data/StoreComment.dat")讀入StoreComment的資料，然後寫入資料庫
 		 {
 			 String line = "";
 			 int count = 0;
@@ -250,7 +250,8 @@ public class TableDataReset_Hibernate {
 					 Date date = formatter.parse(sa[6].trim());
 					 Timestamp ts = new Timestamp(date.getTime());
 					 comment.setCommentDate(ts);
-			
+					 
+					 listComment.add(comment);
 					 session.save(comment);
 					 tx.commit();		 
 				 } catch (Exception e) {
@@ -260,13 +261,125 @@ public class TableDataReset_Hibernate {
 						 tx.rollback();
 					 }
 				 } finally {
-					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 : " + sa[0]);
+					 System.out.println("新增 StoreComment 資料， 第" + count + "筆記錄 memberID: " + sa[0]);
 					 
 				 }
 			 }
 		 } catch (Exception e) {
 			 e.printStackTrace();
 		 }
+		 
+		// -------------Gift資料，寫入資料庫-----------------------
+			// Gift 欄位說明: 
+			// giftId      	 : 折價劵編號			INT				主鍵, AUTO_INCREMENT
+		    // giftName      : 折價劵名稱			VARCHAR(40)		NOT NULL
+		    // giftPicture   : 折價劵圖片			MEDIUMBLOB		NOT NULL
+		    // giftContent   : 折價劵內容			VARCHAR(40)		NOT NULL
+		    // giftPrice	 : 折價劵價格			DECIMAL(10,2)	NOT NULL
+		    // giftDeadline  : 營業時間			DATE			NOT NULL
+			try (
+					// Gift.dat存放要新增的多筆資料
+					InputStreamReader isr0 = new InputStreamReader(
+							new FileInputStream("data/Gift.dat"), "UTF-8");
+					BufferedReader br = new BufferedReader(isr0);)
+			// 由檔案("data/Gift.dat")讀入Gift的資料，然後寫入資料庫
+			{
+				String line = "";
+				int count = 0;
+				while ((line = br.readLine()) != null) {
+					// 去除 UTF8_BOM
+					if (line.startsWith(UTF8_BOM)) {
+						line = line.substring(1);
+					}
+					
+					String[] sa = line.split("\\|");
+					try {
+						tx = session.beginTransaction();
+						Gift gift = new Gift();
+						gift.setGiftName(sa[0].trim());	
+						// --------------處理Blob(圖片)欄位----------------
+						// Blob picture = fileToBlob(sa[1]);
+						// fileToBlob為自己編寫的方法,
+						// 本程式後來改用 Hibernate 4.3 提供的標準API:
+						// Hibernate.getLobCreator(session).createBlob(is, size)
+						if (sa[1].trim().length() > 4) {
+							File file = new File(sa[1].trim());
+							long size = file.length();
+							InputStream is = new FileInputStream(file);
+							Blob picture = Hibernate.getLobCreator(session).createBlob(is, size);
+							gift.setGiftPicture(picture);
+						}
+						gift.setGiftContent(sa[2].trim());
+						gift.setGiftPrice(Double.valueOf(sa[3].trim()));					
+						gift.setGiftDeadline(sa[4].trim());
+						
+						session.save(gift);
+						session.flush();
+						tx.commit();
+					} catch (Exception e) {
+						e.getMessage();
+						if (tx != null) {
+							tx.rollback();
+						}
+					} finally {
+						count++;
+						System.out.println("新增 Gift 資料， 第" + count + "筆記錄 : " + sa[0]);
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			// -------------Gift資料，寫入資料庫-----------------------
+			// Message 欄位說明: 
+			// messageId      : 留言編號			INT				主鍵, AUTO_INCREMENT
+			// messageDate    : 留言發佈時間		DATETIME		NOT NULL
+			// msgContent     : 留言內容			VARCHAR(40)		限制字數 40 NOT NULL
+			// msgCId     	   : 評論編號			INT				外來鍵
+			// msgMId 	       : 會員編號			INT				外來鍵
+			 try (				 
+					 // Message.dat存放要新增的多筆資料
+					 InputStreamReader isr0 = new InputStreamReader(
+							 new FileInputStream("data/Message.dat"), "UTF-8");
+					 BufferedReader br = new BufferedReader(isr0);)
+					 // 由檔案("data/Message.dat")讀入Message的資料，然後寫入資料庫
+				 {
+					 String line = "";
+					 int count = 0;
+					 while ((line = br.readLine()) != null) {
+						// 去除 UTF8_BOM
+							if (line.startsWith(UTF8_BOM)) {
+								line = line.substring(1);
+							}
+							count++;
+						 String[] sa = line.split("\\|");
+						 try {
+							 tx = session.beginTransaction();	
+							 Message message = new Message(); 
+							 DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+							 Date date = formatter.parse(sa[0].trim());
+							 Timestamp ts = new Timestamp(date.getTime());
+							 message.setMessageDate(ts);
+							 
+							 message.setMsgContent(sa[1].trim());
+							 message.setMsgCId(listComment.get(Integer.parseInt(sa[2]) - 1 ));
+							 message.setMsgMId(listMember.get(Integer.parseInt(sa[3]) - 1 )); 
+							
+							 session.save(message);
+							 tx.commit();		 
+						 } catch (Exception e) {
+							 System.err.println("新增第 " + count + "筆記錄時發生例外: " + e.getMessage());
+							 e.getStackTrace();
+							 if (tx != null) {
+								 tx.rollback();
+							 }
+						 } finally {
+							 System.out.println("新增 Message 資料， 第" + count + "筆記錄 memberID: " + sa[3]);
+							 
+						 }
+					 }
+				 } catch (Exception e) {
+					 e.printStackTrace();
+				 }
 
 		if (session != null) {
 			session.close();
