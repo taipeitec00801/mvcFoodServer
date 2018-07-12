@@ -53,6 +53,7 @@
 				<%@ include file="navbar.jsp"%>
 			</div>
 			<!-- body -->
+			<div class="allTX test">
 			<div class="col-xs-6 col-md-3">
 
 				<!-- sidebar -->
@@ -106,6 +107,7 @@
 							<!-- infomation -->
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

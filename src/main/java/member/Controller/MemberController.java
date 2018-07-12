@@ -321,8 +321,8 @@ public class MemberController {
 //	public String member_mainPage() {
 //		return "member_mainPage";
 //	}
-	@RequestMapping("/setting_memInfo")
+	@RequestMapping("/history")
 	public String member_setting() {
-		return "setting_memInfo";
+		return "setting_history";
 	}
 }

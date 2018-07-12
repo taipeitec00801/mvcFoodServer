@@ -1,11 +1,14 @@
 
  html{
-    margin-left: 235px;
+    
 }
 
-/* .test{
+.test{
     border: 1px #ffc0cb solid;
-} */
+} 
+.allTX{
+	margin-left: 235px;
+}
 
 /* <!-- navbar --> */
 
@@ -145,10 +148,28 @@ padding-bottom: 25px;
 .btPasswordChange button{
     width: 500px;
 }
-
+/* <from style.css> */
+.fh5co-testimonial {
+	position: relative;
+	background: #fff;
+	padding: 0;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
+	-moz-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
+	box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
+}
+/* <from style.css> */
 
 /* <!-- copyright --> */
-
+#footer{
+	margin-top: 400px;
+    margin-left:-485px;
+}
+#fh5co-wrapper {
+    overflow-x: visible;
+    position: relative;
+}
+/* <!-- copyright --> */
 /* Dialog  */
 /* .popup{
     box-align: center;

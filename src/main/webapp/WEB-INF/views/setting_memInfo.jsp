@@ -12,7 +12,7 @@
 
 
 <!-- ============================ -->
-<link rel="stylesheet" href="member/css/bootstrap.min.css"
+<link rel="stylesheet" href="css/bootstrap.min.css"
 	type="text/css">
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <link rel="stylesheet" href="css/animate.css" type="text/css">
@@ -27,7 +27,7 @@
 
 
 <!-- =============================================== -->
-<script src="member/js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="member/js/wow.min.js"></script>
 <script src="member/js/facebox.js"></script>
@@ -49,7 +49,7 @@
 				<%@ include file="navbar.jsp"%>
 			</div>
 			<!-- body -->
-			<div id="allTX test">
+			<div class="allTX test">
 
 				<!-- sidebar -->
 				<div class="sidebar test">
