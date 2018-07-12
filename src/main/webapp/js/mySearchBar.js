@@ -144,7 +144,7 @@ $(document).ready(function() {
 	});
 	
 	$(".settingBt").on("click" , function(){		
-		window.location.href = 'member9487/member_mainPage';		
+		window.location.href = 'member9487/member_mainPage';	
 	});
 	
 	

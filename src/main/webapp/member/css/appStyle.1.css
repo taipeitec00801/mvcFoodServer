@@ -1,12 +1,49 @@
 
 
+/*---------------------------*/
+.captionBottom span {
+	margin-left: 26%;
+}
 
-/* .test{
-    border: 1px pink solid;
-} */
+.row .captionBottom {
+	margin-top: 15px;
+}
+
+.row .btn:hover {
+	background: #9fafbc !important;
+}
+
+.row a {
+	color: #203a43;
+}
+
+.row h4 {
+	font-weight: 900;
+	color: #000;
+	margin: 0 0 15px 0;
+	font-size: 20px;
+}
+
+.row .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.row .btn.btn-primary {
+	background: #203a43;	
+}
 
 
+.row>.thumbnail {
+	float: left;
+	padding: 6px;
+}
 
+.bottomPlace {
+	margin-top: 0px;
+	margin-bottom: 1%;
+}
+
+/*--------------------------------------------------*/
 /* <!-- memberBar --> */
 .memberBar  {
 height: 250px;

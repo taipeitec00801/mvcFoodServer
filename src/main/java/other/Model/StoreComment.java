@@ -47,7 +47,6 @@ public class StoreComment implements Serializable  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(columnDefinition = "INT NOT NULL AUTO_INCREMENT")
 	public Integer getCommentId() {
 		return commentId;
 	}

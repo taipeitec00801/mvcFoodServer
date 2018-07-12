@@ -1,36 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid navbarSize">
 
 		<div class="navbar-header">
 
-			<a class="navbar-brand" href="home"> 
-				<img alt="Brand" src="images/Logo.png"> 
+			<a class="navbar-brand" href="/mvcFoodServer/home"> 
+				<img alt="Brand" src="/mvcFoodServer/images/Logo.png"> 
 				<span>食在好評</span>
 			</a>
 
 		</div>
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<Form action="<spring:url value='search?pages=1' />" method="POST">
+			<Form action="<spring:url value='/search?pages=1' />" method="POST">
 				<div class="col-lg-4 searchBar">				
 					<div class="input-group">
 						<input type="text" name="mySearchReq" class="form-control" placeholder="Search..."> <span class="input-group-btn">
 								<button class="btn btn-default mySearchBot" type="submit">
-									<img src="images/searchicon.png">
+									<img src="/mvcFoodServer/images/searchicon.png">
 								</button>
 						</span>
 					</div>
 				</div>
 			</Form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<spring:url value='sorts?sortNo=-1&pages=1' />">分類</a></li>
+				<li><a href="<spring:url value='/sorts?sortNo=-1&pages=1' />">分類</a></li>
 				<li><a href="#">商城</a></li>
 
 				<li>
 					<ul class="sf-menu" id="fh5co-primary-menu">
-						<li><a href="member8877" class="fh5co-sub-ddown">會員</a>
+						<li>
+						<a href="/mvcFoodServer/member9487/member_mainPage" class="fh5co-sub-ddown">會員</a>
+						
 							<ul class="fh5co-sub-menu" id="myMenu">
 								<form class="myForm formOut">
 									<div class="myLabel" id="rrrrr">

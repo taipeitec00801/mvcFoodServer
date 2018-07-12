@@ -317,10 +317,10 @@ public class MemberController {
 //		
 //		    return responseEntity;
 //	}
-	@RequestMapping("/member_mainPage")
-	public String member_mainPage() {
-		return "member_mainPage";
-	}
+//	@RequestMapping("/member_mainPage")
+//	public String member_mainPage() {
+//		return "member_mainPage";
+//	}
 	@RequestMapping("/setting_memInfo")
 	public String member_setting() {
 		return "setting_memInfo";

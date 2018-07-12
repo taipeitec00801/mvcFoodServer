@@ -13,25 +13,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<link rel="stylesheet" href="/mvcFoodServer/css/style.css">
-<link rel="stylesheet" href="/mvcFoodServer/css/animate.css" type="text/css">
+<!-- Animate.css -->
+<link rel="stylesheet" href="/mvcFoodServer/css/animate.css"
+	type="text/css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="/mvcFoodServer/css/icomoon.css"
+	type="text/css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="/mvcFoodServer/css/bootstrap.css"
+	type="text/css">
 <!-- Superfish -->
-<link rel="stylesheet" href="/mvcFoodServer/css/superfish.css">
-<link rel="stylesheet" href="/mvcFoodServer/member/css/styles.css">
-<link rel="stylesheet" href="/mvcFoodServer/css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="/mvcFoodServer/css/superfish.css"
+	type="text/css">
+
+<link rel="stylesheet" href="/mvcFoodServer/css/style.css"
+	type="text/css">
 <!-- Navbar css -->
-<link rel="stylesheet" type="text/css" href="/mvcFoodServer/css/myNavbarFooter.css"
-	charset="UTF-8">
+<link rel="stylesheet" type="text/css"
+	href="/mvcFoodServer/css/myNavbarFooter.css" charset="UTF-8">
 <link rel="stylesheet" href="/mvcFoodServer/member/css/appStyle.1.css">
 
 
-
-
-
-
-<script src="/mvcFoodServer/js/jquery-3.2.1.min.js"></script>
-<script src="/mvcFoodServer/member/js/wow.min.js"></script>
-<script src="/mvcFoodServer/js/modernizr-2.6.2.min.js"></script>
 <title>MemberInfo</title>
 
 </head>
@@ -53,14 +55,14 @@
 				<div class="fotoInfo test">
 
 					<div class="fotoCase test wow bounceInDown ">
-						<a href="#"> <img alt="..." class="memberImg">
+						<a href="#"> <img class="memberImg">
 						</a>
 
 					</div>
 					<!-- memberName -->
 					<div class="name test  wow bounceInRight">
 						<div class="nickName">
-							<p>AlexHsu</p>
+							<p>memberName</p>
 						</div>
 						<div class="btSetting">
 							<div class="btn-group" role="group" aria-label="...">
@@ -81,17 +83,14 @@
 							<c:forEach var="store" begin="0" end="9" items="${stores}">
 								<div class="col-sm-6 col-md-4 bottomPlace">
 									<div class="thumbnail">
-										<img src="<c:url value='/getOnePicture/${store.storeId}'/>"
-											style="height: 350px; width: 100%" />
+										<img src="<c:url value='/getOnePicture/${store.storeId}'/>" style="height: 350px; width: 100%" />
 										<div class="caption">
 											<h4>${store.storeName}</h4>
-											<span>地址：</span><span>${store.storeAddress}</span><br> <span>電話：</span><span>${store.storePhone}</span><br>
+											<span>地址：</span><span>${store.storeAddress}</span><br> 
+											<span>電話：</span><span>${store.storePhone}</span><br>
 											<div class="captionBottom">
-												<a
-													href="<spring:url value='/store_Info?storeId=${store.storeId}' />"
-													class="btn btn-primary" role="button">Read More </a> <span
-													class="comment"> ${store.storeRecomCount} <i
-													class="icon-heart4" style="color: red;"></i>
+												<a href="<spring:url value='/store_Info?storeId=${store.storeId}' />" class="btn btn-primary" role="button">Read More </a> 
+												<span class="comment"> ${store.storeRecomCount} <i class="icon-heart4" style="color: red;"></i>
 												</span>
 											</div>
 										</div>
@@ -107,9 +106,8 @@
 	<script>
 		new WOW().init();
 	</script>
+
 	<!-- jQuery -->
-
-
 	<script src="/mvcFoodServer/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="/mvcFoodServer/js/jquery.easing.1.3.js"></script>
@@ -119,17 +117,20 @@
 	<script src="/mvcFoodServer/js/jquery.waypoints.min.js"></script>
 	<!-- Stellar -->
 	<script src="/mvcFoodServer/js/jquery.stellar.min.js"></script>
+
+	<script src="/mvcFoodServer/member/js/wow.min.js"></script>
 	<!-- Superfish -->
 	<script src="/mvcFoodServer/js/hoverIntent.js"></script>
 	<script src="/mvcFoodServer/js/superfish.js"></script>
-
+	<!-- Modernizr JS -->
+	<script src="/mvcFoodServer/js/modernizr-2.6.2.min.js"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="/mvcFoodServer/js/main.js"></script>
 	<!-- cookie -->
 	<script src="/mvcFoodServer/js/jquery.cookie.js"></script>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="/mvcFoodServer/member/js/memberMainPage.js"></script>
 	<script src="/mvcFoodServer/js/mySearchBar.js"></script>
-	<script src="/mvcFoodServer/js/memberMainPage.js"></script>
 </body>
 
 </html>
