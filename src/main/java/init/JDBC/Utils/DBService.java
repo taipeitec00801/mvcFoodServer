@@ -65,8 +65,7 @@ public class DBService {
 			+ " MessageDate		DATETIME, " 
 			+ " MsgContent    	VARCHAR(40), "
 			+ " MsgCId			INT, " 
-			+ " MsgMId 			INT, "
-			+ " MsgUickName		VARCHAR(20), " 
+			+ " MsgMId 			INT, " 
 			+ " FOREIGN KEY(MsgCId) REFERENCES StoreComment(CommentId), "
 			+ " FOREIGN KEY(MsgMId) REFERENCES Member(MemberId) "
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
@@ -76,6 +75,7 @@ public class DBService {
 			+ " GiftName		VARCHAR(40) NOT NULL, " 
 			+ " GiftPicture    	MEDIUMBLOB NOT NULL, " 
 			+ " GiftContent  	VARCHAR(40) NOT NULL, "
+			+ " GiftPrice  		DECIMAL(10,2) NOT NULL, "
 			+ " GiftDeadline  	DATE NOT NULL "
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
 

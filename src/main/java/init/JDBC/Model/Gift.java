@@ -1,14 +1,8 @@
-package shoppingCart.Model;
+package init.JDBC.Model;
 
 import java.io.Serializable;
 import java.sql.Blob;
 import java.sql.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 /*	
 Gift 欄位說明:
@@ -20,7 +14,7 @@ Gift 欄位說明:
     giftDeadline 	 : 營業時間			DATE			NOT NULL
 */
 
-@Entity
+
 public class Gift implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer giftId;
@@ -34,8 +28,6 @@ public class Gift implements Serializable {
 		super();
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getGiftId() {
 		return giftId;
 	}
@@ -44,7 +36,6 @@ public class Gift implements Serializable {
 		this.giftId = giftId;
 	}
 
-	@Column(columnDefinition = "VARCHAR(40) NOT NULL")
 	public String getGiftName() {
 		return giftName;
 	}
@@ -53,7 +44,6 @@ public class Gift implements Serializable {
 		this.giftName = giftName;
 	}
 
-	@Column(columnDefinition = "MEDIUMBLOB NOT NULL")
 	public Blob getGiftPicture() {
 		return giftPicture;
 	}
@@ -62,7 +52,6 @@ public class Gift implements Serializable {
 		this.giftPicture = giftPicture;
 	}
 
-	@Column(columnDefinition = "VARCHAR(40) NOT NULL")
 	public String getGiftContent() {
 		return giftContent;
 	}
@@ -71,16 +60,14 @@ public class Gift implements Serializable {
 		this.giftContent = giftContent;
 	}
 
-	@Column(columnDefinition = "DATE")
-	public String getGiftDeadline() {
-		return giftDeadline.toString();
+	public Date getGiftDeadline() {
+		return giftDeadline;
 	}
 
-	public void setGiftDeadline(String giftDeadline) {
-		this.giftDeadline = Date.valueOf(giftDeadline);
+	public void setGiftDeadline(Date giftDeadline) {
+		this.giftDeadline = giftDeadline;
 	}
 
-	@Column(columnDefinition = "DECIMAL(10,2) NOT NULL")
 	public Double getGiftPrice() {
 		return giftPrice;
 	}
