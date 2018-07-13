@@ -267,8 +267,9 @@
 												<a>${storeComment.commentMId.nickname}</a>
 											</h3>
 											<span class="posted_by">${storeComment.commentDate}</span> <span
-												class="comment"> <a href="">${storeComment.commentRecomCount}
-													<i class="icon-bubble2"></i>
+												class="comment"> 
+											<a> <i class="icon-heart3"></i>
+												${storeComment.commentRecomCount}
 											</a>
 											</span>
 											<c:forEach begin="${loop.index}" end="${loop.index}"
@@ -324,12 +325,21 @@
     <script type="text/javascript">
     	$(document).ready(function(){
     		var len = 80;
+    		var datelen=10;
     		$(".content").each(function(i){
     			if($(this).text().length > len) {
     				var text = $(this).text().substring(0,len-1)+".....";
     				$(this).text(text);
             	}
-    		}); 	
+    		}); 
+    		
+    		$(".posted_by").each(function(j){
+    			if($(this).text().length > datelen) {
+    				var text = $(this).text().substring(0,datelen);
+    				$(this).text(text);
+            	}
+    		});
+    		
     	});
     </script>
 

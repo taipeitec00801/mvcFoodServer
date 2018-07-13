@@ -144,7 +144,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="fh5co-testimonial text-center animate-box Comment">
-									<figure> <img src="images/man.png" alt="user"> </figure>
+									<figure> <img src="<c:url value='/getMemberImg/${storeComment.commentMId.memberId}'/>" alt="user"> </figure>
 									<blockquote>
 										<c:forEach begin="${loop.index}" end="${loop.index}"
 											items="${contentList}">
@@ -153,7 +153,8 @@
 									</blockquote>
 									<div class="CommentImg animate-box"
 										data-animate-effect="fadeIn">
-										<img src="images/036_01.jpg" alt="...">
+										<img src="<c:url value='/getCommentImg/${storeComment.commentId}'/>"
+										 style="height: 400px; width: 50%" alt="...">
 									</div>
 								</div>
 								<div class="animate-box CommentMessage">

@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import member.Model.Member;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Repository.StoreDao;
@@ -170,6 +171,34 @@ public class StoreDaoImpl implements StoreDao {
 		Query query = session.createQuery(hql);
 		query.setParameter("storeId", storeId);
 		return query.getResultList();
+	}
+
+	@Override
+	public Member getMemberById(Integer memberId) {
+		Session session = getSession();
+		String hql = "FROM Member m WHERE m.memberId = :memberId";
+		Member mb = null;
+		try {
+			mb = (Member) session.createQuery(hql)
+					.setParameter("memberId", memberId).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mb;
+	}
+
+	@Override
+	public StoreComment getCommentById(Integer commentId) {
+		Session session = getSession();
+		String hql = "FROM StoreComment sc WHERE sc.commentId = :commentId";
+		StoreComment sc = null;
+		try {
+			sc = (StoreComment) session.createQuery(hql)
+					.setParameter("commentId", commentId).getSingleResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return sc;
 	}
 
 }

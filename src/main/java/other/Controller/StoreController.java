@@ -2,15 +2,19 @@ package other.Controller;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Clob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +25,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import member.Model.Member;
+import member.Service.MemberService;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Service.StoreService;
 
 @Controller
 public class StoreController {
+	@Autowired
+	MemberService memberService;
 
 	@Autowired
 	StoreService storeService;
@@ -128,4 +136,91 @@ public class StoreController {
 		model.addAttribute("contentList",contentList);
 		return "store_Info";
 	}
+	
+	//getMemberImg
+	@RequestMapping(value = "/getMemberImg/{memberId}", method = RequestMethod.GET)			
+	public ResponseEntity<byte[]> getMemberPortrait(Model model, 
+			@PathVariable Integer memberId,
+			HttpServletResponse response,
+			HttpServletRequest request
+	) {
+		Member mb = null;
+		System.out.println("memberId!!!!:"+memberId);
+		mb = storeService.getMemberById(memberId);
+		System.out.println("memberName!!!!:"+mb.getNickname());
+		HttpHeaders headers = new HttpHeaders();
+		Blob blob = mb.getPortrait();
+	    int len = 0;
+	    byte[] media = null;
+	    if (blob != null) {
+	        try {
+	            len = (int) blob.length();
+	            media = blob.getBytes(1, len);
+	        } catch (SQLException e) {
+	            throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
+	        }
+	    } else {
+//	    	System.out.println("context: " + context.getContextPath());
+//	        InputStream is = context.getResourceAsStream(filePath);
+//	        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//	        byte[] b = new byte[8192];
+//	        try {
+//	            while ((len = is.read(b)) != -1) {
+//	                baos.write(b, 0, len);
+//	            } 
+//	        
+//	  	  } catch (Exception e) {
+//	            throw new RuntimeException("ProductController的getPicture()發生IOException: " 
+//				+ e.getMessage());
+//	        }
+//	        media = baos.toByteArray();
+	    }
+	    headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+	    ResponseEntity<byte[]> responseEntity = 
+					new ResponseEntity<>(media, headers, HttpStatus.OK);
+	    return responseEntity;
+	}
+	
+	//getCommentImg
+		@RequestMapping(value = "/getCommentImg/{commentId}", method = RequestMethod.GET)			
+		public ResponseEntity<byte[]> getCommentImg(Model model, 
+				@PathVariable Integer commentId,
+				HttpServletResponse response,
+				HttpServletRequest request
+		) {
+			StoreComment sc = null;
+			sc = storeService.getCommentById(commentId);
+			HttpHeaders headers = new HttpHeaders();
+			Blob blob = sc.getCommentPicture();
+		    int len = 0;
+		    byte[] media = null;
+		    if (blob != null) {
+		        try {
+		            len = (int) blob.length();
+		            media = blob.getBytes(1, len);
+		        } catch (SQLException e) {
+		            throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
+		        }
+		    } else {
+//		    	System.out.println("context: " + context.getContextPath());
+//		        InputStream is = context.getResourceAsStream(filePath);
+//		        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//		        byte[] b = new byte[8192];
+//		        try {
+//		            while ((len = is.read(b)) != -1) {
+//		                baos.write(b, 0, len);
+//		            } 
+//		        
+//		  	  } catch (Exception e) {
+//		            throw new RuntimeException("ProductController的getPicture()發生IOException: " 
+//					+ e.getMessage());
+//		        }
+//		        media = baos.toByteArray();
+		    }
+		    headers.setCacheControl(CacheControl.noCache().getHeaderValue());
+		    ResponseEntity<byte[]> responseEntity = 
+						new ResponseEntity<>(media, headers, HttpStatus.OK);
+		    return responseEntity;
+		}
+	
 }
