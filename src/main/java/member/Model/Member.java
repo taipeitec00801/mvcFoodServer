@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 Member 欄位說明:
     memberId      	: 會員編號			INT				主鍵, AUTO_INCREMENT
     userAccount		: 帳號			VARCHAR(40)		NOT NULL, 信箱
-    userPassword	: 密碼			VARCHAR(12)		NOT NULL
+    userPassword	: 密碼			VARCHAR(32)		NOT NULL
     nickname		: 暱稱			VARCHAR(20)		預設   UserAccount "@"前字串
     birthday		: 生日			DATE			NOT NULL
     gender		 	: 性別			TINYINT			NOT NULL, (0~1), 0=女, 1=男
