@@ -27,7 +27,7 @@
 			</Form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="<spring:url value='/sorts?sortNo=-1&pages=1' />">分類</a></li>
-				<li><a href="#">商城</a></li>
+				<li><a href="/mvcFoodServer/shoppingMain">商城</a></li>
 
 				<li>
 					<ul class="sf-menu" id="fh5co-primary-menu">

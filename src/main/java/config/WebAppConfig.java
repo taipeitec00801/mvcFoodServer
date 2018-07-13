@@ -33,6 +33,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/images/**").addResourceLocations("/images/");
         registry.addResourceHandler("/other/**").addResourceLocations("/other/");
         registry.addResourceHandler("/member/**").addResourceLocations("/member/");
+        registry.addResourceHandler("/shoppingCart/**").addResourceLocations("/shoppingCart/");
     }
     @Bean
 	public CommonsMultipartResolver multipartResolver() {

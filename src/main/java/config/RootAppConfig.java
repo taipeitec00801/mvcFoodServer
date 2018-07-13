@@ -61,7 +61,8 @@ public class RootAppConfig {
 		factory.setDataSource(dataSource());
 		factory.setPackagesToScan(new String[] {
 				"member.Model",
-				"other.Model"
+				"other.Model",
+				"shoppingCart.Model"
 				});
 		factory.setHibernateProperties(additionalProperties());
 		
