@@ -77,7 +77,7 @@
 								<c:forEach var="store" begin="0" end="9" items="${stores}">
 									<div class="col-sm-6 col-md-4 bottomPlace">
 										<div class="thumbnail">
-											<img src="<c:url value='/getPicture/${store.storeId}/0'/>"
+											<img src="<c:url value='/getOnePicture/${store.storeId}'/>"
 												style="height: 270px" />
 											<div class="caption">
 												<h4>${store.storeName}</h4>

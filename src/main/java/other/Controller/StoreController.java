@@ -38,7 +38,7 @@ public class StoreController {
 
 	@Autowired
 	StoreService storeService;
-	
+
 	@Autowired
 	ServletContext context;
 
@@ -84,34 +84,33 @@ public class StoreController {
 		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
 		return responseEntity;
 	}
-	
-	//Store_Info getOneImage
-			@RequestMapping(value = "/getOnePicture/{storeId}", method = RequestMethod.GET)
-			public ResponseEntity<byte[]> getOnePicture(HttpServletResponse resp, @PathVariable Integer storeId) {
-			    Store bean = storeService.getStoreById(storeId);
-			    HttpHeaders headers = new HttpHeaders();
-			    String images = bean.getStorePicture();
-			    String[] storeImg=images.split(",");
-			    int len = 0;
-				byte[] media = null;
-				System.out.println("image/"+ storeImg[0] + ".jpg");
-				InputStream is = context.getResourceAsStream("images/Store_img/"+ storeImg[0] + ".jpg");
-				ByteArrayOutputStream baos = new ByteArrayOutputStream();
-				byte[] b = new byte[8192];
-				try {
-					while ((len = is.read(b)) != -1) {
-						baos.write(b, 0, len);
-					}
 
-				} catch (Exception e) {
-					throw new RuntimeException("ProductController的getPicture()發生IOException: " + e.getMessage());
-				}
-				media = baos.toByteArray();
-			    //headers.setCacheControl(CacheControl.noC);
-			    ResponseEntity<byte[]> responseEntity = 
-							new ResponseEntity<>(media, headers, HttpStatus.OK);
-			    return responseEntity;
+	// Store_Info getOneImage
+	@RequestMapping(value = "/getOnePicture/{storeId}", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> getOnePicture(HttpServletResponse resp, @PathVariable Integer storeId) {
+		Store bean = storeService.getStoreById(storeId);
+		HttpHeaders headers = new HttpHeaders();
+		String images = bean.getStorePicture();
+		String[] storeImg = images.split(",");
+		int len = 0;
+		byte[] media = null;
+		System.out.println("image/" + storeImg[0] + ".jpg");
+		InputStream is = context.getResourceAsStream("images/Store_img/" + storeImg[0] + ".jpg");
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		byte[] b = new byte[8192];
+		try {
+			while ((len = is.read(b)) != -1) {
+				baos.write(b, 0, len);
 			}
+
+		} catch (Exception e) {
+			throw new RuntimeException("ProductController的getPicture()發生IOException: " + e.getMessage());
+		}
+		media = baos.toByteArray();
+		// headers.setCacheControl(CacheControl.noC);
+		ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
+		return responseEntity;
+	}
 
 	@RequestMapping("/store_Info")
 	public String store_Info(@RequestParam("storeId") Integer storeId, Model model) {
@@ -119,10 +118,10 @@ public class StoreController {
 		List<StoreComment> comList = new ArrayList<>();
 		List<String> contentList = new ArrayList<>();
 		store = storeService.getStoreById(storeId);
-		System.out.println("storeId!!!:"+storeId);
+		System.out.println("storeId!!!:" + storeId);
 		comList = storeService.getCommByStore(storeId);
-		//Clob to Sring
-		for(int i=0;i<comList.size();i++) {
+		// Clob to Sring
+		for (int i = 0; i < comList.size(); i++) {
 			Clob clob = comList.get(i).getCommentContent();
 			try {
 				String clobString = clob.getSubString(1, (int) clob.length());
@@ -132,8 +131,8 @@ public class StoreController {
 			}
 		}
 		model.addAttribute("store", store);
-		model.addAttribute("storeComments",comList);
-		model.addAttribute("contentList",contentList);
+		model.addAttribute("storeComments", comList);
+		model.addAttribute("contentList", contentList);
 		return "store_Info";
 	}
 	
