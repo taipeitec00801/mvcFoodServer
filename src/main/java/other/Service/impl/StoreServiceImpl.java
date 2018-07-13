@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import member.Model.Member;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Repository.StoreDao;
@@ -84,6 +85,16 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public List<StoreComment> getCommByStore(Integer storeId) {
 		return storeDao.getCommByStore(storeId);
+	}
+
+	@Override
+	public Member getMemberById(Integer memberId) {
+		return storeDao.getMemberById(memberId);
+	}
+
+	@Override
+	public StoreComment getCommentById(Integer commentId) {
+		return storeDao.getCommentById(commentId);
 	}
 	
 }

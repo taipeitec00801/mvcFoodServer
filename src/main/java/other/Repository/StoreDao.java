@@ -2,11 +2,14 @@ package other.Repository;
 
 import java.util.List;
 
+import member.Model.Member;
 import other.Model.Store;
 import other.Model.StoreComment;
 
 public interface StoreDao {
 	Store getStoreById(Integer storeId);
+	Member getMemberById(Integer memberId);
+	StoreComment getCommentById(Integer commentId);
 	
 	List<Store> getAllStores();
 	List<Store> getStoreBySortNum(Integer sortNum);
