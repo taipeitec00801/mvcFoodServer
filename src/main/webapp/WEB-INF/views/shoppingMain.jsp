@@ -39,7 +39,7 @@
 
 </head>
 
-<body>
+<body style="margin-left: 15%; margin-right: 15%;">
 	<!-- header -->
 	<!-- navbar -->
 
@@ -51,9 +51,10 @@
 				<%@ include file="navbar.jsp"%>
 			</div>
 			
-			<%@ include file="car_bar.jsp"%>
+			<span class="cartMain"></span>
+<%-- 			<%@ include file="car_bar.jsp"%> --%>
 
-			<div class="row" style="margin-left: 15%; margin-right: 15%;">
+			<div class="row" >
 				<div class="row color-3 animate-box">
 					<c:forEach var="gift" begin="0" end="9" items="${giftList}">
 						<div class="col-sm-6 col-md-4 bottomPlace">

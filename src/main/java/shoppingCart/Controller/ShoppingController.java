@@ -1,7 +1,6 @@
 package shoppingCart.Controller;
 
 import java.sql.Blob;
-import java.sql.Clob;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import other.Model.Store;
-import other.Model.StoreComment;
 import shoppingCart.Model.Gift;
 import shoppingCart.Service.GiftService;
 
@@ -71,6 +68,11 @@ public class ShoppingController {
 		gift = service.getGiftById(giftId);
 		model.addAttribute("gift", gift);
 		return "gift_Info";
+	}
+	
+	@RequestMapping("")
+	public void cartMain() {
+		
 	}
 
 }
