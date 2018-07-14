@@ -7,14 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-=======
->>>>>>> 063120e17fa8e579155079f8ab3fc7cbe5bf93ad
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,26 +32,17 @@ import shoppingCart.Service.GiftService;
 public class ShoppingController {
 
 	@Autowired
-<<<<<<< HEAD
 	GiftService service;
 
 	@Autowired
 	ServletContext context;
-=======
-	GiftService giftService;	
 	
->>>>>>> 063120e17fa8e579155079f8ab3fc7cbe5bf93ad
 
 	@RequestMapping("/shoppingMain")
 	public String mainPage(Model model) {
 		List<Gift> giftList = new ArrayList<>();
-<<<<<<< HEAD
-
 		giftList = service.getAllGift();
-=======
 		
-		giftList = giftService.getAllGift();
->>>>>>> 063120e17fa8e579155079f8ab3fc7cbe5bf93ad
 		model.addAttribute("giftList", giftList);
 
 		return "shoppingMain";
@@ -62,15 +50,10 @@ public class ShoppingController {
 
 	@RequestMapping(value = "/getGiftPicture/{giftId}", method = RequestMethod.GET)
 	public ResponseEntity<byte[]> getOnePicture(HttpServletResponse resp, @PathVariable Integer giftId) {
-<<<<<<< HEAD
+
 		HttpHeaders headers = new HttpHeaders();
 		Blob blob = service.getGiftById(giftId).getGiftPicture();
 		int len = 0;
-=======
-	    HttpHeaders headers = new HttpHeaders();
-	    Blob blob = giftService.getGiftById(giftId).getGiftPicture();
-	    int len = 0;
->>>>>>> 063120e17fa8e579155079f8ab3fc7cbe5bf93ad
 		byte[] media = null;
 		if (blob != null) {
 			try {
@@ -88,12 +71,8 @@ public class ShoppingController {
 	@RequestMapping("/gift_Info")
 	public String gift_Info(@RequestParam("giftId") Integer giftId, Model model) {
 		Gift gift = new Gift();
-<<<<<<< HEAD
 		Integer number = 0;
 		gift = service.getGiftById(giftId);
-=======
-		gift = giftService.getGiftById(giftId);
->>>>>>> 063120e17fa8e579155079f8ab3fc7cbe5bf93ad
 		model.addAttribute("gift", gift);
 		return "gift_Info";
 	}
