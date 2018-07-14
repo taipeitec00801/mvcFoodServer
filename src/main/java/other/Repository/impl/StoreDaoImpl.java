@@ -29,10 +29,12 @@ public class StoreDaoImpl implements StoreDao {
 	}
 
 	// 網頁用 分頁 限制取9筆資料
-	private void pagination(Query query) {
+	private void pagination(Query query, String features) {
+		if (features.equals("web")) {
 			int startNo = (pageNo - 1) * RECORDS_PER_PAGE;
 			query.setFirstResult(startNo);
 			query.setMaxResults(RECORDS_PER_PAGE);
+		}
 	}
 
 	@Override
@@ -44,33 +46,33 @@ public class StoreDaoImpl implements StoreDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Store> getAllStores() {
+	public List<Store> getAllStores(String features) {
 		String hql = "FROM Store s";
 		Session session = getSession();
 		Query query = session.createQuery(hql);
-		pagination(query);
+		pagination(query, features);
 		return (List<Store>) query.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Store> getStoreBySortNum(Integer sortNum) {
+	public List<Store> getStoreBySortNum(Integer sortNum, String features) {
 		String hql = "FROM Store s WHERE s.sortNumber = :sortNum";
 		Session session = getSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("sortNum", sortNum);
-		pagination(query);
+		pagination(query, features);
 		return (List<Store>) query.getResultList();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Store> getStoreByName(String storeName) {
+	public List<Store> getStoreByName(String storeName, String features) {
 		String hql = "FROM Store s WHERE s.storeName LIKE :storeName";
 		Session session = getSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("storeName", "%" + storeName + "%");
-		pagination(query);
+		pagination(query, features);
 		return (List<Store>) query.getResultList();
 	}
 
@@ -86,7 +88,7 @@ public class StoreDaoImpl implements StoreDao {
 
 	@Override
 	public Integer getTotalPages(Integer sortNum) {
-		//Math.ceil() 函式會回傳大於等於所給數字的最小整數。
+		// Math.ceil() 函式會回傳大於等於所給數字的最小整數。
 		totalPages = (int) (Math.ceil(getRecordCounts(sortNum) / (double) RECORDS_PER_PAGE));
 		return totalPages;
 	}
@@ -110,18 +112,17 @@ public class StoreDaoImpl implements StoreDao {
 	public List<Store> getUserStores(String userPref) {
 		Session session = getSession();
 		String[] spiltUserPref = userPref.split(",");
-		StringBuilder sb = 
-				new StringBuilder("FROM Store s WHERE s.sortNumber = :sortNumber0");
-		for(int i=1;i<spiltUserPref.length;i++) {
-			sb.append(" OR s.sortNumber = :sortNumber"+i);
+		StringBuilder sb = new StringBuilder("FROM Store s WHERE s.sortNumber = :sortNumber0");
+		for (int i = 1; i < spiltUserPref.length; i++) {
+			sb.append(" OR s.sortNumber = :sortNumber" + i);
 		}
 		sb.append(" ORDER BY s.storeRecomCount DESC");
 		String hql = sb.toString();
-		System.out.println("getUserStores HQL!!:"+hql);
+		System.out.println("getUserStores HQL!!:" + hql);
 		Query query = session.createQuery(hql);
-		for(int i=0;i<spiltUserPref.length;i++) {
+		for (int i = 0; i < spiltUserPref.length; i++) {
 			String s = spiltUserPref[i];
-			query.setParameter("sortNumber"+i, Integer.parseInt(s));
+			query.setParameter("sortNumber" + i, Integer.parseInt(s));
 		}
 		query.setFirstResult(0);
 		query.setMaxResults(6);
@@ -148,7 +149,7 @@ public class StoreDaoImpl implements StoreDao {
 		query.setParameter("storeId", storeId);
 		return (List<Store>) query.getResultList();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<StoreComment> getTopComm() {
@@ -158,7 +159,7 @@ public class StoreDaoImpl implements StoreDao {
 		Query query = session.createQuery(hql);
 		query.setFirstResult(0);
 		query.setMaxResults(3);
-		list = (List<StoreComment>)query.getResultList();
+		list = (List<StoreComment>) query.getResultList();
 		return list;
 	}
 
@@ -170,7 +171,8 @@ public class StoreDaoImpl implements StoreDao {
 		Session session = getSession();
 		Query query = session.createQuery(hql);
 		query.setParameter("storeId", storeId);
-		return query.getResultList();
+		list = query.getResultList();
+		return list;
 	}
 
 	@Override
@@ -179,8 +181,7 @@ public class StoreDaoImpl implements StoreDao {
 		String hql = "FROM Member m WHERE m.memberId = :memberId";
 		Member mb = null;
 		try {
-			mb = (Member) session.createQuery(hql)
-					.setParameter("memberId", memberId).getSingleResult();
+			mb = (Member) session.createQuery(hql).setParameter("memberId", memberId).getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -193,12 +194,19 @@ public class StoreDaoImpl implements StoreDao {
 		String hql = "FROM StoreComment sc WHERE sc.commentId = :commentId";
 		StoreComment sc = null;
 		try {
-			sc = (StoreComment) session.createQuery(hql)
-					.setParameter("commentId", commentId).getSingleResult();
+			sc = (StoreComment) session.createQuery(hql).setParameter("commentId", commentId).getSingleResult();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return sc;
+	}
+
+	@Override
+	public String[] findStoreById(Integer storeId) {
+		String hql = "FROM Store s WHERE s.storeId = :storeId";
+		Session session = getSession();
+		Store store = (Store) session.createQuery(hql).setParameter("storeId", storeId).getSingleResult();
+		return store.getStorePicture().split(",");
 	}
 
 }

@@ -69,6 +69,7 @@ public class RootAppConfig {
 		return factory;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Bean
 	public Properties additionalProperties() {
 		Properties properties = new Properties();

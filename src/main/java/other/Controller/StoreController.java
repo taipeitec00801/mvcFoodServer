@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -48,9 +47,9 @@ public class StoreController {
 		model.addAttribute("totalPages", storeService.getTotalPages(sortNum));
 		List<Store> list = new ArrayList<Store>();
 		if (sortNum < 10 && sortNum >= 0) {
-			list = storeService.getStoreBySortNum(sortNum);
+			list = storeService.getStoreBySortNum(sortNum, "web");
 		} else {
-			list = storeService.getAllStores();
+			list = storeService.getAllStores("web");
 		}
 		model.addAttribute("stores", list);
 		model.addAttribute("sortNumber", sortNum);

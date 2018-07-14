@@ -40,56 +40,85 @@
 
 </head>
 
-<body >
+<body>
 	<!-- header -->
 	<!-- navbar -->
 
-	<div id="fh5co-wrapper" style="margin-left: 15%; margin-right: 15%;">
-		<div id="fh5co-page">
+	<div id="fh5co-wrapper">
+		<div id="fh5co-page" style="margin-left: 15%; margin-right: 15%;">
 
 			<!-- navbar -->
 			<div class="myNavbar">
 				<%@ include file="navbar.jsp"%>
 			</div>
-
-			<span class="cartMain"></span>
-
-			<form action="#">
-				<div class="row" style="height: 625px;">
-					<div class="col-md-6">
-						<img src="<c:url value='/getGiftPicture/${gift.giftId}'/>"
-							style="height: 350px; width: 100%; border: 1px solid black; border-radius: 5px;" />
-					</div>
-					<div class="col-md-6" style="padding-right: 0px; margin-top: 5%;">
-						<h2 class="section-title"
-							style="margin-left: 10%; margin-bottom: 5px; font-weight: bold;">${gift.giftName}</h2>
-						<h5 style="margin-left: 10%;" class="giftId">
-							<span>商品編號: </span>${gift.giftId}</h5>
-						<div style="margin-left: 70%;">
-							<span>NT$ </span>
-							<h1 style="display: inline; color: red; font-weight: bold;">${gift.giftPrice}</h1>
-							<span> 元</span>
-						</div>
-						<div style="margin-left: 10%;">
-							<span>到期時間: </span>${gift.giftDeadline}</div>
-						<hr style="margin-left: 10%; margin-top: 5px;">
-						<ul class="contact-info"
-							style="margin-left: 10%; list-style-type: none; padding: 0px;">
-							<li><span>優惠說明: </span>${gift.giftContent}</li>
-						</ul>
-						<div style="margin-left: 10%; margin-top: 50px;">
-							<span> <label class="v_middle">數量</label>&nbsp;&nbsp; <input
-								id="buyCount" type="number" min="0" maxlength="2" class="number" 
-								style="width: 55px; margin: 0px; padding-left: 6px;" value="0" />
-							</span> <a class="btn btn-primary cartAdd" role="button" style="margin-left: 50%;">加入購物車</a>
-						</div>
-
+			<!-- 			<span class="cartMain"></span> -->
+			<div style="height: 40px;"></div>
+			<div>
+				<span style="margin-left: 16%;">加入購物車</span> <span
+					style="margin-left: 14.5%;">確認訂單</span> <span
+					style="margin-left: 16.5%;">付款</span> <span
+					style="margin-left: 16.5%;">訂單完成</span>
+				<div class="progress"
+					style="width: 800px; margin: 15px auto; text-align: center;">
+					<div
+						class="progress-bar progress-bar-success progress-bar-striped active"
+						aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+						style="width: 33.3%">
+						<span class="sr-only">35% Complete (success)</span>
 					</div>
 				</div>
-			</form>
+			</div>
+			<div style="height: 50px;"></div>
+			<div style="margin-left: 15%; margin-right: 15%">
+				<div style="width: 100%; border: 2px solid #ccc;">
+					<c:forEach var="gift" begin="0" end="9" items="${orderList}">
+						<table>
+							<tr>
+								<td><img width='200' height='120'
+									src="<c:url value='/getGiftPicture/${gift.giftId}' />"
+									style="margin: 30px;" /></td>
+								<td
+									style="font-weight: bold; color: black; font-size: 25px; text-align: center; width: 350px;">${gift.giftName}</td>
+								<td style="width: 150px;">數量 <input type="number" min="1"
+									maxlength="2" value="${gift.giftContent}"
+									style="width: 50px; padding-left: 10px; margin-right: 30px;"
+									class="giftContent"></td>
+								<td>價錢:</td>
+								<td class="giftPrice">${gift.giftPrice}</td>
+							</tr>
+						</table>
+						<hr>
+					</c:forEach>
+				</div>
+				<div
+					style="width: 100%; background-color: #ddd; height: 100px; margin-bottom: 50px;">
+					<table
+						style="display: inline; float: right; color: black; margin-right: 60px; margin-top: 30px;">
+						<tr style="font-size: 20px; color: black; font-weight: bold;">
+							<td>共 <span>${cartCount}</span> 種優惠券
+							</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+							<td>總計</td>
+							<td>&nbsp;&nbsp;</td>
+							<td style="color: red;">$ <span
+								style="font-size: 25px; color: red;" class="totalPrice">999</span></td>
+						</tr>
+					</table>
+				</div>
+				<div style="margin-bottom: 150px;">
+					<button type="button" onclick="backMain()"
+						class="btn btn-default cartBuyyy"
+						style="width: 150px; height: 50px;font-size: 18px;">繼續購物</button>
+					<button type="button" onclick="goToMain2()"
+						class="btn btn-default cartBuyyy"
+						style="width: 150px; height: 50px;font-size: 18px;margin-left: 66%;display: inline;">下一步</button>
+				</div>
+			</div>
+
 		</div>
+		<%@ include file="footer.jsp"%>
 	</div>
-			<%@ include file="footer.jsp"%>
 	<script>
 		new WOW().init();
 	</script>
@@ -119,6 +148,7 @@
 	<script src="/mvcFoodServer/member/js/memberMainPage.js"></script>
 	<script src="/mvcFoodServer/js/mySearchBar.js"></script>
 	<script src="/mvcFoodServer/shoppingCart/js/shopping.js"></script>
+	<script src="/mvcFoodServer/shoppingCart/js/buyMain.js"></script>
 </body>
 
 </html>

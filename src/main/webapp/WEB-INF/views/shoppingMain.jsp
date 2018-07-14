@@ -39,27 +39,26 @@
 
 </head>
 
-<body>
+<body >
 	<!-- header -->
 	<!-- navbar -->
 
-	<div id="fh5co-wrapper">
-		<div id="fh5co-page">
+	<div id="fh5co-wrapper" >
+		<div id="fh5co-page" style="margin-left: 15%; margin-right: 15%;">
 
 			<!-- navbar -->
 			<div class="myNavbar">
 				<%@ include file="navbar.jsp"%>
-			</div>
-			
-			<%@ include file="car_bar.jsp"%>
+			</div>			
+			<span class="cartMain"></span>
 
-			<div class="row" style="margin-left: 15%; margin-right: 15%;">
+			<div class="row" >
 				<div class="row color-3 animate-box">
 					<c:forEach var="gift" begin="0" end="9" items="${giftList}">
 						<div class="col-sm-6 col-md-4 bottomPlace">
 							<div class="thumbnail">
 								<img src="<c:url value='/getGiftPicture/${gift.giftId}'/>"
-									style="height: 250px; width: 100%" />
+									style="height: 250px; width: 100%"/>
 								<div class="caption">
 									<h4>${gift.giftName}</h4>
 									<span>價格：</span><span>${gift.giftPrice}</span><br>
@@ -73,8 +72,8 @@
 					</c:forEach>
 				</div>
 			</div>
-			<%@ include file="footer.jsp"%>
 		</div>
+			<%@ include file="footer.jsp"%>
 	</div>
 	<script>
 		new WOW().init();

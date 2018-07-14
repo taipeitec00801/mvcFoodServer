@@ -1,6 +1,5 @@
 package shoppingCart.Service.impl;
 
-import java.sql.Blob;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +15,16 @@ import shoppingCart.Service.GiftService;
 public class GiftServiceImpl implements GiftService {
 
 	@Autowired
-	GiftRepository repository;
+	GiftRepository giftRepository;
 	
 	@Override
 	public List<Gift> getAllGift() {
-		// TODO Auto-generated method stub
-		return repository.getAllGift();
+		return giftRepository.getAllGift();
 	}
 
 	@Override
 	public Gift getGiftById(Integer giftId) {
-		// TODO Auto-generated method stub
-		return repository.getGiftById(giftId);
+		return giftRepository.getGiftById(giftId);
 	}
 
 }

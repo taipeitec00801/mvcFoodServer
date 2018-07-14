@@ -111,7 +111,26 @@ public class Member implements Serializable {
 		this.userGift = userGift;
 		this.userFriends = userFriends;
 	}
-
+	
+	//App get member data
+	public Member(Integer memberId, String userAccount, String userPassword,
+			String nickname, String birthday, Integer gender, Integer userRank,
+			String preference, String collection, String userGift, String userFriends) {
+		this.memberId = memberId;
+		this.userAccount = userAccount;
+		this.userPassword = userPassword;
+		this.nickname = nickname;
+		this.birthday = Date.valueOf(birthday);
+		this.gender = gender;
+		this.userRank = userRank;
+		this.preference = preference;
+		this.collection = collection;
+		this.userGift = userGift;
+		this.userFriends = userFriends;
+	}
+	
+	
+	
 	// ---------------getter--setter-------------------------------------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

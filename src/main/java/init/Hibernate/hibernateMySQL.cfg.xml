@@ -40,8 +40,10 @@
 		<mapping class="member.Model.Member"></mapping>
 		<mapping class="other.Model.Store"></mapping>
 		<mapping class="other.Model.StoreComment"></mapping>
-		<mapping class="shoppingCart.Model.Gift"></mapping>
 		<mapping class="other.Model.Message"></mapping>
+		<mapping class="shoppingCart.Model.Gift"></mapping>
+		<mapping class="shoppingCart.Model.Order"></mapping>
+		<mapping class="shoppingCart.Model.OrderItem"></mapping>
 
 	</session-factory>
 </hibernate-configuration>

@@ -3,15 +3,6 @@ package init.JDBC.Model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
 /*	
 Message 欄位說明:
     messageId      : 留言編號			INT				主鍵, AUTO_INCREMENT
