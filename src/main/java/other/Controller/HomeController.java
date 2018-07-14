@@ -87,6 +87,7 @@ public class HomeController {
 						@RequestParam(value="nowPosition") String nowPosition, 
 			@RequestParam("pages") Integer pages, Model model) {
 		System.out.println("搜尋內容---------------\"" + myRequest + "\"--length--" + myRequest.length());
+		System.out.println("原本頁面---------------\"" + nowPosition);
 		if (myRequest.length() > 0) {
 			storeService.setPageNo(pages);
 			List<Store> list = new ArrayList<Store>();
@@ -103,9 +104,10 @@ public class HomeController {
 			
 			return "search";
 		} else {
-			int slash = nowPosition.lastIndexOf("/");
+			int slash = nowPosition.indexOf("S");
 			//不跳頁
-			String NoPageJump = nowPosition.substring(slash);
+			String NoPageJump = nowPosition.substring(slash+6);
+			System.out.println(NoPageJump);
 			return "redirect:" + NoPageJump;
 		}		
 	}
