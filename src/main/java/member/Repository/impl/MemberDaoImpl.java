@@ -1,6 +1,7 @@
 package member.Repository.impl;
 
 import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -191,5 +192,49 @@ public class MemberDaoImpl implements MemberDao {
 		}
 		return stores;
 	}
+
+	@Override
+	public int updatePreference(String userAccount, String preference) {
+		int count = 0;
+		String hql = "UPDATE Member mb SET mb.preference = :preference WHERE mb.userAccount = :userAccount";
+		Session session = getSession();
+		count = session.createQuery(hql).setParameter("preference", preference)
+				  .setParameter("userAccount", userAccount)
+				  .executeUpdate();
+		return count;
+	}
+
+	@Override
+	public int updatePortrait(String userAccount, byte[] image) {
+		int count = 0;
+		Blob blob = null;
+		String hql = "UPDATE Member mb SET mb.portrait = :portrait WHERE mb.userAccount = :userAccount";
+		Session session = getSession();
+		try {
+			blob = new javax.sql.rowset.serial.SerialBlob(image);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if (blob != null) {
+			count = session.createQuery(hql).setParameter("portrait", blob)
+					  .setParameter("userAccount", userAccount)
+					  .executeUpdate();
+		}		
+		return count;
+	}
 	
+	@Override
+	public int updateAppMemberDate(Member member) {
+		int count = 0;
+		String hql = "UPDATE Member m SET m.userPassword = :userPassword, m.nickname = :nickname, m.birthday = :birthday, m.gender = :gender WHERE m.userAccount = :userAccount";
+		Session session = getSession();
+		count = session.createQuery(hql)
+				  .setParameter("userPassword", member.getUserPassword())
+				  .setParameter("nickname", member.getNickname())
+				  .setParameter("birthday", member.getBirthday())
+				  .setParameter("gender", member.getGender())
+				  .setParameter("userAccount", member.getUserAccount())
+				  .executeUpdate();
+		return count;
+	}
 }

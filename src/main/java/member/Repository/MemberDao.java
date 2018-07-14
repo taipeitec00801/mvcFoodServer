@@ -24,5 +24,8 @@ public interface MemberDao {
 	Member getMember(String userId);
 	//非會員
 	List<Store> getMemberLikeStore(String[] like);
-
+	//App------------------------------------------------------
+	int updatePreference(String userAccount, String preference);
+	int updatePortrait(String userAccount, byte[] image);
+	int updateAppMemberDate(Member member);
 }

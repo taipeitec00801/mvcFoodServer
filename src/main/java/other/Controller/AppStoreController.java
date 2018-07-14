@@ -113,9 +113,9 @@ public class AppStoreController {
 	}
 	
 	@RequestMapping("/appGetAllImages")
-	public void appGetAllImages(HttpServletRequest request,HttpServletResponse response) throws IOException {
+	public void appGetAllImages(HttpServletRequest request,HttpServletResponse resp) throws IOException {
 		request.setCharacterEncoding(CHARACTER_ENCODING);
-		response.setContentType(CONTENT_TYPE);
+		resp.setContentType(CONTENT_TYPE);
 		Gson gson = new Gson();
 		JsonObject jsonObject = appJson.readJson(gson, request);
 		String id = jsonObject.get("id").getAsString();
@@ -127,7 +127,7 @@ public class AppStoreController {
 		int len = 0;
 		byte[] media = null;
 		System.out.println("image/"+ images[position] + ".jpg");
-		InputStream is = context.getResourceAsStream("image/Store_img/"+ images[position] + ".jpg");
+		InputStream is = context.getResourceAsStream("images/Store_img/"+ images[position] + ".jpg");
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		byte[] b = new byte[8192];
 		try {
@@ -139,9 +139,9 @@ public class AppStoreController {
 			throw new RuntimeException("appGetAllImages()發生IOException: " + e.getMessage());
 		}
 		media = baos.toByteArray();
-		OutputStream os = response.getOutputStream();
-		response.setContentType("image/jpeg");
-		response.setContentLength(media.length);
+		OutputStream os = resp.getOutputStream();
+		resp.setContentType("image/jpeg");
+		resp.setContentLength(media.length);
 		os.write(media);
 	}
 

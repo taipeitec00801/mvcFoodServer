@@ -81,19 +81,17 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int updatePreference(String userAccount, String preference) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberDao.updatePreference(userAccount, preference);
 	}
 
 	@Override
 	public int updatePortrait(String userAccount, byte[] image) {
-		// TODO Auto-generated method stub
-		return 0;
+		return memberDao.updatePortrait(userAccount, image);
 	}
 
 	@Override
-	public int regisMemberDate(Member member, byte[] image) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateAppMemberDate(Member member) {
+		return memberDao.updateAppMemberDate(member);
 	}
+
 }

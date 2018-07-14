@@ -29,5 +29,5 @@ public interface MemberService {
 	//App------------------------------------------------------
 	int updatePreference(String userAccount, String preference);
 	int updatePortrait(String userAccount, byte[] image);
-	int regisMemberDate(Member member, byte[] image);
+	int updateAppMemberDate(Member member);
 }

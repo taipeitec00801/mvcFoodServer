@@ -103,7 +103,7 @@ public class AppMemberController {
 			String userAccount = jsonObject.get("UserAccount").getAsString();
 			String userPassword = jsonObject.get("UserPassword").getAsString();
 			boolean inputOk = false;
-			inputOk = appMemberService.checkACPassword(userAccount, GlobalService.getMD5Endocing(userPassword));			
+			inputOk = appMemberService.checkACPassword(userAccount, userPassword);			
 			appJson.writeText(response, String.valueOf(inputOk));
 		}
 	}
@@ -172,7 +172,7 @@ public class AppMemberController {
 				Member member = gson.fromJson(stringMember, Member.class);
 				int count = 0;
 				member.setUserPassword(GlobalService.getMD5Endocing(member.getUserPassword()));
-				count = appMemberService.updateMemberDate(member);
+				count = appMemberService.updateAppMemberDate(member);
 				appJson.writeText(response, String.valueOf(count));
 
 			} else {
