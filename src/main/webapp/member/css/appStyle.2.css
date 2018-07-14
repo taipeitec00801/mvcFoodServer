@@ -31,7 +31,8 @@
     /* height: 80%; */
     margin-top:100px;
     margin-left: 250px; 
-    position: absolute;
+    float: left;
+    width: 900px;
 }
 .taitle{
     font-size: 18px;
@@ -98,9 +99,7 @@ padding-bottom: 25px;
     resize: none;
 }
 /* Manage Photos */
-.mgPhotos{
-    width: 700px;
-}
+
 .imgForm{
 /*     width: 700px; */
 }
@@ -162,8 +161,9 @@ padding-bottom: 25px;
 
 /* <!-- copyright --> */
 #footer{
-	margin-top: 400px;
-    margin-left:-485px;
+	clear: both;
+	margin-top: 50px;
+   
 }
 #fh5co-wrapper {
     overflow-x: visible;
