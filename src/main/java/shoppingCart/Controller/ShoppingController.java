@@ -1,7 +1,5 @@
 package shoppingCart.Controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,13 +35,12 @@ public class ShoppingController {
 
 	@Autowired
 	ServletContext context;
-	
 
 	@RequestMapping("/shoppingMain")
 	public String mainPage(Model model) {
 		List<Gift> giftList = new ArrayList<>();
 		giftList = service.getAllGift();
-		
+
 		model.addAttribute("giftList", giftList);
 
 		return "shoppingMain";
@@ -103,13 +101,13 @@ public class ShoppingController {
 						String[] b = null;
 						for (String s : gifts) {
 							b = s.split("-");
-							for(int e = 0 ; e < (b.length / 2) ; e++) {
+							for (int e = 0; e < (b.length / 2); e++) {
 								Gift gift = service.getGiftById(Integer.parseInt(b[e]));
 								gift.setGiftId(Integer.parseInt(b[e + 1]));
 								lg.add(gift);
 							}
 						}
-						if(b != null) {							
+						if (b != null) {
 							cartCount = gifts.length;
 						}
 					}
@@ -124,7 +122,7 @@ public class ShoppingController {
 
 	@RequestMapping("/cartAddGift")
 	public String cartAddGift(@RequestParam("giftId") Integer giftId, @RequestParam("number") Integer number,
-			Model model, ServletRequest request , ServletResponse response) {
+			Model model, ServletRequest request, ServletResponse response) {
 		System.out.println("----------------number=" + number);
 		System.out.println("----------------giftId=" + giftId);
 		Gift gift = new Gift();
@@ -144,16 +142,16 @@ public class ShoppingController {
 						giftList = cookies[i].getValue();
 						System.out.println("找到giftList" + giftList);
 						String newList = giftList + "," + giftId + "-" + number;
-						Cookie newCookie = new Cookie("giftList" , newList);
+						Cookie newCookie = new Cookie("giftList", newList);
 						newCookie.setMaxAge(7 * 24 * 60 * 60); // Cookie的存活期: 七天
 						newCookie.setPath(req.getContextPath());
 						((HttpServletResponse) response).addCookie(newCookie);
 					}
 				}
 			}
-			if(giftList.equals("")) {	
+			if (giftList.equals("")) {
 				String newList = giftId + "-" + number;
-				Cookie newCookie = new Cookie("giftList" , newList);
+				Cookie newCookie = new Cookie("giftList", newList);
 				newCookie.setMaxAge(7 * 24 * 60 * 60); // Cookie的存活期: 七天
 				newCookie.setPath(req.getContextPath());
 				((HttpServletResponse) response).addCookie(newCookie);
@@ -162,6 +160,52 @@ public class ShoppingController {
 
 		// model.addAttribute("gift", gift);
 		return "gift_Info";
+	}
+
+	@RequestMapping("/member9487/cartAddGift")
+	public String buyMain(Model model,ServletRequest request, ServletResponse response) {
+		String cookieName = "";
+		String giftList = "";
+		Integer cartCount = 0;
+		List<Gift> lg = new ArrayList<>();
+		if (request instanceof HttpServletRequest && response instanceof HttpServletResponse) {
+			HttpServletRequest req = (HttpServletRequest) request;
+			Cookie[] cookies = req.getCookies();
+			if (cookies != null) {
+				System.out.println("開始找Cookie");
+				for (int i = 0; i < cookies.length; i++) {
+					cookieName = cookies[i].getName();
+					if (cookieName.equals("giftList")) {
+						// 找到user這個Cookie
+						giftList = cookies[i].getValue();
+						System.out.println("找到giftList" + giftList);
+
+						String[] gifts = giftList.split(",");
+						String[] b = null;
+						for (String s : gifts) {
+							b = s.split("-");
+							for (int e = 0; e < (b.length / 2); e++) {
+								Gift gift = service.getGiftById(Integer.parseInt(b[e]));
+								gift.setGiftContent(b[e + 1]);
+								lg.add(gift);
+							}
+						}
+						if (b != null) {
+							cartCount = gifts.length;
+						}
+					}
+				}
+				model.addAttribute("orderList", lg);
+				model.addAttribute("cartCount", cartCount);
+			}
+		}
+
+		return "buyMain";
+	}
+	@RequestMapping("/member9487/goToMain2")
+	public String goToMain2() {
+		
+		return "buyMain2";
 	}
 
 }

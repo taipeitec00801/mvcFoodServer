@@ -25,6 +25,8 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	
 
 });
 
@@ -37,7 +39,7 @@ function testLogin() {
 			type : "POST",
 			data : {},
 			success : function() {
-				alert("即將前往結帳");
+				window.location.href = '/mvcFoodServer/member9487/cartAddGift';
 			},
 			error : function() {
 				alert("請先登入");
@@ -45,3 +47,4 @@ function testLogin() {
 		});
 	}
 };
+
