@@ -5,7 +5,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
 import java.sql.Blob;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +31,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
 import member.Model.Member;
 import member.Service.MemberService;
 import other.Model.Store;
@@ -61,7 +61,7 @@ public class MemberController {
 		if (cookies != null) {
 			 for (Cookie cookie : cookies) {
 			   if (cookie.getName().equals("user")) {
-				   mb = memberService.getUserDateNoPortrait(cookie.getValue());
+				   mb = memberService.getMemberByAccount(cookie.getValue());
 				   //取得使用者帳號
 			    }
 			  }
@@ -82,13 +82,14 @@ public class MemberController {
 		return "setting_memInfo";
 	}
 	
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/memInfo", method = RequestMethod.POST)
 	public String mbInfoChange(
 			@ModelAttribute("member") Member mb,
 //			@ModelAttribute("portrait") Member mbPortrait,
 			@CookieValue("user") String user) {
 		
-		Member mbAllInfo = memberService.getUserDateNoPortrait(user);
+		Member mbAllInfo = memberService.getMemberByAccount(user);
 		Integer mbId = mbAllInfo.getMemberId();
 		
 //		=======================檔案上傳==========================
@@ -149,7 +150,7 @@ public class MemberController {
 		if (cookies != null) {
 			 for (Cookie cookie : cookies) {
 			   if (cookie.getName().equals("user")) {
-				   mb = memberService.getUserDateNoPortrait(cookie.getValue());
+				   mb = memberService.getMemberByAccount(cookie.getValue());
 				   //取得使用者帳號
 			    }
 			  }
@@ -189,7 +190,7 @@ public class MemberController {
 	
 	@RequestMapping("/foto")			
 	public String setting_memInfo_foto(Model model) {
-		List<Store> list = storeService.getAllStores();
+		List<Store> list = storeService.getAllStores("web");
 		model.addAttribute("Store", list);
 		return "foto";
 	}
@@ -205,6 +206,8 @@ public class MemberController {
 	    model.addAttribute("Member", mb); 
 	    return "passwordChange";//送回foto.jsp
 	}
+	
+	@SuppressWarnings("unused")
 	@RequestMapping(value = "/password", method = RequestMethod.POST)
 	public String passwordChange(Model model,
 			@RequestParam("password") String pswd,
@@ -216,11 +219,11 @@ public class MemberController {
 		model.addAttribute("ErrorMsgKey", errorMsg);
 		// 準備存放修改成功之訊息的Map物件
 		Map<String, String> msgOK = new HashMap<String, String>();
-		boolean exist = memberService.checkAccount(user);
+		boolean exist = memberService.checkEmail(user);
 		if(exist==true) {
 			//檢查新密碼1&2是否相同
 			if(pswd==pswd2) {
-				Member mb = memberService.getUserDateNoPortrait(user);
+				Member mb = memberService.getMemberByAccount(user);
 				//利用user先取得永續物件
 				mb.setUserPassword(pswd);
 				memberService.updateMemberDate(mb);
@@ -257,13 +260,13 @@ public class MemberController {
 		System.out.println(userAccount);
 		try {
 			System.out.println(111);
-			System.out.println(memberService.getUserDateNoPortrait(userAccount));
+			System.out.println(memberService.getMemberByAccount(userAccount));
 			System.out.println(222);
 		} catch (Exception e) {
 			System.out.println("發生例外: " + e.getMessage());
 		}
 
-		return memberService.getUserDateNoPortrait(userAccount);
+		return memberService.getMemberByAccount(userAccount);
 	}
 //	@RequestMapping("/memberIfon")
 //	public Member mbInfoServlet(Model model){

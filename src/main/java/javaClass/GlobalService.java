@@ -17,8 +17,6 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import javax.xml.bind.DatatypeConverter;
-
-import sun.misc.*;
 // asasash.jpeg
 public class GlobalService {
 	public static final String host = "127.0.0.1";
@@ -179,7 +177,7 @@ public class GlobalService {
 	 * @throws IllegalBlockSizeException 
 	 * @throws Throwable
 	 */
-	@SuppressWarnings("restriction")
+	
 	public static String encryptString(String message) 
     {
 	//  DES : Data Encryption Standard, 一種對稱式加密演算法。
@@ -247,6 +245,7 @@ public class GlobalService {
 }
 
 
+@SuppressWarnings("serial")
 class SecurityException extends RuntimeException {
 
 	public SecurityException() {

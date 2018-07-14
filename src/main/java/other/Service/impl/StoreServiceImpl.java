@@ -15,25 +15,23 @@ import other.Service.StoreService;
 @Transactional
 @Service
 public class StoreServiceImpl implements StoreService {
-	
+
 	@Autowired
 	private StoreDao storeDao;
-	
-	
+
 	@Override
 	public Store getStoreById(Integer storeId) {
 		return storeDao.getStoreById(storeId);
 	}
 
 	@Override
-	public List<Store> getAllStores() {
-		return storeDao.getAllStores();
+	public List<Store> getAllStores(String features) {
+		return storeDao.getAllStores(features);
 	}
 
-
 	@Override
-	public List<Store> getStoreBySortNum(Integer sortNum) {
-		return storeDao.getStoreBySortNum(sortNum);
+	public List<Store> getStoreBySortNum(Integer sortNum, String features) {
+		return storeDao.getStoreBySortNum(sortNum, features);
 	}
 
 	@Override
@@ -45,7 +43,6 @@ public class StoreServiceImpl implements StoreService {
 	public Integer getTotalPages(Integer sortNum) {
 		return storeDao.getTotalPages(sortNum);
 	}
-
 
 	@Override
 	public Integer getPageNo() {
@@ -73,10 +70,10 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public List<Store> getStoreByName(String myRequest) {
-		return storeDao.getStoreByName(myRequest);
+	public List<Store> getStoreByName(String myRequest, String features) {
+		return storeDao.getStoreByName(myRequest, features);
 	}
-	
+
 	@Override
 	public List<StoreComment> getTopComm() {
 		return storeDao.getTopComm();
@@ -95,6 +92,13 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public StoreComment getCommentById(Integer commentId) {
 		return storeDao.getCommentById(commentId);
+		
 	}
-	
+
+	// app
+	@Override
+	public String[] findStoreById(Integer storeId) {
+		return storeDao.findStoreById(storeId);
+	}
+
 }

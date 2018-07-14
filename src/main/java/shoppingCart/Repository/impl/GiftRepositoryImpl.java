@@ -1,6 +1,5 @@
 package shoppingCart.Repository.impl;
 
-import java.sql.Blob;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -20,7 +19,6 @@ public class GiftRepositoryImpl implements GiftRepository {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Gift> getAllGift() {
-		// TODO Auto-generated method stub
 		String hql = "FROM Gift";
 		Session session = getSession();		
 		return session.createQuery(hql).getResultList();

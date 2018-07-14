@@ -46,7 +46,7 @@ public class HomeController {
 		if (cookies != null) {
 			 for (Cookie cookie : cookies) {
 			   if (cookie.getName().equals("user")) {
-				   mb = memberService.getUserDateNoPortrait(cookie.getValue());
+				   mb = memberService.getMemberByAccount(cookie.getValue());
 				   System.out.println("UserPreference!!!!"+mb.getPreference());
 				   userPref = mb.getPreference();
 				   //取得使用者偏好
@@ -91,7 +91,7 @@ public class HomeController {
 		if (myRequest.length() > 0) {
 			storeService.setPageNo(pages);
 			List<Store> list = new ArrayList<Store>();
-			list = storeService.getStoreByName(myRequest);			
+			list = storeService.getStoreByName(myRequest, "web");			
 			model.addAttribute("totalPages",(int) Math.ceil(list.size()/ (double) StoreDaoImpl.RECORDS_PER_PAGE));
 			model.addAttribute("stores", list);
 			model.addAttribute("requestSize", list.size());
