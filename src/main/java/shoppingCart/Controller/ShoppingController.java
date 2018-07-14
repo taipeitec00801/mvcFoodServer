@@ -86,6 +86,7 @@ public class ShoppingController {
 			// **********Remember Me****************
 			String cookieName = "";
 			String giftList = "";
+			Integer cartCount = 0;
 			List<Gift> lg = new ArrayList<>();
 			Cookie[] cookies = req.getCookies();
 			if (cookies != null) { // 如果含有Cookie
@@ -99,19 +100,24 @@ public class ShoppingController {
 						System.out.println("找到giftList" + giftList);
 
 						String[] gifts = giftList.split(",");
+						String[] b = null;
 						for (String s : gifts) {
-							String[] b = s.split("-");
+							b = s.split("-");
 							for(int e = 0 ; e < (b.length / 2) ; e++) {
 								Gift gift = service.getGiftById(Integer.parseInt(b[e]));
 								gift.setGiftId(Integer.parseInt(b[e + 1]));
 								lg.add(gift);
 							}
 						}
+						if(b != null) {							
+							cartCount = gifts.length;
+						}
 					}
 				}
 			}
 
 			model.addAttribute("orderList", lg);
+			model.addAttribute("cartCount", cartCount);
 		}
 		return "car_bar";
 	}
