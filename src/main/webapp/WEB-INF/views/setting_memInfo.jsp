@@ -54,7 +54,7 @@
 				<!-- sidebar -->
 				<div class="sidebar test">
 					<h2>帳號設定</h2>
-					<a href="setting_memInfo" class="sidebarInfo">基本資料</a> <br> 
+					<a href="memInfo" class="sidebarInfo">基本資料</a> <br> 
 					<a href="foto" class="phtoManager">管理相片</a> <br> 
 					<a href="password" class="sidebarCHPassword">更改密碼</a> <br> 
 					<a href="history">歷史留言</a> <br>

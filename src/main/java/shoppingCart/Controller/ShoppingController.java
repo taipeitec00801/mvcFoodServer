@@ -65,5 +65,10 @@ public class ShoppingController {
 		model.addAttribute("gift", gift);
 		return "gift_Info";
 	}
+	
+	@RequestMapping("")
+	public void cartMain() {
+		
+	}
 
 }
