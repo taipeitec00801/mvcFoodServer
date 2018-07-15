@@ -1,23 +1,23 @@
 $(document).ready(function() {
 	totalPrice();
-	
-	$(".deleteBt").on("click" , function(){
-		
+
+	$(".deleteBt").on("click", function() {
+
 		var r = confirm("確定要刪除此商品嗎?");
-		
+
 		if (r == true) {
 			$(this).parent().parent().parent().remove();
 			totalPrice();
 		} else {
 
 		}
-		
+
 	});
-	
+
 	$(".giftContent").on("change", function() {
 		totalPrice();
 	});
-	
+	changeClass();
 });
 
 function backMain() {
@@ -25,8 +25,13 @@ function backMain() {
 }
 
 function goToMain2() {
-	window.location.href = '/mvcFoodServer/member9487/goToMain2';
+	window.location.href = '/mvcFoodServer/member9487/buyMain2';
 }
+
+function goToMain() {
+	window.location.href = '/mvcFoodServer/member9487/cartAddGift';
+}
+
 function totalPrice() {
 	var allCount = $(".giftContent");
 	var allPrice = $(".giftPrice");
@@ -34,7 +39,7 @@ function totalPrice() {
 
 	var a = $("img");
 	var s = "";
-	
+
 	for (var i = 0; i < a.length - 3; i++) {
 		total += ($(allCount[i]).val() * parseInt($(allPrice[i]).text()));
 
@@ -51,4 +56,59 @@ function totalPrice() {
 		expires : 7,
 		path : '/mvcFoodServer'
 	});
+}
+
+function submitCart() {
+
+	var r = confirm("確定要送出訂單嗎?");
+
+	if (r == true) {
+		// alert($.cookie('giftList'));
+		// alert($.cookie('user'));
+		$
+				.ajax({
+					url : '/mvcFoodServer/member9487/orderConfirm',
+					type : 'POST',
+					data : {
+						orderList : $.cookie('giftList'),
+						user : $.cookie('user')
+					},
+					success : function() {
+						$.removeCookie('giftList', {
+							path : '/mvcFoodServer'
+						});
+						// alert("準備前往/mvcFoodServer/member9487/buyEnd");
+						window.location.href = '/mvcFoodServer/member9487/orderSuccess';
+					},
+					error : function() {
+						alert("竟然失敗了??")
+					}
+				});
+	}
+
+}
+
+function payToOrder() {
+
+	window.location.href = '/mvcFoodServer/member9487/reflash8787';
+	alert("  ");
+//	var r = confirm("確任付款?");
+//
+//	if (r == true) {
+////		window.location.href = '/mvcFoodServer/member9487/myOrder';
+//	} else {
+//
+//	}
+}
+
+function changeClass() {
+	if ($(".waitPay").text() == "訂單完成") {
+		$(".waitChangeClass").attr("class", "active");
+		$(".waitPay").attr("onclick" , "");
+	}
+}
+
+
+function goTomyOrder(){
+	window.location.href = '/mvcFoodServer/member9487/myOrder';
 }

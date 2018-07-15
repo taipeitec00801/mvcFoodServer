@@ -8,41 +8,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="orderItem")
 public class OrderItem {
-	Order orderNo;
-	Gift giftId;
+	OrderMain oiNo;
+	Gift orderItemGID;
 	Integer quantity;
 	Integer orderItemNo;
 	
 	public OrderItem() {
 		super();
 	}
-
-	public OrderItem(Order orderNo, Gift giftId, Integer quantity) {
+	public OrderItem(OrderMain oiNo, Gift orderItemGID, Integer quantity) {
 		super();
-		this.orderNo = orderNo;
-		this.giftId = giftId;
+		this.oiNo = oiNo;
+		this.orderItemGID = orderItemGID;
 		this.quantity = quantity;
 	}
+	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="orderNo")
-	public Order getOrderNo() {
-		return orderNo;
+	@JoinColumn(name="oiNo")
+	public OrderMain getOiNo() {
+		return oiNo;
 	}
-
-	public void setOrderNo(Order orderNo) {
-		this.orderNo = orderNo;
+	public void setOiNo(OrderMain oiNo) {
+		this.oiNo = oiNo;
 	}
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="giftId")
+	@JoinColumn(name="orderItemGID")
 	public Gift getGiftId() {
-		return giftId;
+		return orderItemGID;
 	}
 
-	public void setGiftId(Gift giftId) {
-		this.giftId = giftId;
+	public void setGiftId(Gift orderItemGID) {
+		this.orderItemGID = orderItemGID;
 	}
 	
 	@Column(columnDefinition = "VARCHAR(40) NOT NULL")

@@ -149,6 +149,8 @@ $(document).ready(function() {
 	
 	
 	
+	
+	
 	//-----search--------------------------------
 	$('.searchBar').append("<Input type='hidden' name='nowPosition' value='" + window.location.href + "'>");
 	$(".form-control").focus(function(){
@@ -181,4 +183,9 @@ function onSignIn(googleUser) {
 			});
 	}
 }
+
+function goToOrder(){
+	window.location.href = '/mvcFoodServer/member9487/myOrder';	
+}
+
 

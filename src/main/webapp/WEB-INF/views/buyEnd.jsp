@@ -63,67 +63,31 @@
 					<div
 						class="progress-bar progress-bar-success progress-bar-striped active"
 						aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
-						style="width: 33.3%">
-						<span class="sr-only">35% Complete (success)</span>
+						style="width: 100%">
+						<span class="sr-only">66.6% Complete (success)</span>
 					</div>
 				</div>
 			</div>
 			<div style="height: 50px;"></div>
+
 			<div style="margin-left: 15%; margin-right: 15%">
-				<div style="width: 100%; border: 2px solid #ccc;">
-				<div style="height: 20px;"></div>
-					<div style="font-size: 20px; color: #bb3d00;font-weight: bold;">
-						<div style="margin-left: 100px;width: 280px;display: inline-block;">商品圖片</div>
-						<div style="width: 200px;display: inline-block;">商品名稱</div>
-						<div style="width: 150px;display: inline-block;">商品數量</div>
-						<div style="display: inline-block;">商品價錢</div>
-					</div>
-					<hr>
-					<c:forEach var="gift" begin="0" end="9" items="${orderList}">
-						<table>
-							<tr class="cartTr">
-								<td><img width='200' height='120'
-									src="<c:url value='/getGiftPicture/${gift.giftId}' />"
-									style="margin: 30px;border: 1px solid black;" /></td>
-								<td
-									style="font-weight: bold; color: black; font-size: 25px; text-align: center; width: 350px;">${gift.giftName}</td>
-								<td style="width: 150px;"><input type="number" min="1"
-									maxlength="2" value="${gift.giftContent}"
-									style="width: 50px; padding-left: 10px; margin-right: 10px;border: 0px;margin-left: 20px;"
-									class="giftContent"></td>
-								<td class="giftPrice" style="width: 75px">${gift.giftPrice}.NT</td>
-								<td style="width: 20px"></td>
-								<td style="width: 30px; text-align: center;"><button class="deleteBt" 
-										style="margin-top: -85px; height: 18px; width: 18px; background-color: #005ab5; line-height: 0px; padding: 0px; border-radius: 9px; color: #fff; display: inline-block;">x</button></td>
-							</tr>
-						</table>
-					</c:forEach>
-				</div>
-				<div
-					style="width: 100%; background-color: #ddd; height: 100px; margin-bottom: 50px;">
-					<table
-						style="display: inline; float: right; color: black; margin-right: 60px; margin-top: 30px;">
-						<tr style="font-size: 20px; color: #bb3d00; font-weight: bold;">
-							<td>共 <span>${cartCount}</span> 種優惠券
-							</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-							<td>總計</td>
-							<td>&nbsp;&nbsp;</td>
-							<td style="color: red;">$ <span
-								style="font-size: 25px; color: red;" class="totalPrice">999</span></td>
+				<div style="width: 100%; border: 2px solid #ccc;background-color: #ffe6d9;border-radius: 10px;margin-bottom: 30px;text-align: center;">
+					<table>
+						<tr style="font-size: 30px; font-weight: bold;text-align: center;margin: 0 auto;">
+							<td>親愛的&nbsp;${user}&nbsp;您好，感謝您的訂購，您的訂單編號為&nbsp;<a href="#">${orderMain.orderNo}</a>
 						</tr>
 					</table>
 				</div>
-				<div style="margin-bottom: 150px;">
+				<div style="margin-bottom: 450px;">
 					<button type="button" onclick="backMain()"
 						class="btn btn-default cartBuyyy"
-						style="width: 150px; height: 50px; font-size: 18px;">繼續購物</button>
-					<button type="button" onclick="goToMain2()"
+						style="width: 150px; height: 50px; font-size: 18px;">回首頁</button>
+					<button type="button" onclick="goTomyOrder()"
 						class="btn btn-default cartBuyyy"
-						style="width: 150px; height: 50px; font-size: 18px; margin-left: 66%; display: inline;">下一步</button>
+						style="width: 150px; height: 50px; font-size: 18px; margin-left: 66%; display: inline;">前往我的訂單</button>
 				</div>
 			</div>
+
 
 		</div>
 		<%@ include file="footer.jsp"%>

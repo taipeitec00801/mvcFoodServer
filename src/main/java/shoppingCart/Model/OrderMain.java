@@ -10,20 +10,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import member.Model.Member;
 
 @Entity
-public class Order {
+@Table(name="orderMain")
+public class OrderMain {
 	
 	Integer orderNo;
-	Member	memberId;
+	Member	orderMID;
 	Date  orderDate;
+	Integer commit;
 	
-	public Order() {
+	public OrderMain() {
 		super();
 	}
 	
+	public OrderMain(Member orderMID, Date orderDate, Integer commit) {
+		super();
+		this.orderMID = orderMID;
+		this.orderDate = orderDate;
+		this.commit = commit;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getOrderNo() {
@@ -34,13 +44,13 @@ public class Order {
 	}
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="memberId")
+	@JoinColumn(name="orderMID")
 	public Member getMemberId() {
-		return memberId;
+		return orderMID;
 	}
 
-	public void setMemberId(Member memberId) {
-		this.memberId = memberId;
+	public void setMemberId(Member orderMID) {
+		this.orderMID = orderMID;
 	}
 
 	@Column(columnDefinition = "DATE")
@@ -51,6 +61,18 @@ public class Order {
 	
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
+	}
+
+
+	@Column(columnDefinition = "VARCHAR(20)")
+	public Integer isCommit() {
+		return commit;
+	}
+
+
+
+	public void setCommit(Integer commit) {
+		this.commit = commit;
 	}
 	
 	

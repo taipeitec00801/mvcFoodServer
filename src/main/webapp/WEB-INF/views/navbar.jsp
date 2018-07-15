@@ -77,7 +77,7 @@
 									<div class="GCdiv">
 										<span>
 											<button type="button" class="btn btn-default myButton giftBt"
-												style="width: 120px;">收藏</button>
+												style="width: 120px;" onclick="goToOrder()">我的訂單</button>
 										</span> <span>
 											<button type="button"
 												class="btn btn-default myButton collectionBt"

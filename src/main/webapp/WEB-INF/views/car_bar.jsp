@@ -4,6 +4,7 @@
 <div style="display: inline-block; width: 100%;">
 	<ul class="sf-menu" id="fh5co-primary-menu" style="float: none;">
 		<li style="display: inline-block; width: 0%; margin-left: 85%;">
+			
 			<div class="shoppingImg">
 				<div style="height: 20px;"></div>
 				<img src="/mvcFoodServer/images/shopping-cart.png"
@@ -24,8 +25,11 @@
 						<div style="width: 30px; display: inline-block;">${gift.giftPrice}</div>
 						<p></p>
 					</c:forEach>
-					<div class="captionBottom cartBuyyy" style="width: 100px; margin-left: 300px; margin-top: 15px;">
-						<button type="button" onclick="testLogin()" class="btn btn-default cartBuyyy" style="width: 120px;height: 30px;">前往結帳</button>
+					<div class="captionBottom cartBuyyy"
+						style="width: 100px; margin-left: 300px; margin-top: 15px;">
+						<button type="button" onclick="testLogin()"
+							class="btn btn-default cartBuyyy"
+							style="width: 120px; height: 30px;">前往結帳</button>
 					</div>
 					</from></li>
 			</ul>

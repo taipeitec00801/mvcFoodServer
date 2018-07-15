@@ -25,21 +25,29 @@ $(document).ready(function() {
 			}
 		});
 	});
-	
-	
 
 });
 
 function testLogin() {
 	if (typeof $.cookie('giftList') === 'undefined') {
-		alert("購物車沒東西呦!!");		
-	}else{
+		alert("購物車沒東西呦!!");
+	} else {
 		$.ajax({
 			url : "/mvcFoodServer/member9487/testLogin88",
 			type : "POST",
 			data : {},
 			success : function() {
-				window.location.href = '/mvcFoodServer/member9487/cartAddGift';
+				$.ajax({
+					url : "/mvcFoodServer/member9487/orderTest",
+					type : "POST",
+					success : function(data) {
+						if(!data){
+							window.location.href = '/mvcFoodServer/member9487/cartAddGift';		
+						}else{
+							alert("請先完成先前的帳單");
+						}									
+					}
+				});
 			},
 			error : function() {
 				alert("請先登入");
