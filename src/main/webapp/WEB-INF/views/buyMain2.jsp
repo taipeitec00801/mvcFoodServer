@@ -55,9 +55,9 @@
 			<div style="height: 40px;"></div>
 			<div>
 				<span style="margin-left: 16%;">加入購物車</span> <span
-					style="margin-left: 14.5%;">確認訂單</span> <span
-					style="margin-left: 16.5%;">付款</span> <span
-					style="margin-left: 16.5%;">訂單完成</span>
+					style="margin-left: 14%;">確認購物車</span> <span
+					style="margin-left: 13%;">檢查訂單與送出</span> <span
+					style="margin-left: 13%;">訂單完成</span>
 				<div class="progress"
 					style="width: 800px; margin: 15px auto; text-align: center;">
 					<div

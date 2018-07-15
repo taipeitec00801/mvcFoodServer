@@ -79,8 +79,8 @@
 						</ul>
 						<div style="margin-left: 10%; margin-top: 50px;">
 							<span> <label class="v_middle">數量</label>&nbsp;&nbsp; <input
-								id="buyCount" type="number" min="0" maxlength="2" class="number" 
-								style="width: 55px; margin: 0px; padding-left: 6px;" value="0" />
+								id="buyCount" type="number" min="1" maxlength="2" class="number" 
+								style="width: 55px; margin: 0px; padding-left: 6px;" value="1" />
 							</span> <a class="btn btn-primary cartAdd" role="button" style="margin-left: 50%;">加入購物車</a>
 						</div>
 

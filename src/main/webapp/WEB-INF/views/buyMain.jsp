@@ -55,9 +55,9 @@
 			<div style="height: 40px;"></div>
 			<div>
 				<span style="margin-left: 16%;">加入購物車</span> <span
-					style="margin-left: 14.5%;">確認訂單</span> <span
-					style="margin-left: 16.5%;">付款</span> <span
-					style="margin-left: 16.5%;">訂單完成</span>
+					style="margin-left: 14%;">確認購物車</span> <span
+					style="margin-left: 13%;">檢查訂單與送出</span> <span
+					style="margin-left: 13%;">訂單完成</span>
 				<div class="progress"
 					style="width: 800px; margin: 15px auto; text-align: center;">
 					<div
@@ -73,10 +73,10 @@
 				<div style="width: 100%; border: 2px solid #ccc;">
 					<c:forEach var="gift" begin="0" end="9" items="${orderList}">
 						<table>
-							<tr>
+							<tr class="cartTr">
 								<td><img width='200' height='120'
 									src="<c:url value='/getGiftPicture/${gift.giftId}' />"
-									style="margin: 30px;" /></td>
+									style="margin: 30px;border: 1px solid black;" /></td>
 								<td
 									style="font-weight: bold; color: black; font-size: 25px; text-align: center; width: 350px;">${gift.giftName}</td>
 								<td style="width: 150px;">數量 <input type="number" min="1"
@@ -84,10 +84,11 @@
 									style="width: 50px; padding-left: 10px; margin-right: 30px;"
 									class="giftContent"></td>
 								<td>價錢:</td>
-								<td class="giftPrice">${gift.giftPrice}</td>
+								<td class="giftPrice" style="width: 60px">${gift.giftPrice}</td>
+								<td style="width: 30px; text-align: center;"><button class="deleteBt" 
+										style="margin-top: -80px; height: 18px; width: 18px; background-color: #005ab5; line-height: 0px; padding: 0px; border-radius: 9px; color: #fff; display: inline-block;">x</button></td>
 							</tr>
 						</table>
-						<hr>
 					</c:forEach>
 				</div>
 				<div
@@ -109,10 +110,10 @@
 				<div style="margin-bottom: 150px;">
 					<button type="button" onclick="backMain()"
 						class="btn btn-default cartBuyyy"
-						style="width: 150px; height: 50px;font-size: 18px;">繼續購物</button>
+						style="width: 150px; height: 50px; font-size: 18px;">繼續購物</button>
 					<button type="button" onclick="goToMain2()"
 						class="btn btn-default cartBuyyy"
-						style="width: 150px; height: 50px;font-size: 18px;margin-left: 66%;display: inline;">下一步</button>
+						style="width: 150px; height: 50px; font-size: 18px; margin-left: 66%; display: inline;">下一步</button>
 				</div>
 			</div>
 

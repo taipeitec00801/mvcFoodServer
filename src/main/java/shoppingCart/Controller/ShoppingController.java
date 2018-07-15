@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -97,7 +96,7 @@ public class ShoppingController {
 						giftList = cookies[i].getValue();
 						System.out.println("找到giftList" + giftList);
 
-						String[] gifts = giftList.split(",");
+						String[] gifts = giftList.split("%2C");
 						String[] b = null;
 						for (String s : gifts) {
 							b = s.split("-");
@@ -120,14 +119,15 @@ public class ShoppingController {
 		return "car_bar";
 	}
 
+//	@RequestMapping("/cartAddGift")
+//	public void cartChange(HttpServletRequest request , HttpServletResponse response) {
+//		request.getParameter("cartList");
+//	}
+//	
+	
 	@RequestMapping("/cartAddGift")
 	public String cartAddGift(@RequestParam("giftId") Integer giftId, @RequestParam("number") Integer number,
 			Model model, ServletRequest request, ServletResponse response) {
-		System.out.println("----------------number=" + number);
-		System.out.println("----------------giftId=" + giftId);
-		Gift gift = new Gift();
-		gift = service.getGiftById(giftId);
-		// Cookie giftList = new Cookie("giftList", "");
 		String cookieName = "";
 		String giftList = "";
 
@@ -141,7 +141,7 @@ public class ShoppingController {
 					if (cookieName.equals("giftList")) {
 						giftList = cookies[i].getValue();
 						System.out.println("找到giftList" + giftList);
-						String newList = giftList + "," + giftId + "-" + number;
+						String newList = giftList + "%2C" + giftId + "-" + number;
 						Cookie newCookie = new Cookie("giftList", newList);
 						newCookie.setMaxAge(7 * 24 * 60 * 60); // Cookie的存活期: 七天
 						newCookie.setPath(req.getContextPath());
@@ -180,7 +180,7 @@ public class ShoppingController {
 						giftList = cookies[i].getValue();
 						System.out.println("找到giftList" + giftList);
 
-						String[] gifts = giftList.split(",");
+						String[] gifts = giftList.split("%2C");
 						String[] b = null;
 						for (String s : gifts) {
 							b = s.split("-");
