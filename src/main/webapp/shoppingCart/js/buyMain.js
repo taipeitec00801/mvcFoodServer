@@ -90,15 +90,15 @@ function submitCart() {
 
 function payToOrder() {
 
-	window.location.href = '/mvcFoodServer/member9487/reflash8787';
-	alert("  ");
-//	var r = confirm("確任付款?");
-//
-//	if (r == true) {
-////		window.location.href = '/mvcFoodServer/member9487/myOrder';
-//	} else {
-//
-//	}
+//	
+	var r = confirm("確任付款?");
+
+	if (r == true) {
+		window.location.href = '/mvcFoodServer/member9487/reflash8787';
+//		window.location.href = '/mvcFoodServer/member9487/myOrder';
+	} else {
+
+	}
 }
 
 function changeClass() {
