@@ -3,15 +3,17 @@
     
 }
 
-.test{
-    border: 1px #ffc0cb solid;
-} 
+/* .test{ */
+/*     border: 1px #ffc0cb solid; */
+/* }  */
 .allTX{
 	margin-left: 235px;
 }
 
-/* <!-- navbar --> */
-
+/* <!-- MainPage --> */
+.meInfoMain{
+	
+}
 /* <!-- sidebar --> */
 .sidebar{
     height: 500px;
@@ -22,6 +24,40 @@
     position: fixed;
     
 }
+/* .sidebarBox{ */
+/* 	position: relative; */
+/*   display: inline-block; */
+/*   width: 100px; */
+/*   height: 100px; */
+/*   background-color: #fff; */
+/*   border-radius: 5px; */
+/*   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); */
+/*   border-radius: 5px; */
+/*   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); */
+/*   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); */
+/* } */
+/* .sidebarBox::after { */
+/*   content: ""; */
+/*   border-radius: 5px; */
+/*   position: absolute; */
+/*   z-index: -1; */
+/*   top: 0; */
+/*   left: 0; */
+/*   width: 100%; */
+/*   height: 100%; */
+/*   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+/*   opacity: 0; */
+/*   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); */
+/*   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); */
+/* } */
+/* .sidebarBox:hover { */
+/*   -webkit-transform: scale(1.25, 1.25); */
+/*   transform: scale(1.25, 1.25); */
+/* } */
+ 
+/* .sidebarBox:hover::after { */
+/*     opacity: 1; */
+/* }        */
 .sidebar a{
     color: #aaa;
     line-height: 50px;
@@ -33,6 +69,7 @@
     margin-left: 250px; 
     float: left;
     width: 900px;
+    padding-bottom: 100px;
 }
 .taitle{
     font-size: 18px;
@@ -56,7 +93,7 @@ padding-bottom: 25px;
     line-height: 30px;
 }
 .fotoCase{
-    width: 150px;
+      width: 150px;
     height: 150px;
     margin: 0px auto;
    
@@ -143,6 +180,7 @@ padding-bottom: 25px;
 .btPasswordChange{
     margin-left: 60px;
     margin-top: 70px;
+   
 }
 .btPasswordChange button{
     width: 500px;

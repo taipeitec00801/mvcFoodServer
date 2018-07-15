@@ -31,7 +31,7 @@
 <!-- Navbar css -->
 <link rel="stylesheet" type="text/css"
 	href="/mvcFoodServer/css/myNavbarFooter.css" charset="UTF-8">
-<link rel="stylesheet" href="/mvcFoodServer/member/css/appStyle.1.css">
+<link rel="stylesheet" href="/mvcFoodServer/member/css/appStyle.2.css">
 
 
 <title>MemberInfo</title>
@@ -51,56 +51,62 @@
 			</div>
 
 			<!--fotoInfo -->
-			<div class="memberBar test">
-				<div class="fotoInfo test">
 
-					<div class="fotoCase test wow bounceInDown ">
-						<a href="#"> <img class="memberImg">
-						</a>
+			<div class="fotoInfo test">
 
+				<div class="fotoCase test wow bounceInDown"
+					style="padding-top: 70px; margin: 0px 500px;">
+					<a href="#"> <img style=" width: 200px; height: 200px;" class="memberImg">
+					</a>
+				</div>
+				<!-- memberName -->
+				<div class="meName test">
+					<div class="nickName" style="margin-left: 750px;float: left;height: 80px;">
+						<p style="font-size: 100px; font-family: tahoma;">memberName</p>
 					</div>
-					<!-- memberName -->
-					<div class="name test  wow bounceInRight">
-						<div class="nickName">
-							<p>memberName</p>
-						</div>
-						<div class="btSetting">
-							<div class="btn-group" role="group" aria-label="...">
-								<button type="button" class="btn btn-default">Setting</button>
-							</div>
+					<div class="btSetting">
+						<div class="btn-group" role="group" aria-label="...">
+							<button type="button" class="btn btn-default"
+								style="float: left; margin: 80px;"
+								value="設定" onclick="location.href='memInfo'">設定</button>
 						</div>
 					</div>
 				</div>
-				<div class="wdLike test">
-					收藏區
-					<hr>
-				</div>
 
-				<!-- like -->
-				<div class="container like test">
-					<div class="row">
-						<div class="row color-3 animate-box">
-							<c:forEach var="store" begin="0" end="9" items="${stores}">
-								<div class="col-sm-6 col-md-4 bottomPlace">
-									<div class="thumbnail">
-										<img src="<c:url value='/getOnePicture/${store.storeId}'/>" style="height: 350px; width: 100%" />
-										<div class="caption">
-											<h4>${store.storeName}</h4>
-											<span>地址：</span><span>${store.storeAddress}</span><br> 
-											<span>電話：</span><span>${store.storePhone}</span><br>
-											<div class="captionBottom">
-												<a href="<spring:url value='/store_Info?storeId=${store.storeId}' />" class="btn btn-primary" role="button">Read More </a> 
-												<span class="comment"> ${store.storeRecomCount} <i class="icon-heart4" style="color: red;"></i>
-												</span>
-											</div>
+			</div>
+			<div class="wdLike test" style="clear: both;">
+				<p style="padding-left: 100px;">收藏區</p>
+				<hr>
+			</div>
+
+			<!-- like -->
+			<div class="container like test">
+				<div class="row">
+					<div class="row color-3 animate-box">
+						<c:forEach var="store" begin="0" end="9" items="${stores}">
+							<div class="col-sm-6 col-md-4 bottomPlace">
+								<div class="thumbnail">
+									<img src="<c:url value='/getOnePicture/${store.storeId}'/>"
+										style="height: 350px; width: 100%" />
+									<div class="caption">
+										<h4>${store.storeName}</h4>
+										<span>地址：</span><span>${store.storeAddress}</span><br> <span>電話：</span><span>${store.storePhone}</span><br>
+										<div class="captionBottom">
+											<a
+												href="<spring:url value='/store_Info?storeId=${store.storeId}' />"
+												class="btn btn-primary" role="button">Read More </a> <span
+												class="comment"> ${store.storeRecomCount} <i
+												class="icon-heart4" style="color: red;"></i>
+											</span>
 										</div>
 									</div>
 								</div>
-							</c:forEach>
-						</div>
+							</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<script>

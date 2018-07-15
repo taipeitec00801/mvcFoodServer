@@ -328,4 +328,8 @@ public class MemberController {
 	public String member_setting() {
 		return "setting_history";
 	}
+	@RequestMapping("/member9487/memInfo")
+	public String member_main() {
+		return "redirect:/memInfo";
+	}
 }

@@ -73,10 +73,10 @@
 					<!-- sidebar -->
 					<div class="sidebar test">
 						<h2>帳號設定</h2>
-						<a href="memInfo" class="sidebarInfo">基本資料</a> <br> <a
-							href="foto" class="phtoManager">管理相片</a> <br> <a
-							href="password" class="sidebarCHPassword">更改密碼</a> <br> <a
-							href="history">歷史留言</a> <br>
+						<a href="memInfo" class="sidebarBox">基本資料</a> <br> <a
+							href="foto" class="sidebarBox">管理相片</a> <br> <a
+							href="password" class="sidebarBox">更改密碼</a> <br> <a
+							href="history" class="sidebarBox">歷史留言</a> <br>
 					</div>
 
 					<!-- infomation -->
@@ -123,6 +123,7 @@
 	<script src="js/mySearchBar.js"></script>
 	<script src="member/js/wow.min.js"></script>
 	<script src="member/js/facebox.js"></script>
+	 <script src="member/js/wow.min.js"></script>
 	<script src="member/js/memberJS.js"></script>
 	<script>
 		new WOW().init();

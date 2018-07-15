@@ -374,11 +374,16 @@ public class LoginController {
 			}
 		}	
 		String[] likes = null;
+		if(user.isEmpty()) {
+			System.out.println("-------------------------------------------------------------使用者空值");
+			return "redirect:/";
+		}else {
 		try {
 			System.out.println("--------------" + user + "--------------");
 			likes = service.getMember(user).getCollection().split(",");
 			System.out.println("-----------------" + likes.toString() + "-----------------");
 			list = service.getMemberLikeStore(likes);
+			
 		}catch(NoResultException e) {
 			System.out.println("------------------回應是空的----------------------");
 		}catch(NullPointerException ex) {
@@ -389,6 +394,7 @@ public class LoginController {
 		model.addAttribute("stores", list);
 		
 		return "member_mainPage";
+		}
 	}
 
 }

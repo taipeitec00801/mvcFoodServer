@@ -149,12 +149,17 @@
 				<%@ include file="footer.jsp"%>
 				</div>
 	
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="member/js/wow.min.js"></script>
-<script src="member/js/facebox.js"></script>
-<script src="member/js/memberJS.js"></script>
-
+<!-- =============================================== -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/mySearchBar.js"></script>
+	<script src="member/js/wow.min.js"></script>
+	<script src="member/js/facebox.js"></script>
+	 <script src="member/js/wow.min.js"></script>
+	<script src="member/js/memberJS.js"></script>
 
 
 </body>
