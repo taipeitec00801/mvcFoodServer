@@ -3,6 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+ 
 <html>
 <head>
 <meta charset="UTF-8">
@@ -144,7 +146,9 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="fh5co-testimonial text-center animate-box Comment">
-									<figure> <img src="<c:url value='/getMemberImg/${storeComment.commentMId.memberId}'/>" alt="user"> </figure>
+									<figure> <img
+										src="<c:url value='/getMemberImg/${storeComment.commentMId.memberId}'/>"
+										alt="user"> </figure>
 									<blockquote>
 										<c:forEach begin="${loop.index}" end="${loop.index}"
 											items="${contentList}">
@@ -153,92 +157,66 @@
 									</blockquote>
 									<div class="CommentImg animate-box"
 										data-animate-effect="fadeIn">
-										<img src="<c:url value='/getCommentImg/${storeComment.commentId}'/>"
-										 style="height: 400px; width: 50%" alt="...">
+										<img
+											src="<c:url value='/getCommentImg/${storeComment.commentId}'/>"
+											style="height: 400px; width: 50%" alt="...">
 									</div>
 								</div>
+								<!-- Comment Message -->
 								<div class="animate-box CommentMessage">
 									<div class="media">
 										<div class="panel-group customPanel">
 											<div class="panel panel-default">
 												<div class="panel-heading">
 													<h4 class="panel-title">
-														<a data-toggle="collapse" href="#collapse${loop.index}">點我看留言</a>
+														<a data-toggle="collapse" id="${storeComment.commentId}"
+															href="#collapse${loop.index}">點我看留言</a>
 													</h4>
 												</div>
 												<div id="collapse${loop.index}"
 													class="panel-collapse collapse">
-													<ul id='commMessage' class="list-group">
-														<li class="list-group-item">
-															<div class="animate-box CommentMessage">
-																<div class="media">
-																	<div class="media-left">
-																		<a href="#"> <figure class="customfigure">
-																			<img class="fh5co-testimonial media-object"
-																				src="images/man.png" alt="..."> </figure>
-																		</a>
+													<ul id='commMessage${loop.index}' class="list-group">
+														<c:forEach var="msg" items="${msgList}">
+															<c:set var="commId" value="${storeComment.commentId}"></c:set>
+															<c:set var="msgId" value="${msg.msgCId.commentId}"></c:set>
+															<c:if test="${commId == msgId}">
+																<li class="list-group-item">
+																	<div class="animate-box CommentMessage">
+																		<div class="media">
+																			<div class="media-left">
+																				<a href="#"> <figure class="customfigure">
+																					<img class="fh5co-testimonial media-object"
+																						src="<c:url value='/getMemberImg/${msg.msgMId.memberId}'/>"
+																						alt="..."> </figure>
+																				</a>
+																			</div>
+																			<div class="media-body">
+																				<h4 class="media-heading customheading">${msg.msgMId.nickname}</h4>
+																				${msg.msgContent}
+																			</div>
+																		</div>
 																	</div>
-																	<div class="media-body">
-																		<h4 class="media-heading customheading">User Name</h4>
-																		Lorem ipsum dolor sit amet consectetur adipisicing
-																		elit. Voluptate minima, voluptatem libero
-																		perspiciatis.
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li class="list-group-item">
-															<div class="animate-box CommentMessage">
-																<div class="media">
-																	<div class="media-left">
-																		<a href="#"> <figure class="customfigure">
-																			<img class="fh5co-testimonial media-object"
-																				src="images/man.png" alt="..."> </figure>
-																		</a>
-																	</div>
-																	<div class="media-body">
-																		<h4 class="media-heading customheading">User Name</h4>
-																		Lorem ipsum dolor sit amet consectetur adipisicing
-																		elit. Voluptate minima, voluptatem libero
-																		perspiciatis.
-																	</div>
-																</div>
-															</div>
-														</li>
-														<li class="list-group-item">
-															<div class="animate-box CommentMessage">
-																<div class="media">
-																	<div class="media-left">
-																		<a href="#"> <figure class="customfigure">
-																			<img class="fh5co-testimonial media-object"
-																				src="images/man.png" alt="..."> </figure>
-																		</a>
-																	</div>
-																	<div class="media-body">
-																		<h4 class="media-heading customheading">User Name</h4>
-																		Lorem ipsum dolor sit amet consectetur adipisicing
-																		elit. Voluptate minima, voluptatem libero
-																		perspiciatis.
-																	</div>
-																</div>
-															</div>
-														</li>
+																</li>
+															</c:if>
+														</c:forEach>
 													</ul>
-													<div class="panel-footer">
+													<!-- 新增留言 -->
+													<div class="panel-footer" id="LoginMessage" style="display: none">
 														<!-- User Icon -->
-														<div class="media-left">
+														<div  class="media-left">
 															<a href="#"> <figure class="customfigure"> <img
 																	id='userImg' class="fh5co-testimonial media-object"
-																	src="images/man.png" alt="..."> </figure>
+																	
+																	alt="..."> </figure>
 															</a>
 														</div>
 														<!-- 留言送出 -->
 														<div class="input-group media-body">
-															<input id="userMessage" type="text" class="form-control"
-																placeholder="留言..."> <span
-																class="input-group-btn">
-																<button id='sendButton' class="btn btn-default"
-																	type="button">送出</button>
+															<input id="userMessage${loop.index}" type="text"
+																class="form-control userMessage" placeholder="留言...">
+															<span class="input-group-btn">
+																<button id="sendButton${loop.index}"
+																	class="btn btn-default" type="button">送出</button>
 															</span>
 														</div>
 													</div>
@@ -251,9 +229,10 @@
 						</div>
 					</c:forEach>
 					<!-- Button trigger modal -->
-					<div class="col-md-4 col-md-offset-4 text-center animate-box readMore indexblog">
+					<div
+						class="col-md-4 col-md-offset-4 text-center animate-box readMore indexblog">
 						<button type="button" class="btn btn-primary" data-toggle="modal"
-						data-target="#newComment" data-whatever="@getbootstrap">新增評論
+							data-target="#newComment" data-whatever="@getbootstrap">新增評論
 						</button>
 					</div>
 					<!-- Add New Comment -->
@@ -269,24 +248,33 @@
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
-								<div class="modal-body">
-									<form>
+								<!-- Dialog 新增評論 -->
+								<form:form method='POST' modelAttribute="scomment" 
+									class='form-horizontal' enctype="multipart/form-data">
+									<div class="modal-body">
 										<div class="form-group">
-											<label for="recipient-name" class="col-form-label">Recipient:</label>
-											<input type="text" class="form-control" id="recipient-name">
+											<label for="recipient-name" class="col-form-label">新增相片</label>
+											<form:input id="scImage" path="scImage" type='file'
+												class='form:input-large'/>
 										</div>
 										<div class="form-group">
 											<label for="message-text" class="col-form-label">Message:</label>
-											<textarea class="form-control" id="message-text" style="height: 400px;"></textarea>
+											<form:textarea class="form-control" id="message-text"
+												 style="height: 400px; resize: none;"
+												 path='tempComment'
+												type="text"></form:textarea>
+
 										</div>
-									</form>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Send
-										message</button>
-								</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">Close</button>
+										<button type="submit" class="btn btn-primary">Send
+											message</button>
+									</div>
+								</form:form>
+								
 							</div>
 						</div>
 					</div>
@@ -309,6 +297,7 @@
 								</a> <a href="#"> <i class="icon-youtube"></i>
 								</a>
 							</p>
+							
 							<p>
 								Copyright 2016 Free Html5 <a href="#">Pentagon</a>. All Rights
 								Reserved. <br>Made with <i class="icon-heart3"></i> by <a
@@ -356,19 +345,25 @@
 	<script>
 		w3.includeHTML();
 	</script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/mySearchBar.js"></script>
 	<script src="other/js/store_Info.js"></script>
+
+	
 
 	<!-- jQuery -->
 	<script type="text/javascript">
-	$('#exampleModal').on('show.bs.modal', function(event) {
-		var button = $(event.relatedTarget) // Button that triggered the modal
-		var recipient = button.data('whatever') // Extract info from data-* attributes
-		// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-		// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-		var modal = $(this)
-		modal.find('.modal-title').text('New message to ' + recipient)
-		modal.find('.modal-body input').val(recipient)
-	})
+		$('#exampleModal').on('show.bs.modal', function(event) {
+			var button = $(event.relatedTarget) // Button that triggered the modal
+			var recipient = button.data('whatever') // Extract info from data-* attributes
+			// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+			// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+			var modal = $(this)
+			modal.find('.modal-title').text('New message to ' + recipient)
+			modal.find('.modal-body input').val(recipient)
+		});
+		var size = $("#listSize").val();
+		//console.log(size);
 	</script>
 
 </body>

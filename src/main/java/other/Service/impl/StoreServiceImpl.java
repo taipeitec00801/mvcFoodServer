@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import member.Model.Member;
+import other.Model.Message;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Repository.StoreDao;
@@ -94,11 +95,28 @@ public class StoreServiceImpl implements StoreService {
 		return storeDao.getCommentById(commentId);
 		
 	}
+	
+	@Override
+	public List<Message> getMessageByComm(Integer msgCId) {
+		return storeDao.getMessageByComm(msgCId);
+	}
+	
+	@Override
+	public int updateStoreComment(StoreComment sc) {
+		
+		return storeDao.updateStoreComment(sc);
+	}
 
 	// app
 	@Override
 	public String[] findStoreById(Integer storeId) {
 		return storeDao.findStoreById(storeId);
+	}
+
+	@Override
+	public void sendMessage(Message addMsg) {
+		storeDao.sendMessage(addMsg);
+		
 	}
 
 }

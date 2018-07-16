@@ -13,7 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
+import org.springframework.web.multipart.MultipartFile;
 
 import member.Model.Member;
 
@@ -40,6 +42,34 @@ public class StoreComment implements Serializable  {
 	private Integer commentAlterCount;
 	private Integer commentRecomCount;
 	private Timestamp commentDate;
+	
+	private MultipartFile  scImage;
+	private String tempComment;
+	
+	
+	
+	public StoreComment(Clob commentContent) {
+		super();
+		this.commentContent = commentContent;
+	}
+
+	@Transient
+	public String getTempComment() {
+		return tempComment;
+	}
+
+	public void setTempComment(String tempComment) {
+		this.tempComment = tempComment;
+	}
+
+	@Transient
+	public MultipartFile getScImage() {
+		return scImage;
+	}
+
+	public void setScImage(MultipartFile scImage) {
+		this.scImage = scImage;
+	}
 	
 	public StoreComment() {
 		super();
