@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import member.Model.Member;
 import member.Repository.MemberDao;
 import member.Service.MemberService;
+import other.Model.Message;
 import other.Model.Store;
 
 @Transactional
@@ -92,6 +93,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int updateAppMemberDate(Member member) {
 		return memberDao.updateAppMemberDate(member);
+	}
+
+	@Override
+	public List<Message> findMesgById(Member msgMid) {
+		return memberDao.findMesgById(msgMid);
 	}
 
 }

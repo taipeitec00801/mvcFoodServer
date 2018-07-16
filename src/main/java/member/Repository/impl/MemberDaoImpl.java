@@ -12,10 +12,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import javaClass.GlobalService;
 import member.Model.Member;
 import member.Repository.MemberDao;
+import other.Model.Message;
 import other.Model.Store;
 
 @Repository
@@ -237,4 +237,14 @@ public class MemberDaoImpl implements MemberDao {
 				  .executeUpdate();
 		return count;
 	}
+	@SuppressWarnings("unchecked")
+	@Override								
+	public List<Message> findMesgById(Member msgMid) {
+		String hql = "FROM Message m WHERE m.msgMId = :memberId";
+		Session session = getSession();
+		List<Message> ms = session.createQuery(hql).setParameter("memberId", msgMid).getResultList();
+//		List<Message> ms = session.createQuery(hql).getResultList();
+		return ms;
+	}
+
 }
