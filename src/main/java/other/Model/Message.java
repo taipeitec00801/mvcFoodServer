@@ -35,6 +35,16 @@ public class Message implements Serializable {
 	public Message() {
 		super();
 	}
+	
+	
+
+	public Message(Timestamp messageDate, String msgContent, StoreComment msgCId, Member msgMId) {
+		super();
+		this.messageDate = messageDate;
+		this.msgContent = msgContent;
+		this.msgCId = msgCId;
+		this.msgMId = msgMId;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

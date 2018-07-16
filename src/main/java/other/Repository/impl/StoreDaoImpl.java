@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import member.Model.Member;
+import other.Model.Message;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Repository.StoreDao;
@@ -200,6 +201,16 @@ public class StoreDaoImpl implements StoreDao {
 		}
 		return sc;
 	}
+	
+	@Override
+	public List<Message> getMessageByComm(Integer msgCId) {
+		List<Message> list = new ArrayList<>();
+		String hql = "FROM Message m WHERE m.msgCId.commentId = :msgCId";
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("msgCId", msgCId);
+		return query.getResultList();
+	}
 
 	@Override
 	public String[] findStoreById(Integer storeId) {
@@ -208,5 +219,21 @@ public class StoreDaoImpl implements StoreDao {
 		Store store = (Store) session.createQuery(hql).setParameter("storeId", storeId).getSingleResult();
 		return store.getStorePicture().split(",");
 	}
+	
+	@Override
+	public int updateStoreComment(StoreComment sc) {
+		int n = 0;
+		Session session = factory.getCurrentSession();
+		session.save(sc);
+		n++;
+		return n;
+	}
 
+	@Override
+	public void sendMessage(Message addMsg) {
+		Session session = factory.getCurrentSession();
+		session.save(addMsg);
+
+	} 
+	
 }
