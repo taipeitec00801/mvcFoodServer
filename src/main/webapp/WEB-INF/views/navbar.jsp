@@ -87,7 +87,7 @@
 									<hr class="btnLine inBtnLine">
 									<div class="submitDiv">
 										<button type="button"
-											class="btn btn-default myButton settingBt">設定</button>
+											class="btn btn-default myButton settingBt">會員主頁</button>
 									</div>
 									<div class="submitDiv">
 										<button type="button"

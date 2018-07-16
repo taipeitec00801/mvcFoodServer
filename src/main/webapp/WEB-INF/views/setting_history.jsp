@@ -118,82 +118,6 @@
 																	</div>
 																</div>
 															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
 														</ul>
 														<div class="panel-footer">
 															<!-- User Icon -->
@@ -205,14 +129,6 @@
 																</a>
 															</div>
 															<!-- 留言送出 -->
-															<div class="input-group media-body">
-																<input id="userMessage" type="text" class="form-control"
-																	placeholder="留言..."> <span
-																	class="input-group-btn">
-																	<button id='sendButton' class="btn btn-default"
-																		type="button">送出</button>
-																</span>
-															</div>
 														</div>
 													</div>
 												</div>

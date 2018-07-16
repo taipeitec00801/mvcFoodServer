@@ -88,23 +88,32 @@
 							</div>
 						</div>
 						<div class="imgForm test">
-							<img src="images/arrow_left.gif" id="leftDiv" alt="..."> <img
-								src="images/arrow_right.gif" id="rightDiv" alt="...">
-							<div class="content"></div>
-							
+							<c:forEach var='product111' items='${Store}'>
+								<c:forTokens items="${product111.storePicture}" delims=","
+									var="Picture">
+									<div class="col-xs-6 col-md-3 ">
+										<a href="<c:url value='/pictures/${Picture}.jpg' />"
+											class="thumbnail nino-prettyPhoto facebox"> <img
+											src="<c:url value='/pictures/${Picture}.jpg' />"
+											id='imageCase' alt="...">
+										</a>
+									</div>
+
+								</c:forTokens>
+							</c:forEach>
 						</div>
 
 						<!-- infomation -->
 
 					</div>
 				</div>
-
+				
 			</div>
 		</div>
 	</div>
 	<div class="test" style="clear: both;">
-		<%@ include file="footer.jsp"%>
-	</div>
+				<%@ include file="footer.jsp"%>
+				</div>
 	<!-- =============================================== -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -114,7 +123,7 @@
 	<script src="js/mySearchBar.js"></script>
 	<script src="member/js/wow.min.js"></script>
 	<script src="member/js/facebox.js"></script>
-	<script src="member/js/wow.min.js"></script>
+	 <script src="member/js/wow.min.js"></script>
 	<script src="member/js/memberJS.js"></script>
 	<script>
 		new WOW().init();
