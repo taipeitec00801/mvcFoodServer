@@ -198,7 +198,7 @@ public class StoreDaoImpl implements StoreDao {
 		StoreComment sc = null;
 		try {
 			sc = (StoreComment) session.createQuery(hql).setParameter("commentId", commentId).getSingleResult();
-		} catch (Exception e) {
+		} catch (NoResultException e) {
 			e.printStackTrace();
 		}
 		return sc;
@@ -244,7 +244,8 @@ public class StoreDaoImpl implements StoreDao {
 		Session session = getSession();
 		Integer isStRecom = 0;
 		try {
-			StoreRecommend srm = (StoreRecommend) session.createQuery(hql).setParameter("stRecomSId", store)
+			StoreRecommend srm = (StoreRecommend) session.createQuery(hql)
+					.setParameter("stRecomSId", store)
 					.setParameter("stRecomMId", member).getSingleResult();
 
 			srm.setStRecomYN(recomYN);
@@ -267,11 +268,11 @@ public class StoreDaoImpl implements StoreDao {
 			isStRecom = srm.getStRecomYN();
 		} catch (NoResultException e) {
 			System.err.println("getStRecomYNByMSId :" + e.getMessage() + "新建 StoreRecommend 預設值為0");
-			StoreRecommend sr = new StoreRecommend(member, store);
+			StoreRecommend sr = new StoreRecommend(member, store, 0);
 			session.save(sr);
 			isStRecom = sr.getStRecomYN();
 		}
-		System.err.println("getStRecomYNByMSId : isStRecom " + isStRecom);
+		System.err.println("getStRecomYNByMSId : isStRecom=" + isStRecom);
 		return isStRecom;
 	}
 
