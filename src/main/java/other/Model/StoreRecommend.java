@@ -27,10 +27,16 @@ public class StoreRecommend {
 	private Integer stRecomYN;
 	
 	
-	public StoreRecommend(Member stRecomMId, Store stRecomSId) {
+	
+	public StoreRecommend() {
+		super();
+	}
+
+	public StoreRecommend(Member stRecomMId, Store stRecomSId, Integer stRecomYN) {
 		super();
 		this.stRecomMId = stRecomMId;
 		this.stRecomSId = stRecomSId;
+		this.stRecomYN = stRecomYN;
 	}
 
 	@Id

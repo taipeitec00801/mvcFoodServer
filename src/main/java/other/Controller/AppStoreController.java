@@ -159,6 +159,7 @@ public class AppStoreController {
 		Member mm = appStoreService.getMemberById(Integer.parseInt(memberId));
 		Store ss = appStoreService.getStoreById(Integer.parseInt(storeId));
 		Integer isStRecom = appStoreService.updateStRecomYNByMSId(mm, ss, Integer.parseInt(recomYN));
+		System.err.println("isStRecom = " + isStRecom);
 		appJson.writeText(response, String.valueOf(isStRecom));
 	}
 	

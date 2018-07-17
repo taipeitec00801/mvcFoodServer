@@ -24,7 +24,7 @@
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet" href="css/icomoon.css" type="text/css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 <!-- Superfish -->
 <link rel="stylesheet" href="css/superfish.css" type="text/css">
 
