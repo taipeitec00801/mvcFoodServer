@@ -51,7 +51,7 @@ public class ShoppingController {
 		giftList = service.getAllGift();
 
 		model.addAttribute("giftList", giftList);
-
+		
 		return "shoppingMain";
 	}
 

@@ -33,29 +33,35 @@ function goToMain() {
 }
 
 function totalPrice() {
-	var allCount = $(".giftContent");
-	var allPrice = $(".giftPrice");
-	var total = 0;
 
-	var a = $("img");
-	var s = "";
+	if (window.location.href.split("/")[5] !== "myOrder") {
+		
+		var allCount = $(".giftContent");
+		var allPrice = $(".giftPrice");
+		var total = 0;
 
-	for (var i = 0; i < a.length - 3; i++) {
-		total += ($(allCount[i]).val() * parseInt($(allPrice[i]).text()));
+		var a = $("img");
+		var s = "";
 
-		s += $(a[i + 3]).attr("src").split("/")[3] + "-" + $(allCount[i]).val();
-		if (i != a.length - 4) {
-			s += decodeURIComponent(",");
+		for (var i = 0; i < a.length - 3; i++) {
+			total += ($(allCount[i]).val() * parseInt($(allPrice[i]).text()));
+
+			s += $(a[i + 3]).attr("src").split("/")[3] + "-"
+					+ $(allCount[i]).val();
+			if (i != a.length - 4) {
+				s += decodeURIComponent(",");
+			}
 		}
+		$(".totalPrice").text(total);
+		$.removeCookie('giftList', {
+			path : '/mvcFoodServer'
+		});
+		$.cookie('giftList', s, {
+			expires : 7,
+			path : '/mvcFoodServer'
+		});
 	}
-	$(".totalPrice").text(total);
-	$.removeCookie('giftList', {
-		path : '/mvcFoodServer'
-	});
-	$.cookie('giftList', s, {
-		expires : 7,
-		path : '/mvcFoodServer'
-	});
+
 }
 
 function submitCart() {
@@ -90,12 +96,12 @@ function submitCart() {
 
 function payToOrder() {
 
-//	
+	//	
 	var r = confirm("確任付款?");
 
 	if (r == true) {
 		window.location.href = '/mvcFoodServer/member9487/reflash8787';
-//		window.location.href = '/mvcFoodServer/member9487/myOrder';
+		// window.location.href = '/mvcFoodServer/member9487/myOrder';
 	} else {
 
 	}
@@ -104,11 +110,10 @@ function payToOrder() {
 function changeClass() {
 	if ($(".waitPay").text() == "訂單完成") {
 		$(".waitChangeClass").attr("class", "active");
-		$(".waitPay").attr("onclick" , "");
+		$(".waitPay").attr("onclick", "");
 	}
 }
 
-
-function goTomyOrder(){
+function goTomyOrder() {
 	window.location.href = '/mvcFoodServer/member9487/myOrder';
 }
