@@ -40,6 +40,7 @@
 		<mapping class="member.Model.Member"></mapping>
 		<mapping class="other.Model.Store"></mapping>
 		<mapping class="other.Model.StoreComment"></mapping>
+		<mapping class="other.Model.StoreRecommend"></mapping>
 		<mapping class="other.Model.Message"></mapping>
 		<mapping class="shoppingCart.Model.Gift"></mapping>
 		<mapping class="shoppingCart.Model.OrderMain"></mapping>

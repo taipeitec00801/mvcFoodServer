@@ -18,7 +18,7 @@ Member 欄位說明:
     portrait		: 頭像			MEDIUMBLOB
     preference		: 喜好種類			VARCHAR(20)		紀錄 SortNumber
     collection		: 收藏			VARCHAR(1000)	紀錄 StoreId
-    userGift		: 禮物			VARCHAR(1000)	紀錄 GiftId
+    userIntro		: 會員簡介			VARCHAR(1000)	
     userFriends		: 追蹤			VARCHAR(1000)	紀錄 MemberId
 */
 
@@ -35,7 +35,7 @@ public class Member implements Serializable {
 	private Blob portrait;
 	private String preference;
 	private String collection;
-	private String userGift;
+	private String userIntro;
 	private String userFriends;
 
 	public Member() {
@@ -123,12 +123,12 @@ public class Member implements Serializable {
 		this.collection = collection;
 	}
 
-	public String getUserGift() {
-		return userGift;
+	public String getUserIntro() {
+		return userIntro;
 	}
 
-	public void setUserGift(String userGift) {
-		this.userGift = userGift;
+	public void setUserIntro(String userIntro) {
+		this.userIntro = userIntro;
 	}
 
 	public String getUserFriends() {

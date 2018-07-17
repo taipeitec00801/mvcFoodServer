@@ -3,6 +3,7 @@ package other.Repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import member.Model.Member;
 import other.Model.Store;
 import other.Model.StoreComment;
+import other.Model.StoreRecommend;
 import other.Repository.StoreDao;
 
 @Repository
@@ -207,6 +209,43 @@ public class StoreDaoImpl implements StoreDao {
 		Session session = getSession();
 		Store store = (Store) session.createQuery(hql).setParameter("storeId", storeId).getSingleResult();
 		return store.getStorePicture().split(",");
+	}
+
+	@Override
+	public Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN) {
+		String hql = "FROM StoreRecommend sr WHERE sr.stRecomSId = :stRecomSId AND sr.stRecomMId = :stRecomMId";
+		Session session = getSession();
+		Integer isStRecom = 0;
+		try {
+			StoreRecommend srm = (StoreRecommend) session.createQuery(hql).setParameter("stRecomSId", store)
+					.setParameter("stRecomMId", member).getSingleResult();
+
+			srm.setStRecomYN(recomYN);
+			isStRecom = 1;
+		} catch (NoResultException e) {
+			System.err.println("updatStRecomYNByMSId --> 失敗 :" + e.getMessage());
+		}
+		return isStRecom;
+	}
+
+	@Override
+	public Integer getStRecomYNByMSId(Member member, Store store) {
+		String hql = "FROM StoreRecommend sr WHERE sr.stRecomSId = :stRecomSId AND sr.stRecomMId = :stRecomMId";
+		Session session = getSession();
+		Integer isStRecom = 0;
+		try {
+			StoreRecommend srm = (StoreRecommend) session.createQuery(hql).setParameter("stRecomSId", store)
+					.setParameter("stRecomMId", member).getSingleResult();
+
+			isStRecom = srm.getStRecomYN();
+		} catch (NoResultException e) {
+			System.err.println("getStRecomYNByMSId :" + e.getMessage() + "新建 StoreRecommend 預設值為0");
+			StoreRecommend sr = new StoreRecommend(member, store);
+			session.save(sr);
+			isStRecom = sr.getStRecomYN();
+		}
+		System.err.println("getStRecomYNByMSId : isStRecom " + isStRecom);
+		return isStRecom;
 	}
 
 }

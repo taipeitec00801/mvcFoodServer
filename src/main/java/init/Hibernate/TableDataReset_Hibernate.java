@@ -100,7 +100,7 @@ public class TableDataReset_Hibernate {
 					member.setPreference(sa[7].trim());
 					member.setCollection(sa[8].trim());
 					if (!sa[9].trim().equals(null) && sa[9].trim().length() != 4) {
-						member.setUserGift(sa[9].trim());
+						member.setUserIntro(sa[9].trim());
 					}
 					if (!sa[10].trim().equals(null) && sa[10].trim().length() != 4) {
 						member.setUserFriends(sa[10].trim());

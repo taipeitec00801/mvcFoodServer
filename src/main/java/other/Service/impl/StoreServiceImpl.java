@@ -101,4 +101,14 @@ public class StoreServiceImpl implements StoreService {
 		return storeDao.findStoreById(storeId);
 	}
 
+	@Override
+	public Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN) {
+		return storeDao.updateStRecomYNByMSId(member, store, recomYN);
+	}
+	
+	@Override
+	public Integer getStRecomYNByMSId(Member member, Store store) {
+		return storeDao.getStRecomYNByMSId(member, store);
+	}
+
 }

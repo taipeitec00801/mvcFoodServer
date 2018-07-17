@@ -237,4 +237,6 @@ public class MemberDaoImpl implements MemberDao {
 				  .executeUpdate();
 		return count;
 	}
+
+
 }

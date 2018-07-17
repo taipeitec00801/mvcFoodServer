@@ -10,6 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/*	
+orderItem 欄位說明:
+    orderItemNo      : 明細編號			INT				主鍵, AUTO_INCREMENT
+    quantity         : 商品數量			VARCHAR(40) 	NOT NULL
+    orderItemGID     : 商品編號			INT     		
+    oiNo      	     : 訂單編號			INT		
+*/
+
+
 @Entity
 @Table(name="orderItem")
 public class OrderItem {

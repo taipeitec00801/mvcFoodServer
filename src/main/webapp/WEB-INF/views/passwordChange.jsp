@@ -100,7 +100,7 @@
 									<p>新密碼</p>
 									<input id="npInput" type="password" name="password"
 										value="${param.password}" class='form-control'
-										placeholder="Password" aria-describedby="sizing-addon1">
+										 placeholder="至少6碼英文,數字" aria-describedby="sizing-addon1" >
 									<small><Font color='red' size="2">${ErrorMsgKey.PasswordEmptyError}</Font></small>
 
 									<!-- 							<input type="text" id="npInput" class="form-control" placeholder="Password" aria-describedby="sizing-addon1"> -->
@@ -109,7 +109,7 @@
 									<p>確認密碼</p>
 									<input id="NPagain" type="password" name="password2"
 										value="${param.password2}" class="form-control"
-										placeholder="Password" aria-describedby="sizing-addon1">
+										placeholder="至少6碼英文,數字" aria-describedby="sizing-addon1">
 									<small><Font color='red' size="2">${ErrorMsgKey.PasswordEmptyError}</Font></small>
 									<!--<input type="text" id="NPagain" class="form-control" placeholder="Password" aria-describedby="sizing-addon1">-->
 								</div>

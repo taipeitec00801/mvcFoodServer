@@ -94,4 +94,5 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.updateAppMemberDate(member);
 	}
 
+
 }

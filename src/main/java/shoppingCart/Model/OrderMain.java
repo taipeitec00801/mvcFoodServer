@@ -14,6 +14,14 @@ import javax.persistence.Table;
 
 import member.Model.Member;
 
+/*	
+orderMain 欄位說明:
+    orderNo      	 : 訂單編號			INT				主鍵, AUTO_INCREMENT
+    orderMID         : 會員編號			INT				外來鍵
+    orderDate        : 訂單日期			Date     		
+    commit      	 : 交易狀態			VARCHAR(20)		
+*/
+
 @Entity
 @Table(name="orderMain")
 public class OrderMain {

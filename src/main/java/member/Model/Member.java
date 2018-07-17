@@ -24,7 +24,7 @@ Member 欄位說明:
     portrait		: 頭像			MEDIUMBLOB
     preference		: 喜好種類			VARCHAR(20)		紀錄 SortNumber
     collection		: 收藏			VARCHAR(1000)	紀錄 StoreId
-    userGift		: 禮物			VARCHAR(1000)	紀錄 GiftId
+    userIntro		: 會員簡介			VARCHAR(1000)	
     userFriends		: 追蹤			VARCHAR(1000)	紀錄 MemberId
 */
 
@@ -41,7 +41,7 @@ public class Member implements Serializable {
 	private Blob portrait;
 	private String preference;
 	private String collection;
-	private String userGift;
+	private String userIntro;
 	private String userFriends;
 	
 	private MultipartFile  mbImage;
@@ -81,7 +81,7 @@ public class Member implements Serializable {
 	
 	
 	public Member(Integer memberId, String userPassword, String nickname, String birthday, Integer gender,
-			Integer userRank, String preference, String collection, String userGift, String userFriends) {
+			Integer userRank, String preference, String collection, String userIntro, String userFriends) {
 		super();
 		this.userPassword = userPassword;
 		this.nickname = nickname;
@@ -91,12 +91,12 @@ public class Member implements Serializable {
 		this.userRank = userRank;
 		this.preference = preference;
 		this.collection = collection;
-		this.userGift = userGift;
+		this.userIntro = userIntro;
 		this.userFriends = userFriends;
 	}
 
 	public Member(String userAccount, String userPassword, String nickname, String birthday, int gender, int memberId,
-			int userRank, Blob portrait, String preference, String collection, String userGift, String userFriends) {
+			int userRank, Blob portrait, String preference, String collection, String userIntro, String userFriends) {
 		super();
 		this.userAccount = userAccount;
 		this.userPassword = userPassword;
@@ -108,14 +108,14 @@ public class Member implements Serializable {
 		this.portrait = portrait;
 		this.preference = preference;
 		this.collection = collection;
-		this.userGift = userGift;
+		this.userIntro = userIntro;
 		this.userFriends = userFriends;
 	}
 	
 	//App get member data
 	public Member(Integer memberId, String userAccount, String userPassword,
 			String nickname, String birthday, Integer gender, Integer userRank,
-			String preference, String collection, String userGift, String userFriends) {
+			String preference, String collection, String userIntro, String userFriends) {
 		this.memberId = memberId;
 		this.userAccount = userAccount;
 		this.userPassword = userPassword;
@@ -125,7 +125,7 @@ public class Member implements Serializable {
 		this.userRank = userRank;
 		this.preference = preference;
 		this.collection = collection;
-		this.userGift = userGift;
+		this.userIntro = userIntro;
 		this.userFriends = userFriends;
 	}
 	
@@ -224,12 +224,12 @@ public class Member implements Serializable {
 	}
 
 	@Column(columnDefinition = "VARCHAR(1000)")
-	public String getUserGift() {
-		return userGift;
+	public String getUserIntro() {
+		return userIntro;
 	}
 
-	public void setUserGift(String userGift) {
-		this.userGift = userGift;
+	public void setUserIntro(String userIntro) {
+		this.userIntro = userIntro;
 	}
 
 	@Column(columnDefinition = "VARCHAR(1000)")

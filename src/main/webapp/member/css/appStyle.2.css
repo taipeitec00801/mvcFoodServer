@@ -67,10 +67,15 @@
     /* height: 80%; */
     margin-top:100px;
     margin-left: 250px; 
+    margin-bottom: 18%; 
     float: left;
     width: 900px;
+}
+
+.memberHis {	
     padding-bottom: 100px;
 }
+
 .taitle{
     font-size: 18px;
     color: #333;
@@ -200,7 +205,7 @@ padding-bottom: 25px;
 /* <!-- copyright --> */
 #footer{
 	clear: both;
-	margin-top: 50px;
+/* 	margin-top: 50px; */
    
 }
 #fh5co-wrapper {
@@ -307,4 +312,67 @@ padding-bottom: 25px;
         margin-left: 10PX;
         text-align: center;
     }
+}
+
+/*----------------------------------------------------*/
+.captionBottom span {
+	margin-left: 26%;
+}
+
+.row .captionBottom {
+	margin-top: 15px;
+}
+
+.row .btn:hover {
+	background: #9fafbc !important;
+}
+
+.row a {
+	color: #203a43;
+}
+
+.row h4 {
+	font-weight: 900;
+	color: #000;
+	margin: 0 0 15px 0;
+	font-size: 20px;
+}
+
+.row .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.row .btn.btn-primary {
+	background: #203a43;	
+}
+
+
+.row>.thumbnail {
+	float: left;
+	padding: 6px;
+}
+
+.bottomPlace {
+	margin-top: 0px;
+	margin-bottom: 1%;
+}
+.memberBackground {
+	background: url(../../images/DecorativeBackground08.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+.memberCard {
+	padding: 100px 0px 30px 0px;
+	background: rgba(0, 0, 0, 0.5);
+}
+.form-control {
+    height: 42px;
+}
+.navbar-nav>li>a {
+    line-height: 25px;
+}
+
+a:hover {
+    color: #203a43 !important;
 }
