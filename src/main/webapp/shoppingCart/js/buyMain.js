@@ -38,7 +38,7 @@ function goToMain() {
 
 function totalPrice() {
 
-	if (window.location.href.split("/")[5] !== "myOrder") {
+	if (window.location.href.split("/")[5].split("#")[0] !== "myOrder") {
 		
 		var allCount = $(".giftContent");
 		var allPrice = $(".giftPrice");
@@ -116,4 +116,8 @@ function changeClass() {
 		$(".waitChangeClass").attr("class", "active");
 		$(".waitPay").attr("onclick", "");
 	}
+}
+
+function goTomyOrder(){
+	window.location.href = '/mvcFoodServer/member9487/myOrder#1';	
 }
