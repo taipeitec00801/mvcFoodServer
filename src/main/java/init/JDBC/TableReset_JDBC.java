@@ -99,7 +99,7 @@ public class TableReset_JDBC {
 					member.setPreference(sa[7].trim());
 					member.setCollection(sa[8].trim());
 					if (!sa[9].trim().equals(null) && sa[9].trim().length() != 4) {
-						member.setUserGift(sa[9].trim());
+						member.setUserIntro(sa[9].trim());
 					}
 					if (!sa[10].trim().equals(null) && sa[10].trim().length() != 4) {
 						member.setUserFriends(sa[10].trim());
@@ -286,7 +286,7 @@ public class TableReset_JDBC {
 			ps.setBlob(7, member.getPortrait());
 			ps.setString(8, member.getPreference());
 			ps.setString(9, member.getCollection());
-			ps.setString(10, member.getUserGift());
+			ps.setString(10, member.getUserIntro());
 			ps.setString(11, member.getUserFriends());
 			n = ps.executeUpdate();
 		} catch (Exception ex) {

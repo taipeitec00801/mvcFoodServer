@@ -31,7 +31,6 @@
 <!-- Navbar css -->
 <link rel="stylesheet" type="text/css"
 	href="/mvcFoodServer/css/myNavbarFooter.css" charset="UTF-8">
-<link rel="stylesheet" href="/mvcFoodServer/member/css/appStyle.1.css">
 
 <link rel="stylesheet"
 	href="/mvcFoodServer/shoppingCart/css/shopping.css">
@@ -41,8 +40,8 @@
 </head>
 
 <body >
-	<!-- header -->
-	<!-- navbar -->
+<div class="giftInfoBackground">
+				<div class="giftInfoCard">
 
 	<div id="fh5co-wrapper" style="margin-left: 15%; margin-right: 15%;">
 		<div id="fh5co-page">
@@ -62,23 +61,23 @@
 					</div>
 					<div class="col-md-6" style="padding-right: 0px; margin-top: 5%;">
 						<h2 class="section-title"
-							style="margin-left: 10%; margin-bottom: 5px; font-weight: bold;">${gift.giftName}</h2>
-						<h5 style="margin-left: 10%;" class="giftId">
+							style="margin-left: 10%; margin-bottom: 5px; font-weight: bold; color: white;">${gift.giftName}</h2>
+						<h5 style="margin-left: 10%; color: white;" class="giftId">
 							<span>商品編號: </span>${gift.giftId}</h5>
 						<div style="margin-left: 70%;">
-							<span>NT$ </span>
+							<span style=" color: white;">NT$ </span>
 							<h1 style="display: inline; color: red; font-weight: bold;">${gift.giftPrice}</h1>
-							<span> 元</span>
+							<span style=" color: white;"> 元</span>
 						</div>
-						<div style="margin-left: 10%;">
+						<div style="margin-left: 10%; color: white;">
 							<span>到期時間: </span>${gift.giftDeadline}</div>
 						<hr style="margin-left: 10%; margin-top: 5px;">
 						<ul class="contact-info"
-							style="margin-left: 10%; list-style-type: none; padding: 0px;">
+							style="margin-left: 10%; list-style-type: none; padding: 0px; color: white;">
 							<li><span>優惠說明: </span>${gift.giftContent}</li>
 						</ul>
 						<div style="margin-left: 10%; margin-top: 50px;">
-							<span> <label class="v_middle">數量</label>&nbsp;&nbsp; <input
+							<span> <label class="v_middle" style=" color: white;">數量</label>&nbsp;&nbsp; <input
 								id="buyCount" type="number" min="1" maxlength="2" class="number" 
 								style="width: 55px; margin: 0px; padding-left: 6px;" value="1" />
 							</span> <a class="btn btn-primary cartAdd" role="button" style="margin-left: 50%;">加入購物車</a>
@@ -89,10 +88,10 @@
 			</form>
 		</div>
 	</div>
+	</div>
+	</div>
 			<%@ include file="footer.jsp"%>
-	<script>
-		new WOW().init();
-	</script>
+
 
 	<!-- jQuery -->
 	<script src="/mvcFoodServer/js/jquery.min.js"></script>

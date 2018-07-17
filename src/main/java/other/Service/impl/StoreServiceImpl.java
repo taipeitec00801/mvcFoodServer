@@ -93,17 +93,17 @@ public class StoreServiceImpl implements StoreService {
 	@Override
 	public StoreComment getCommentById(Integer commentId) {
 		return storeDao.getCommentById(commentId);
-		
+
 	}
-	
+
 	@Override
 	public List<Message> getMessageByComm(Integer msgCId) {
 		return storeDao.getMessageByComm(msgCId);
 	}
-	
+
 	@Override
 	public int updateStoreComment(StoreComment sc) {
-		
+
 		return storeDao.updateStoreComment(sc);
 	}
 
@@ -114,9 +114,19 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
+
+	public Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN) {
+		return storeDao.updateStRecomYNByMSId(member, store, recomYN);
+	}
+
+	@Override
+	public Integer getStRecomYNByMSId(Member member, Store store) {
+		return storeDao.getStRecomYNByMSId(member, store);
+	}
+
 	public void sendMessage(Message addMsg) {
 		storeDao.sendMessage(addMsg);
-		
+
 	}
 
 }

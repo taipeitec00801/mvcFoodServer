@@ -11,16 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <title>MemberInfo</title>
-<!-- Facebook and Twitter integration -->
-<meta property="og:title" content="" />
-<meta property="og:image" content="" />
-<meta property="og:url" content="" />
-<meta property="og:site_name" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
+
 <link
 	href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300'
 	rel='stylesheet' type='text/css'>
@@ -75,7 +66,7 @@
 				</div>
 
 				<!-- infomation -->
-				<div class="infomation test">
+				<div class="infomation test memberHis">
 
 					<div class="taitle test">
 						<H2>歷史留言</H2>
@@ -148,7 +139,6 @@
 		</div>
 
 	</div>
-	<div></div>
 
 	<div class="test" style="clear: both;">
 		<%@ include file="footer.jsp"%>

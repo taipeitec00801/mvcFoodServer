@@ -96,6 +96,7 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.updateAppMemberDate(member);
 	}
 
+
 	@Override
 	public List<Message> findMesgById(Member msgMid) {
 		return memberDao.findMesgById(msgMid);

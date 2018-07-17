@@ -136,7 +136,7 @@ public class AppMemberController {
 			Member newMember = new Member(member.getMemberId(), userAccount, 
 					 member.getUserPassword().substring(0, 12),		//故意顯示長度為12
 					member.getNickname(), member.getBirthday(), member.getGender(), member.getUserRank(),
-					member.getPreference(), member.getCollection(), member.getUserGift(), member.getUserFriends());
+					member.getPreference(), member.getCollection(), member.getUserIntro(), member.getUserFriends());
 			
 			appJson.writeText(response, gson.toJson(newMember));
 		}

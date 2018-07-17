@@ -18,6 +18,10 @@ public interface StoreService {
 	List<Message> getMessageByComm(Integer msgCId);
 	 
 	
+	Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN);
+	Integer getStRecomYNByMSId(Member member, Store store);
+	
+	
 	//----分頁---------
 	Integer getPageNo();
 	void setPageNo(Integer pageNo);

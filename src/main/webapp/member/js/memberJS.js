@@ -8,7 +8,7 @@ $(document).ready(function () {
 	$('#opInput').on("focusout",function () {
 		var op = $('#opInput').val();
 		var opl = $('#opInput').val().length;
-		alert("ajax + op : "+op);
+//		alert("ajax + op : "+op);
 		if (opl > 1) {
 			$.ajax({
 				url: '/mvcFoodServer/ajaxPassword.do',
@@ -20,7 +20,7 @@ $(document).ready(function () {
 				success: function (data) {
 					alert(data);
 					if(data == "true"){
-						alert("Ajax執行結果正確"+data);
+//						alert("Ajax執行結果正確"+data);
 						$("#opInput").css("border-color", "green");
 					}else{
 }
@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 			});
 		}
-			alert("沒輸入舊密碼不動作");
+//			alert("沒輸入舊密碼不動作");
 			
 		});
 	 
@@ -46,7 +46,7 @@ $(document).ready(function () {
 				
 			} else {
 				$("p").append("<span style='color:red; font-size: 12px'>密碼錯誤</span>");
-				alert("密碼不一樣");
+//				alert("密碼不一樣");
 			}
 	});
 });

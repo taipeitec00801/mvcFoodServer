@@ -15,6 +15,11 @@ public interface StoreDao {
 	List<Store> getUserStores(String userPref);
 	List<Store> getTopStores();
 	List<Store> getStoresById(Integer storeId);
+
+
+	Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN);
+	Integer getStRecomYNByMSId(Member member, Store store);
+
 	List<Message> getMessageByComm(Integer msgCId);
 	int updateStoreComment(StoreComment sc);
 	

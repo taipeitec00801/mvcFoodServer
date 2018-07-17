@@ -51,7 +51,7 @@ public class ShoppingController {
 		giftList = service.getAllGift();
 
 		model.addAttribute("giftList", giftList);
-
+		
 		return "shoppingMain";
 	}
 
@@ -325,6 +325,7 @@ public class ShoppingController {
 				gift.setGiftContent(oi.get(i).getQuantity().toString());
 				giftList.add(gift);
 			}
+			
 			String orderStatus = "等待付款";
 
 			if (order.isCommit() == 0) {

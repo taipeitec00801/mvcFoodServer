@@ -12,18 +12,40 @@ $(document).ready(function() {
 			return null;
 		}
 		var param = $.UrlParam("giftId");
-
-		$.ajax({
-			url : "/mvcFoodServer/cartAddGift",
-			type : "GET",
-			data : {
-				giftId : param,
-				number : $("#buyCount").val()
-			},
-			success : function() {
-				window.location.href = '/mvcFoodServer/shoppingMain';
+		if($.cookie("giftList") !== undefined){
+			var cooks = $.cookie("giftList");
+			var cook = cooks.split(",");
+			for(var cc = 0 ; cc < cook.length ; cc++){			
+				var tt = cook[cc].split("-")[0];
+				if(tt == param){
+					alert("購物車已有此商品!");
+				}else{
+					$.ajax({
+						url : "/mvcFoodServer/cartAddGift",
+						type : "GET",
+						data : {
+							giftId : param,
+							number : $("#buyCount").val()
+						},
+						success : function() {
+							window.location.href = '/mvcFoodServer/shoppingMain';
+						}
+					});
+				}
 			}
-		});
+		}else{
+			$.ajax({
+				url : "/mvcFoodServer/cartAddGift",
+				type : "GET",
+				data : {
+					giftId : param,
+					number : $("#buyCount").val()
+				},
+				success : function() {
+					window.location.href = '/mvcFoodServer/shoppingMain';
+				}
+			});
+		}				
 	});
 
 });

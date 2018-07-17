@@ -64,3 +64,43 @@
 .progressbar li.active+li:after {
 	background-color: #55b776;
 }
+/* --------------------------------------- */
+.sf-menu a:hover {
+    color: #ffcc88 !important;
+}
+
+/*-----shoppingCart background-----*/
+.shoppingCartBackground {
+	background: url(../../images/brooke-lark-230140-unsplash.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+.shoppingCartCard {
+	padding: 100px 0px 30px 0px;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+
+/*-----giftInfo background-----*/
+.giftInfoBackground {
+	background: url(../../images/DecorativeBackground10.jpg);
+	background-position: center;
+}
+
+.giftInfoCard {
+	padding: 100px 0px 30px 0px;
+	background: rgba(0, 0, 0, 0.5);
+}
+/* ---------------------------------------------- */
+.giftInfoBackground .btn.btn-primary {
+	background: #203a43;	
+}
+
+.giftInfoBackground .btn.btn-primary:hover {
+	color: #203a43 !important;
+}
+
+.giftInfoBackground .btn:hover {
+	background: #9fafbc !important;
+}

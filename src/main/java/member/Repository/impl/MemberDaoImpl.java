@@ -238,6 +238,7 @@ public class MemberDaoImpl implements MemberDao {
 				  .executeUpdate();
 		return count;
 	}
+
 	@SuppressWarnings("unchecked")
 	@Override								
 	public List<Message> findMesgById(Member msgMid) {

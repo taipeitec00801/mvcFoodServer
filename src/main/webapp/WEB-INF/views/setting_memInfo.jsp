@@ -34,7 +34,7 @@
 <!-- Bootstrap  -->
 <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
 <!-- ============================ -->
-<link rel="stylesheet" href="css/bootstrap.min.css"
+<link rel="stylesheet" href="css/bootstrap.css"
 	type="text/css">
 <!-- Superfish -->
 <link rel="stylesheet" href="css/superfish.css">

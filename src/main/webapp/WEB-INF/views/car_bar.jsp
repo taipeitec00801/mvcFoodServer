@@ -6,10 +6,10 @@
 		<li style="display: inline-block; width: 0%; margin-left: 85%;">
 			
 			<div class="shoppingImg">
-				<div style="height: 20px;"></div>
+				<div style="height: 80px;"></div>
 				<img src="/mvcFoodServer/images/shopping-cart.png"
 					style="display: inline;"> <a href="#" class="fh5co-sub-ddown"
-					style="color: black; width: 10%; display: inline;"><sapn>${cartCount}</sapn>個商品</a>
+					style="color: white; width: 10%; display: inline;"><sapn>${cartCount}</sapn>個商品</a>
 			</div>
 			<ul class="fh5co-sub-menu"
 				style="width: 450px; left: 0; margin-left: -280px;">

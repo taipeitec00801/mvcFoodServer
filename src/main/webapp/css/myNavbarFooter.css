@@ -3,6 +3,10 @@
 	margin-bottom: 56px;
 }
 
+.myNavbar ul {
+	font-size: 18px;
+}
+
 .myNavbar .navbarSize {
 	margin-left: 50px;
 	margin-right: 50px;
@@ -42,6 +46,7 @@
 	padding: 8px 0 8px 15px;
 	font-size: 16px;
 	color: #333333;
+	height: 42px;
 	background-color: #eee;
 	border: 2px solid #888;
 	border-radius: 20px 0 0 20px;

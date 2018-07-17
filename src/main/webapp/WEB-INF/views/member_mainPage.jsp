@@ -20,8 +20,7 @@
 <link rel="stylesheet" href="/mvcFoodServer/css/icomoon.css"
 	type="text/css">
 <!-- Bootstrap  -->
-<link rel="stylesheet" href="/mvcFoodServer/css/bootstrap.css"
-	type="text/css">
+<link rel="stylesheet" href="/mvcFoodServer/css/bootstrap.css" type="text/css">
 <!-- Superfish -->
 <link rel="stylesheet" href="/mvcFoodServer/css/superfish.css"
 	type="text/css">
@@ -75,11 +74,13 @@
 
 			</div>
 			<div class="wdLike test" style="clear: both;">
-				<p style="padding-left: 100px;">收藏區</p>
+				<h3 style="padding-left: 100px;">收藏區</h3>
 				<hr>
 			</div>
-
+		
 			<!-- like -->
+			<div class="memberBackground">
+                <div class="memberCard">
 			<div class="container like test">
 				<div class="row">
 					<div class="row color-3 animate-box">
@@ -106,8 +107,9 @@
 					</div>
 				</div>
 			</div>
-
+</div></div>
 		</div>
+		<%@ include file="footer.jsp"%>
 	</div>
 	<script>
 		new WOW().init();
