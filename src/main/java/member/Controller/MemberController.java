@@ -209,8 +209,8 @@ public class MemberController {
 //		Contorller從setting_memInfo頁面收到/password的GET請求
 //		因passwordChange.jsp頁功能是更換密碼,故需要在進入這一頁面同時給他一個物件來裝密碼,
 //		並利用passwordChange.jsp的<form:>標籤來回傳物件並裝著密碼
-		Member mb = new Member();
-	    model.addAttribute("Member", mb); 
+//		Member mb = new Member();
+//	    model.addAttribute("Member", mb); 
 	    return "passwordChange";//送回foto.jsp
 	}
 	

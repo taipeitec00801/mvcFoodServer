@@ -105,18 +105,17 @@
 						<div
 							class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 							<h3>為您推薦</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Velit est facilis maiores, perspiciatis accusamus asperiores
-								sint consequuntur debitis.</p>
+							<p>立即找到最夯的打卡名店</p>
 						</div>
 					</div>
 				</div>
 				<div class="container storeContent">
 					<div class="row">
 						<div class="row color-3 animate-box">
-							<c:forEach var="store" begin="0" end="9" items="${stores}">
+							<c:forEach var="store" items="${stores}" varStatus="loop">
 								<div class="col-sm-6 col-md-4 bottomPlace">
 									<div class="thumbnail">
+										
 										<img src="<c:url value='/getOnePicture/${store.storeId}'/>"
 											style="height: 350px; width: 100%" />
 										<div class="caption">
@@ -125,10 +124,12 @@
 											<div class="captionBottom">
 												<a
 													href="<spring:url value='store_Info?storeId=${store.storeId}' />"
-													class="btn btn-primary" role="button">Read More </a> <span
-													class="comment"> ${store.storeRecomCount} <i
-													class="icon-heart4" style="color: red;"></i>
+													class="btn btn-primary" role="button">Read More 
+												</a> 
+												<span
+													class="comment" id="${store.storeId}"> ${store.storeRecomCount} 
 												</span>
+												<i id="love${loop.index}" class="icon-heart4"></i>
 											</div>
 										</div>
 									</div>
@@ -147,9 +148,7 @@
 						<div
 							class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
 							<h3>美食分類</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Velit est facilis maiores, perspiciatis accusamus asperiores
-								sint consequuntur debitis.</p>
+							<p>為您精挑細選的各種美食</p>
 						</div>
 					</div>
 
@@ -245,9 +244,7 @@
 						<div
 							class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 							<h3>熱門評論</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Velit est facilis maiores, perspiciatis accusamus asperiores
-								sint consequuntur debitis.</p>
+							<p>來看看那些美食評論最受關注</p>
 						</div>
 					</div>
 				</div>
@@ -324,6 +321,19 @@
 	   <!-- jQuery -->
     <script type="text/javascript">
     	$(document).ready(function(){
+    		storeId = "";
+    		userid="";
+    		//check Login
+    		$.ajax({
+        			url : '/mvcFoodServer/member9487/testLogin88',
+        			type : 'POST',
+        			data : {},
+        			dataType : 'json', //text,json,xml
+        			success : function(date) {
+        				userid = date.memberId;
+        			},		
+        		});
+    		
     		var len = 80;
     		var datelen=10;
     		$(".content").each(function(i){
@@ -340,6 +350,27 @@
             	}
     		});
     		
+    		//更新讚數
+    		$(".icon-heart4").click(function(){
+    			$(this).css("color","red");
+    			var num = $(this).prev().text();
+    		    iNum = parseInt(num)+1;
+    			$(this).prev().text(iNum);
+    			storeId = $(this).prev().attr("id");
+    			//alert(storeId+"|"+iNum+"|"+userid);
+    			//$.ajax({
+        		//	url : '/mvcFoodServer/member9487/updateStoreRecom',
+        		//	type : 'POST',
+        		//	data : {stRecomMId : userid,
+        		//			stRecomSId : storeId,
+        		//			stRecomYN : iNum},
+        		//	dataType : 'json', //text,json,xml
+ 		//
+        	//	});
+    		});
+    		
+    		
+    				
     	});
     </script>
 

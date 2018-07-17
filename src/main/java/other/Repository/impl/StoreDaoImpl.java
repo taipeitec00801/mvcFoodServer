@@ -1,5 +1,7 @@
 package other.Repository.impl;
 
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -275,5 +277,47 @@ public class StoreDaoImpl implements StoreDao {
 		System.err.println("getStRecomYNByMSId : isStRecom=" + isStRecom);
 		return isStRecom;
 	}
+
+	@Override //getCommMemberImg4app 
+	public byte[] getCommMemberImg(String id) {
+		String hql = "FROM StoreComment sc WHERE sc.commentId = :commentId";
+		Session session = getSession();
+		StoreComment sc = (StoreComment) session.createQuery(hql)
+				.setParameter("commentId", Integer.parseInt(id)).getSingleResult();
+		Blob blob = sc.getCommentMId().getPortrait();
+		int len = 0;
+		byte[] media = null;
+		if (blob != null) {
+			try {
+				len = (int) blob.length();
+				media = blob.getBytes(1, len);
+			} catch (SQLException e) {
+				throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
+			}
+		}
+		
+		
+		return media;
+	}
+
+	@Override //getCommImg4app 
+	public byte[] appGetCommentImg(String id) {
+		String hql = "FROM StoreComment sc WHERE sc.commentId = :commentId";
+		Session session = getSession();
+		StoreComment sc = (StoreComment) session.createQuery(hql)
+				.setParameter("commentId", Integer.parseInt(id)).getSingleResult();
+		Blob blob = sc.getCommentPicture();
+		int len = 0;
+		byte[] media = null;
+		if (blob != null) {
+			try {
+				len = (int) blob.length();
+				media = blob.getBytes(1, len);
+			} catch (SQLException e) {
+				throw new RuntimeException("ProductController的getPicture()發生SQLException: " + e.getMessage());
+			}
+		}
+		return media;
+	} 
 
 }

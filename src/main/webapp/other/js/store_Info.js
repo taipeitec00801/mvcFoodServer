@@ -2,6 +2,7 @@ $(document).ready(function(){
 	userNickName = "";
 	userid="";
 	comMid="";
+		
 	$.ajax({
 		url : '/mvcFoodServer/member9487/testLogin88',
 		type : 'POST',
@@ -20,21 +21,23 @@ $(document).ready(function(){
 				dataType : 'json',
 				success : function(date) {
 					var a = 'data:image/jpeg;base64,' + date;
-					$("#userImg").attr("src" , a);
-					$("#LoginMessage").css("display","inline");
+					$(".userImg").attr("src" , a);
+	
 				}
 			});
 		},
 		error : function(data) {
-			
+			var ee = $(".LoginMessage");
+			$(ee).css("display","none");
 		}
 		
 	});
 	
 	
+	
 	$("a").click(function(){
 		comMid = $(this).attr('id');
-	 	//alert(id);
+	 	//alert(comMid);
 	});
 	
 
@@ -42,9 +45,9 @@ $(document).ready(function(){
         	 var num = $(this).attr('id').substring(10);
         	 //alert(num);
         	 var commid="#commMessage"+num;
-             var mesid = "#userMessage"+num;
+             mesid ="#userMessage"+num;
              message = $(mesid).val();
-             var userImg = $('#userImg').attr('src');
+             var userImg = $('.userImg').attr('src');
              //alert(commid+"||"+mesid);
              
              $(commid).append('<li class="list-group-item">' +
@@ -58,14 +61,14 @@ $(document).ready(function(){
                                  '</a>'+
                              '</div>'+
                              '<div class="media-body">'+
-                                 '<h4 class="media-heading customheading" id="userName">User Name</h4>'+
+                                 '<h4 class="media-heading customheading" id="userName"></h4>'+
                                          message+
                              '</div>'+
                          '</div>'+
                      '</div>'+
                  '</li>');
              $("#userName").text(userNickName);
-             
+             $("#userName").attr("id" , "#userName" + num);
          	$.ajax({
         		url : '/mvcFoodServer/member9487/sendMessage',
         		type : 'POST',
@@ -74,7 +77,13 @@ $(document).ready(function(){
         			commMid : userid
         			},
         		dataType : 'json', //text,json,xml
-        			
+				success : function() {
+					//alert(mesid);
+					$(mesid).val("");
+	
+				},error : function() {
+					$(mesid).val("");
+				}
         		
         	});
              

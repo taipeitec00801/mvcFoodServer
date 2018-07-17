@@ -71,7 +71,12 @@ public class GiftRepositoryImpl implements GiftRepository {
 				String hql2 = "FROM OrderMain o WHERE o.memberId = :memberId";
 				List<OrderMain> om = new ArrayList<>();
 				om = session.createQuery(hql2).setParameter("memberId", member).getResultList();
-				order = om.get(om.size() - 1);
+				if(om.isEmpty()) {
+					
+				}else {
+					order = om.get(om.size() - 1);
+				}
+				
 			}catch(NoResultException ex) {
 				;
 			}

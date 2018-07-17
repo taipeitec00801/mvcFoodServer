@@ -77,7 +77,7 @@
 					<form action="#">
 						<div class="row">
 							<div class="col-md-6">
-								<h3 class="section-title">${store.storeName}</h3>
+								<h3 class="section-title" id="goAjax">${store.storeName}</h3>
 								<p>Far far away, behind the word mountains, far from the
 									countries Vokalia and Consonantia, there live the blind texts.</p>
 								<ul class="contact-info">
@@ -201,11 +201,11 @@
 														</c:forEach>
 													</ul>
 													<!-- 新增留言 -->
-													<div class="panel-footer" id="LoginMessage" style="display: none">
+													<div class="panel-footer LoginMessage"  style="display: inline">
 														<!-- User Icon -->
 														<div  class="media-left">
 															<a href="#"> <figure class="customfigure"> <img
-																	id='userImg' class="fh5co-testimonial media-object"
+																	 class="fh5co-testimonial media-object userImg"
 																	
 																	alt="..."> </figure>
 															</a>
@@ -216,7 +216,7 @@
 																class="form-control userMessage" placeholder="留言...">
 															<span class="input-group-btn">
 																<button id="sendButton${loop.index}"
-																	class="btn btn-default" type="button">送出</button>
+																	class="btn btn-default " type="button">送出</button>
 															</span>
 														</div>
 													</div>

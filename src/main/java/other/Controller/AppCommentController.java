@@ -1,6 +1,7 @@
 package other.Controller;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,13 +48,53 @@ public class AppCommentController {
 			System.out.println("---------------" + commList.get(i).getCommentMId().getNickname() + "----------");
 			String comm = commList.get(i).getCommentContent().getSubString(1,
 					(int) commList.get(i).getCommentContent().length());
-			CommentforApp cfa = new CommentforApp(commList.get(i).getCommentMId().getNickname(), comm.substring(0, 15),
-					String.valueOf(commList.get(i).getCommentRecomCount()), "0");
+			CommentforApp cfa = new CommentforApp(commList.get(i).getCommentMId().getNickname(), comm,
+					String.valueOf(commList.get(i).getCommentRecomCount()), commList.get(i).getCommentId().toString());
 			cfaList.add(cfa);
 		}
 
 		appJson.writeText(response, gson.toJson(cfaList));
 
+	}
+	
+	@RequestMapping("/appGetCommentMember")
+	public void appGetCommentMemberImg(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding(CHARACTER_ENCODING);
+		response.setContentType(CONTENT_TYPE);
+		Gson gson = new Gson();
+		JsonObject jsonObject = appJson.readJson(gson, request);
+		String id = jsonObject.get("id").getAsString();	
+		System.out.println(id);
+//		 001_00,001_01,001_02,001_03
+		
+//		String[] images = service.findStoreById(8);
+		
+		byte[] media = appStoreService.getCommMemberImg(id);
+
+		OutputStream os = response.getOutputStream();
+		response.setContentType("image/jpeg");
+		response.setContentLength(media.length);
+		os.write(media);
+	}
+	
+	@RequestMapping("/appGetCommentImg")
+	public void appGetCommentImg(HttpServletRequest request,HttpServletResponse response) throws IOException {
+		request.setCharacterEncoding(CHARACTER_ENCODING);
+		response.setContentType(CONTENT_TYPE);
+		Gson gson = new Gson();
+		JsonObject jsonObject = appJson.readJson(gson, request);
+		String id = jsonObject.get("id").getAsString();	
+		System.out.println(id);
+//		 001_00,001_01,001_02,001_03
+		
+//		String[] images = service.findStoreById(8);
+		
+		byte[] media = appStoreService.appGetCommentImg(id);
+
+		OutputStream os = response.getOutputStream();
+		response.setContentType("image/jpeg");
+		response.setContentLength(media.length);
+		os.write(media);
 	}
 
 }

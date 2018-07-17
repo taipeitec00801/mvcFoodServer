@@ -359,6 +359,9 @@ public class StoreController {
 		
 		StoreComment sc = storeService.getCommentById(Integer.parseInt(msgcid));
 		Member mb = storeService.getMemberById(Integer.parseInt(msgMid));
+		if(mb.getMemberId() == sc.getCommentMId().getMemberId()) {
+			
+		}
 		
 		Message addMsg = new Message(ts,msg,sc,mb);
 		storeService.sendMessage(addMsg);
@@ -366,5 +369,20 @@ public class StoreController {
 		System.out.println("msg=====:"+msg+" msgcid=====:"+msgcid+" msgMid=====:"+msgMid);
 		
 	}
+	
+	//更新店家讚數
+		@RequestMapping(value = "/member9487/updateStoreRecom", method = RequestMethod.POST)
+		public void updateStoreRecom(HttpServletResponse response,
+				HttpServletRequest request) {
+			
+			String memberId = request.getParameter("stRecomMId");
+			String storeId = request.getParameter("stRecomSId");
+			String stRecomYN = request.getParameter("stRecomYN");
+			System.out.println("memberId=====:"+memberId+" storeId=====:"+storeId+" stRecomYN=====:"+stRecomYN);
+			Member mb = storeService.getMemberById(Integer.parseInt(memberId));
+			Store st =  storeService.getStoreById(Integer.parseInt(storeId));
+			storeService.updateStRecomYNByMSId(mb, st, Integer.parseInt(stRecomYN));
+			
+		}
 
 }

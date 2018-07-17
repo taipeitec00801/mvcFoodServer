@@ -36,4 +36,6 @@ public interface StoreService {
 	//app
 	String[] findStoreById(Integer storeId);
 	void sendMessage(Message addMsg);
+	byte[] getCommMemberImg(String id);
+	byte[] appGetCommentImg(String id);
 }

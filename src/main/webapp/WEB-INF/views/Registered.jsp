@@ -141,7 +141,7 @@
 											},
 											dataType : 'json', //text,json,xml
 											success : function(data) {
-												if (data.checked == 0) {
+												if (data) {
 													//帳號符合格式且未重複
 													errorMsg("success",
 															"#email", true, 0);
@@ -200,9 +200,7 @@
 									&& successArray[4]) {
 								$("#errorMessage").css("visibility", "hidden");
 								$("#errorMessage").html("Success");
-								$
-										.ajax({
-											// 											contentType : "application/json",
+								$.ajax({// 											contentType : "application/json",
 											url : 'checkEmail',
 											type : 'POST',
 											data : {
@@ -217,7 +215,7 @@
 															color);
 												}
 												;
-												if (data.checked == 1) {
+												if (!data) {
 													//				alert("失敗");
 													messageAnimation("#email");
 													$("#errorMessage").css(
@@ -225,7 +223,7 @@
 															"visible");
 													$("#errorMessage").html(
 															"帳號重複");
-												} else if (data.checked == 0) {
+												} else{
 													//				alert("成功");
 													$
 															.ajax({
@@ -253,7 +251,7 @@
 																dataType : 'json', //text,json,xml
 																success : function() {
 																	alert("成功");
-																	window.location.href = 'member8877';
+																	window.location.href = 'home';
 																}
 															});
 												}

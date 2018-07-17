@@ -128,5 +128,15 @@ public class StoreServiceImpl implements StoreService {
 		storeDao.sendMessage(addMsg);
 
 	}
+	
+	@Override
+	public byte[] getCommMemberImg(String id) {
+		return storeDao.getCommMemberImg(id);
+	}
+
+	@Override
+	public byte[] appGetCommentImg(String id) {
+		return storeDao.appGetCommentImg(id);
+	}
 
 }

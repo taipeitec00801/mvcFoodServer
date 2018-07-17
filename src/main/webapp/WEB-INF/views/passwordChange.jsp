@@ -88,7 +88,7 @@
 							<H2>更改密碼</H2>
 						</div>
 						<!--<form:form method='POST' modelAttribute="Member" class='form-horizontal'>-->
-						<form action="password" method="POST"">
+						
 							<div class="oldPassword test">
 								<div id="locaPassword test">
 									<p>舊密碼</p>
@@ -96,6 +96,7 @@
 										placeholder="Password" aria-describedby="sizing-addon1">
 
 								</div>
+								<form action="password" method="POST"">
 								<div class="newPassword test">
 									<p>新密碼</p>
 									<input id="npInput" type="password" name="password"
@@ -117,8 +118,9 @@
 									<button type='submit' id="btChangePassword"
 										class="btn btn-default">Change Password</button>
 								</div>
+								</form:form>
 							</div>
-							</form:form>
+							
 							<!-- infomation -->
 					</div>
 					

@@ -118,12 +118,6 @@ public class LoginController {
 	}
 	
 	
-	@RequestMapping("/member9487/member8877")
-	public String showAllMember(Model model) {
-		List<Member> list = service.getAllMember();
-		model.addAttribute("memberList99", list);
-		return "allMember63";
-	}
 
 	@RequestMapping("checkEmail")
 	@ResponseBody
