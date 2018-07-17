@@ -36,39 +36,42 @@
 <link rel="stylesheet" href="css/myNavbarFooter.css" type="text/css">
 </head>
 <body>
-	<!-- navbar -->
-	<div class="myNavbar">
-		<%@ include file="navbar.jsp"%>
-	</div>
-	<div>
-		<form id="validationForm">
-			<label for="email">Email</label> <input type="email" name="email"
-				id="email" class="inputError" placeholder="example@gmail.com">
-			<label for="pass">密碼</label> <input name="pass" type="password"
-				id="pass1" class="inputError" placeholder="至少6碼英文,數字"> <label
-				for="pass1">確認密碼</label> <input name="pass1" type="password"
-				id="pass2" style="margin: 0px 5px 5px 0px;" class="inputError">
-
-			<div>
-				<label for="brithDay" style="margin-left: 0px; display: inline;">生日</label>
-				<label for="brithDay" style="margin-left: 150px; display: inline;">性別</label>
-				<br> <input type="date" name="brithDay" id="brithDay"
-					style="width: 220px; margin: 5px 5px 0px 0px;" class="inputError">
-				<select name="" id="gender" class="inputError">
-					<option value="x"></option>
-					<option value="1">男</option>
-					<option value="0">女</option>
-				</select>
+	<div id="fh5co-wrapper">
+		<div id="fh5co-page">
+			<!-- navbar -->
+			<div class="myNavbar">
+				<%@ include file="navbar.jsp"%>
 			</div>
+			<div>
+				<form id="validationForm">
+					<label for="email">Email</label> <input type="email" name="email"
+						id="email" class="inputError" placeholder="example@gmail.com">
+					<label for="pass">密碼</label> <input name="pass" type="password"
+						id="pass1" class="inputError" placeholder="至少6碼英文,數字"> <label
+						for="pass1">確認密碼</label> <input name="pass1" type="password"
+						id="pass2" style="margin: 0px 5px 5px 0px;" class="inputError">
 
-			<div id="errorMessage" style="visibility: hidden;">error</div>
+					<div>
+						<label for="brithDay" style="margin-left: 0px; display: inline;">生日</label>
+						<label for="brithDay" style="margin-left: 150px; display: inline;">性別</label>
+						<br> <input type="date" name="brithDay" id="brithDay"
+							style="width: 220px; margin: 5px 5px 0px 0px;" class="inputError">
+						<select name="" id="gender" class="inputError">
+							<option value="x"></option>
+							<option value="1">男</option>
+							<option value="0">女</option>
+						</select>
+					</div>
 
-			<label for="submitButton"></label> <input type="button"
-				id="submitButton" value="送出"
-				style="width: 130px; border-radius: 5px; background: #fff;">
-		</form>
+					<div id="errorMessage" style="visibility: hidden;">error</div>
+
+					<label for="submitButton"></label> <input type="button"
+						id="submitButton" value="送出"
+						style="width: 130px; border-radius: 5px; background: #fff;">
+				</form>
+			</div>
+		</div>
 	</div>
-
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->

@@ -33,51 +33,57 @@
 	href="/mvcFoodServer/css/myNavbarFooter.css" charset="UTF-8">
 <link rel="stylesheet" href="/mvcFoodServer/member/css/appStyle.1.css">
 
-<link rel="stylesheet" href="/mvcFoodServer/shoppingCart/css/shopping.css">
+<link rel="stylesheet"
+	href="/mvcFoodServer/shoppingCart/css/shopping.css">
 
 <title>MemberInfo</title>
 
 </head>
 
-<body >
+<body>
 	<!-- header -->
 	<!-- navbar -->
 
-	<div id="fh5co-wrapper" >
+	<div id="fh5co-wrapper">
+	<div class="shoppingCartBackground">
+				<div class="shoppingCartCard">
 		<div id="fh5co-page" style="margin-left: 15%; margin-right: 15%;">
 
 			<!-- navbar -->
 			<div class="myNavbar">
 				<%@ include file="navbar.jsp"%>
-			</div>			
+			</div>
 			<span class="cartMain"></span>
 
-			<div class="row" >
-				<div class="row color-3 animate-box">
-					<c:forEach var="gift" begin="0" end="9" items="${giftList}">
-						<div class="col-sm-6 col-md-4 bottomPlace">
-							<div class="thumbnail">
-								<img src="<c:url value='/getGiftPicture/${gift.giftId}'/>"
-									style="height: 250px; width: 100%"/>
-								<div class="caption">
-									<h4>${gift.giftName}</h4>
-									<span>價格：</span><span>${gift.giftPrice}</span><br>
-									<div class="captionBottom">
-										<a	href="<spring:url value='gift_Info?giftId=${gift.giftId}' />"
-											class="btn btn-primary" role="button">Read More</a>
+
+			
+					<div class="row">
+						<div class="row color-3 animate-box">
+							<c:forEach var="gift" begin="0" end="9" items="${giftList}">
+								<div class="col-sm-6 col-md-4 bottomPlace">
+									<div class="thumbnail">
+										<img src="<c:url value='/getGiftPicture/${gift.giftId}'/>"
+											style="height: 250px; width: 100%; border: 2px solid #203a43;" />
+										<div class="caption">
+											<h4>${gift.giftName}</h4>
+											<span>價格：</span><span>${gift.giftPrice}</span><br>
+											<div class="captionBottom">
+												<a
+													href="<spring:url value='gift_Info?giftId=${gift.giftId}' />"
+													class="btn btn-primary" role="button">Read More</a>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
+							</c:forEach>
 						</div>
-					</c:forEach>
+					</div>
+					<div style="height: 50px;"></div>
 				</div>
 			</div>
 		</div>
-			<%@ include file="footer.jsp"%>
+		<%@ include file="footer.jsp"%>
 	</div>
-	<script>
-		new WOW().init();
-	</script>
 
 	<!-- jQuery -->
 	<script src="/mvcFoodServer/js/jquery.min.js"></script>
