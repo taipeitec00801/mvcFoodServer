@@ -81,7 +81,7 @@
 										</span> <span>
 											<button type="button"
 												class="btn btn-default myButton collectionBt"
-												style="width: 120px;">禮卷</button>
+												style="width: 120px;" onclick="goToMyGift()">禮卷</button>
 										</span>
 									</div>
 									<hr class="btnLine inBtnLine">

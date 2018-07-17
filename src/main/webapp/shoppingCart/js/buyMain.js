@@ -18,6 +18,10 @@ $(document).ready(function() {
 		totalPrice();
 	});
 	changeClass();
+	if(window.location.href.split("#")[1] == "2"){
+		$('#myTabs a:last').tab('show')
+	}
+	
 });
 
 function backMain() {
@@ -112,8 +116,4 @@ function changeClass() {
 		$(".waitChangeClass").attr("class", "active");
 		$(".waitPay").attr("onclick", "");
 	}
-}
-
-function goTomyOrder() {
-	window.location.href = '/mvcFoodServer/member9487/myOrder';
 }
