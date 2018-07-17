@@ -12,6 +12,7 @@ import member.Repository.MemberDao;
 import member.Service.MemberService;
 import other.Model.Message;
 import other.Model.Store;
+import other.Model.StoreComment;
 
 @Transactional
 @Service
@@ -99,5 +100,6 @@ public class MemberServiceImpl implements MemberService {
 	public List<Message> findMesgById(Member msgMid) {
 		return memberDao.findMesgById(msgMid);
 	}
+
 
 }

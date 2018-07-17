@@ -6,9 +6,14 @@ import java.io.File;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -36,6 +41,7 @@ import member.Model.Member;
 import member.Service.MemberService;
 import other.Model.Message;
 import other.Model.Store;
+import other.Model.StoreComment;
 import other.Service.StoreService;
 
 
@@ -339,7 +345,20 @@ public class MemberController {
 			    }
 			  }
 			}
+		Set<Store> storeSet = new HashSet<Store>();
 		List<Message> ms = memberService.findMesgById(mb);
+		List<StoreComment> scms = new ArrayList<>();
+		for(Message mms : ms) {
+			StoreComment msgCId = mms.getMsgCId();
+			scms.add(msgCId);
+		}
+		Store store = null;
+		for(StoreComment sto: scms) {
+			store = sto.getCommentSId();
+			storeSet.add(store);
+		}
+		System.out.println("-----------------------------------------------------"+storeSet.size());
+		request.setAttribute("storeSet", storeSet);
 		request.setAttribute("ms", ms);
 		return "setting_history";
 		

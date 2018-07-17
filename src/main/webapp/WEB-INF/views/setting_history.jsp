@@ -86,46 +86,54 @@
 						<div class="container test">
 							<div class="row">
 								<div class="col-md-12">
-									
-									<div class="animate-box CommentMessage" style="width: 80%;">
-										<div class="media">
-											<div class="panel-group customPanel">
-												<div class="panel panel-default">
-													<div class="panel-heading">
-														<h4 class="panel-title" style="height: 50px;">
-															<a data-toggle="collapse" href="#collapse1"
-																style="line-height: 50px;">點我看留言</a>
-														</h4>
-													</div>
-													
-														<div id="collapse1" class="panel-collapse collapse">
-														<c:forEach var="message" items="${ms}">
-															<ul id='commMessage' class="list-group">
-																<li class="list-group-item">
-																	<div class="animate-box CommentMessage">
-																		<div class="media">
-																			<div class="media-left">
-																				<a href="#"> <figure class="customfigure">
-																					<img class="fh5co-testimonial media-object"
-																						src="<c:url value='/getMemberImg/${message.msgMId.memberId}'/>" alt="..."> </figure>
-																				</a>
+									<c:forEach var="storeSet" items="${storeSet}" varStatus="loop">
+										<div class="animate-box CommentMessage" style="width: 80%;">
+											<div class="media">
+												<div class="panel-group customPanel">
+													<div class="panel panel-default">
+														<div class="panel-heading">
+															<button type='button' id="bthistory"
+																class="btn btn-default" style="float: right;"
+																onclick="location.href='store_Info?storeId=${storeSet.storeId}'">詳細資料</button>
+															<h4 class="panel-title" style="height: 50px;">
+																<a data-toggle="collapse" href="#collapse${loop.index}"
+																	style="line-height: 50px;">${storeSet.storeName}</a>
+															</h4>
+														</div>
+
+														<div id="collapse${loop.index}"
+															class="panel-collapse collapse">
+															<c:forEach var="message" items="${ms}">
+																<c:if
+																	test="${message.msgCId.commentSId.storeId == storeSet.storeId}">
+																	<ul id='commMessage' class="list-group">
+																		<li class="list-group-item">
+																			<div class="animate-box CommentMessage">
+																				<div class="media">
+																					<div class="media-left">
+																						<a href="#"> <figure class="customfigure">
+																							<img class="fh5co-testimonial media-object"
+																								src="<c:url value='/getMemberImg/${message.msgMId.memberId}'/>"
+																								alt="..."> </figure>
+																						</a>
+																					</div>
+																					<div class="media-body">
+																						<h4 class="media-heading customheading">${message.msgMId.nickname}</h4>
+																						${message.msgContent}
+																					</div>
+																				</div>
 																			</div>
-																			<div class="media-body">
-																				<h4 class="media-heading customheading">${message.msgMId.nickname}</h4>
-																				${message.msgContent}
-																			</div>
-																		</div>
-																	</div>
-																</li>
-															</ul>
+																		</li>
+																	</ul>
+																</c:if>
 															</c:forEach>
 														</div>
-													
+
+													</div>
 												</div>
 											</div>
 										</div>
-									</div>
-									
+									</c:forEach>
 								</div>
 							</div>
 						</div>
@@ -146,15 +154,15 @@
 		<%@ include file="footer.jsp"%>
 	</div>
 	<!-- =============================================== -->
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<!-- cookie -->
-<script src="js/jquery.cookie.js"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script src="js/mySearchBar.js"></script>
-<script src="member/js/wow.min.js"></script>
-<script src="member/js/facebox.js"></script>
-<script src="member/js/memberJS.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="js/mySearchBar.js"></script>
+	<script src="member/js/wow.min.js"></script>
+	<script src="member/js/facebox.js"></script>
+	<script src="member/js/memberJS.js"></script>
 
 
 

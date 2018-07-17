@@ -17,6 +17,7 @@ import member.Model.Member;
 import member.Repository.MemberDao;
 import other.Model.Message;
 import other.Model.Store;
+import other.Model.StoreComment;
 
 @Repository
 public class MemberDaoImpl implements MemberDao {
@@ -243,8 +244,9 @@ public class MemberDaoImpl implements MemberDao {
 		String hql = "FROM Message m WHERE m.msgMId = :memberId";
 		Session session = getSession();
 		List<Message> ms = session.createQuery(hql).setParameter("memberId", msgMid).getResultList();
-//		List<Message> ms = session.createQuery(hql).getResultList();
 		return ms;
 	}
 
+
+	
 }
