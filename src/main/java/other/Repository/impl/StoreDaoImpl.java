@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import member.Model.Member;
+import other.Model.Message;
 import other.Model.Store;
 import other.Model.StoreComment;
 import other.Model.StoreRecommend;
@@ -202,6 +203,16 @@ public class StoreDaoImpl implements StoreDao {
 		}
 		return sc;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Message> getMessageByComm(Integer msgCId) {
+		String hql = "FROM Message m WHERE m.msgCId.commentId = :msgCId";
+		Session session = getSession();
+		Query query = session.createQuery(hql);
+		query.setParameter("msgCId", msgCId);
+		return query.getResultList();
+	}
 
 	@Override
 	public String[] findStoreById(Integer storeId) {
@@ -210,7 +221,23 @@ public class StoreDaoImpl implements StoreDao {
 		Store store = (Store) session.createQuery(hql).setParameter("storeId", storeId).getSingleResult();
 		return store.getStorePicture().split(",");
 	}
+	
+	@Override
+	public int updateStoreComment(StoreComment sc) {
+		int n = 0;
+		Session session = factory.getCurrentSession();
+		session.save(sc);
+		n++;
+		return n;
+	}
 
+	@Override
+	public void sendMessage(Message addMsg) {
+		Session session = factory.getCurrentSession();
+		session.save(addMsg);
+
+	}
+	
 	@Override
 	public Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN) {
 		String hql = "FROM StoreRecommend sr WHERE sr.stRecomSId = :stRecomSId AND sr.stRecomMId = :stRecomMId";

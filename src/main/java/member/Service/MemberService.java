@@ -6,6 +6,7 @@ import java.sql.Blob;
 import java.util.List;
 
 import member.Model.Member;
+import other.Model.Message;
 import other.Model.Store;
 
 public interface MemberService {
@@ -30,4 +31,5 @@ public interface MemberService {
 	int updatePreference(String userAccount, String preference);
 	int updatePortrait(String userAccount, byte[] image);
 	int updateAppMemberDate(Member member);
+	List<Message> findMesgById(Member msgMid);
 }

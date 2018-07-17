@@ -34,6 +34,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import member.Model.Member;
 import member.Service.MemberService;
+import other.Model.Message;
 import other.Model.Store;
 import other.Service.StoreService;
 
@@ -325,8 +326,23 @@ public class MemberController {
 //		return "member_mainPage";
 //	}
 	@RequestMapping("/history")
-	public String member_setting() {
+	public String member_setting(Model model, 
+			HttpServletResponse response,
+			HttpServletRequest request) {
+		Member mb = null;
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+			 for (Cookie cookie : cookies) {
+			   if (cookie.getName().equals("user")) {
+				   mb = memberService.getMemberByAccount(cookie.getValue());
+				   //取得使用者帳號
+			    }
+			  }
+			}
+		List<Message> ms = memberService.findMesgById(mb);
+		request.setAttribute("ms", ms);
 		return "setting_history";
+		
 	}
 	@RequestMapping("/member9487/memInfo")
 	public String member_main() {

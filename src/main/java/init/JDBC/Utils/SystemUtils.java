@@ -35,8 +35,8 @@ public class SystemUtils {
 	
 	public static Clob stringToClob(String string) throws IOException, SQLException {
 		Clob clob = null;
-		if (string.equals(0)) {
-			string = "";
+		if (!string.equals(0)) {
+			//string = "";
 			char[] ca = string.toCharArray();
 			clob = new SerialClob(ca);
 		}	

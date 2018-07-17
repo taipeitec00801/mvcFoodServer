@@ -3,6 +3,7 @@ package other.Service;
 import java.util.List;
 
 import member.Model.Member;
+import other.Model.Message;
 import other.Model.Store;
 import other.Model.StoreComment;
 
@@ -14,6 +15,8 @@ public interface StoreService {
 	List<Store> getUserStores(String userPref);
 	List<Store> getTopStores();
 	List<Store> getStoresById(Integer storeId);
+	List<Message> getMessageByComm(Integer msgCId);
+	 
 	
 	Integer updateStRecomYNByMSId(Member member, Store store, Integer recomYN);
 	Integer getStRecomYNByMSId(Member member, Store store);
@@ -29,6 +32,8 @@ public interface StoreService {
 	StoreComment getCommentById(Integer commentId);
 	List<StoreComment> getTopComm();
 	List<StoreComment> getCommByStore(Integer storeId);
+	int updateStoreComment(StoreComment sc);
 	//app
 	String[] findStoreById(Integer storeId);
+	void sendMessage(Message addMsg);
 }

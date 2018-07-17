@@ -77,7 +77,7 @@
 						<div class="container test">
 							<div class="row">
 								<div class="col-md-12">
-
+									
 									<div class="animate-box CommentMessage" style="width: 80%;">
 										<div class="media">
 											<div class="panel-group customPanel">
@@ -88,128 +88,35 @@
 																style="line-height: 50px;">點我看留言</a>
 														</h4>
 													</div>
-													<div id="collapse1" class="panel-collapse collapse">
-														<ul id='commMessage' class="list-group">
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
+													
+														<div id="collapse1" class="panel-collapse collapse">
+														<c:forEach var="message" items="${ms}">
+															<ul id='commMessage' class="list-group">
+																<li class="list-group-item">
+																	<div class="animate-box CommentMessage">
+																		<div class="media">
+																			<div class="media-left">
+																				<a href="#"> <figure class="customfigure">
+																					<img class="fh5co-testimonial media-object"
+																						src="<c:url value='/getMemberImg/${message.msgMId.memberId}'/>" alt="..."> </figure>
+																				</a>
+																			</div>
+																			<div class="media-body">
+																				<h4 class="media-heading customheading">${message.msgMId.nickname}</h4>
+																				${message.msgContent}
+																			</div>
 																		</div>
 																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="list-group-item">
-																<div class="animate-box CommentMessage">
-																	<div class="media">
-																		<div class="media-left">
-																			<a href="#"> <figure class="customfigure">
-																				<img class="fh5co-testimonial media-object"
-																					src="images/man.png" alt="..."> </figure>
-																			</a>
-																		</div>
-																		<div class="media-body">
-																			<h4 class="media-heading customheading">User
-																				Name</h4>
-																			Lorem ipsum dolor sit amet consectetur adipisicing
-																			elit. Voluptate minima, voluptatem libero
-																			perspiciatis.
-																		</div>
-																	</div>
-																</div>
-															</li>
-														</ul>
-														<div class="panel-footer">
-															<!-- User Icon -->
-															<div class="media-left">
-																<a href="#"> <figure class="customfigure">
-																	<img id='userImg'
-																		class="fh5co-testimonial media-object"
-																		src="images/man.png" alt="..."> </figure>
-																</a>
-															</div>
-															<!-- 留言送出 -->
-															<div class="input-group media-body">
-																<input id="userMessage" type="text" class="form-control"
-																	placeholder="留言..."> <span
-																	class="input-group-btn">
-																	<button id='sendButton' class="btn btn-default"
-																		type="button">送出</button>
-																</span>
-															</div>
+																</li>
+															</ul>
+															</c:forEach>
 														</div>
-													</div>
+													
 												</div>
 											</div>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -229,12 +136,15 @@
 		<%@ include file="footer.jsp"%>
 	</div>
 	<!-- =============================================== -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="member/js/wow.min.js"></script>
-	<script src="member/js/facebox.js"></script>
-	<script src="member/js/memberJS.js"></script>
-
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- cookie -->
+<script src="js/jquery.cookie.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="js/mySearchBar.js"></script>
+<script src="member/js/wow.min.js"></script>
+<script src="member/js/facebox.js"></script>
+<script src="member/js/memberJS.js"></script>
 
 
 
