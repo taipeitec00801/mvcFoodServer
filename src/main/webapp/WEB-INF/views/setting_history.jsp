@@ -17,13 +17,13 @@
 	rel='stylesheet' type='text/css'>
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <link rel="shortcut icon" href="favicon.ico">
-<!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'> -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 <!-- Animate.css -->
 <link rel="stylesheet" href="css/animate.css">
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet" href="css/icomoon.css">
 <!-- Bootstrap  -->
-<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+<link rel="stylesheet" href="css/bootstrap.css">
 <!-- ============================ -->
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <!-- Superfish -->
@@ -66,7 +66,7 @@
 				</div>
 
 				<!-- infomation -->
-				<div class="infomation test memberHis">
+				<div class="infomation test">
 
 					<div class="taitle test">
 						<H2>歷史留言</H2>
@@ -143,7 +143,7 @@
 	<div class="test" style="clear: both;">
 		<%@ include file="footer.jsp"%>
 	</div>
-	<!-- =============================================== -->
+		<!-- =============================================== -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<!-- cookie -->
@@ -153,8 +153,6 @@
 	<script src="member/js/wow.min.js"></script>
 	<script src="member/js/facebox.js"></script>
 	<script src="member/js/memberJS.js"></script>
-
-
 
 </body>
 
