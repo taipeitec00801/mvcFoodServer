@@ -69,17 +69,14 @@
 						<div
 							class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
 							<h3>店家資訊</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Velit est facilis maiores, perspiciatis accusamus asperiores
-								sint consequuntur debitis.</p>
+							<p></p>
 						</div>
 					</div>
 					<form action="#">
 						<div class="row">
 							<div class="col-md-6">
 								<h3 class="section-title" id="goAjax">${store.storeName}</h3>
-								<p>Far far away, behind the word mountains, far from the
-									countries Vokalia and Consonantia, there live the blind texts.</p>
+								<p></p>
 								<ul class="contact-info">
 									<li id="address"><i class="icon-location-pin"></i>${store.storeAddress}</li>
 									<li><i class="icon-phone2"></i>${store.storePhone}</li>
@@ -105,9 +102,7 @@
 						<div
 							class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
 							<h3>店家照片</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Velit est facilis maiores, perspiciatis accusamus asperiores
-								sint consequuntur debitis.</p>
+							<p></p>
 						</div>
 					</div>
 
@@ -134,9 +129,7 @@
 						<div
 							class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
 							<h3>店家評論</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Velit est facilis maiores, perspiciatis accusamus asperiores
-								sint consequuntur debitis.</p>
+							<p></p>
 						</div>
 					</div>
 				</div>
